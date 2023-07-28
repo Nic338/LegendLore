@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegendLore", "LegendLore\LegendLore.csproj", "{C6CC23CB-217E-4617-957A-ACF613F90FFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6CC23CB-217E-4617-957A-ACF613F90FFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6CC23CB-217E-4617-957A-ACF613F90FFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6CC23CB-217E-4617-957A-ACF613F90FFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6CC23CB-217E-4617-957A-ACF613F90FFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A169F1A-2FF3-49F2-A341-F5DD524CE600}
+	EndGlobalSection
+EndGlobal
