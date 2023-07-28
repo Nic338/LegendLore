@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addCampaign, uploadMapImage } from "../../Managers/CampaignManager";
-import { Button, FormGroup, Input, Label } from "reactstrap";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import "./Campaign.css";
 
 export const CampaignForm = () => {
     const localLegendLoreUser = localStorage.getItem("userProfile");
@@ -56,7 +57,7 @@ export const CampaignForm = () => {
     };
 
     return (
-        <form className="campaign-form">
+        <Form className="campaign-form">
             <h2 className="campaign-form-title">Create a New Campaign</h2>
                 <FormGroup className="form-group">
                     <Label htmlFor="title">Title:</Label>
@@ -89,7 +90,7 @@ export const CampaignForm = () => {
                         } />
                 </FormGroup>
                 <FormGroup className="form-group">
-                    <Label htmlFor="map-image">Map Image:</Label>
+                    <Label htmlFor="map-image">Upload a Map Image</Label>
                     <Input
                         className="campaign-input"
                         type="file"
@@ -99,6 +100,6 @@ export const CampaignForm = () => {
                 </FormGroup>
             <Button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} className="btn btn-primary">Add Campaign</Button>
-        </form>
+        </Form>
     )
 }

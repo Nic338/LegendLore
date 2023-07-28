@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CardBody, CardSubtitle, CardTitle } from "reactstrap";
+import "./Campaign.css";
 
 export const Campaign = ({ campaignProp }) => {
     const createDateTime = new Date(campaignProp.createDateTime);

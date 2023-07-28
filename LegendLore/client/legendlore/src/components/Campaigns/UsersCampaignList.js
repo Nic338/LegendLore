@@ -35,7 +35,7 @@ export const UsersCampaigns = () => {
         </Row>
         <Row className="campaign-row">
             {userCampaign.map((campaign) => (
-                <Col md={6} lg={4} key={campaign.id}>
+                <Col sm={12} md={8} lg={4} key={campaign.id}>
                     <Card className="campaign-card">
                         <Campaign campaignProp={campaign} />
                     </Card>
