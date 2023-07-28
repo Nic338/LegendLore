@@ -53,7 +53,7 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT c.Id, c.Title, c.Description, c.Map, c.CreateDateTime, c.UserProfileId,
+                        SELECT c.Id, c.Title, c.Description, c.Map, c.CreateDateTime, c.UserProfileId
                         FROM Campaigns c
                         WHERE c.UserProfileId = @userProfileId
                         ORDER BY CreateDateTime desc
@@ -81,7 +81,7 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT c.Id, c.Title, c.Description, c.Map, c.CreateDateTime, c.UserProfileId,
+                        SELECT c.Id, c.Title, c.Description, c.Map, c.CreateDateTime, c.UserProfileId
                         FROM Campaigns c
                         WHERE c.Id = @id";
 
@@ -143,8 +143,8 @@ namespace LegendLore.Repositories
                     cmd.Parameters.AddWithValue("@id", campaign.Id);
                     cmd.Parameters.AddWithValue("@title", campaign.Title);
                     cmd.Parameters.AddWithValue("@description", campaign.Description);
-                    cmd.Parameters.AddWithValue("@createDateTime", campaign.CreateDateTime);
                     cmd.Parameters.AddWithValue("@map", campaign.Map);
+                    cmd.Parameters.AddWithValue("@createDateTime", campaign.CreateDateTime);
                     cmd.Parameters.AddWithValue("@userProfileId", campaign.UserProfileId);
 
                     cmd.ExecuteNonQuery();

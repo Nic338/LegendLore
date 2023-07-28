@@ -36,6 +36,11 @@ export const Header = ({ isLoggedIn, setIsLoggedIn }) => {
               <Nav navbar>
                 {isLoggedIn && (
                   <>
+                  <NavItem>
+                  <NavLink tag={RRNavLink} to="/my-campaigns">
+                    My Campaigns
+                </NavLink>
+                </NavItem>
                     <NavItem>
                       <a
                         aria-current="page"

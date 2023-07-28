@@ -1,7 +1,7 @@
-const baseUrl = "https://localhost:5001";
+const baseUrl = "/api/UserProfile";
 
 export const login = (userObject) => {
-    return fetch(`${baseUrl}/api/UserProfile?email=${userObject.email}`)
+    return fetch(`${baseUrl}?email=${userObject.email}`)
     .then((r) => r.json())
       .then((userProfile) => {
         if(userProfile.id){
@@ -19,11 +19,11 @@ export const logout = () => {
 };
 
 export const getUserStatus = (email) => {
-    return fetch(`${baseUrl}/api/UserProfile/?email=${email}`).then((res) => res.json());
+    return fetch(`${baseUrl}?email=${email}`).then((res) => res.json());
   };
 
   export const register = (userObject) => {
-    return  fetch(`${baseUrl}/api/UserProfile`, {
+    return  fetch(`${baseUrl}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

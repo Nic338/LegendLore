@@ -12,15 +12,21 @@ INSERT INTO [UserProfile] ([Id], [UserName], [FirstName], [LastName], [Email], [
 SET IDENTITY_INSERT [UserProfile] OFF
 
 SET IDENTITY_INSERT [Campaigns] ON
-INSERT INTO [Campaigns] ([Id], [Description], [Map], [UserProfileId], [Title], [CreateDateTime]) VALUES (1, 'This is a test description for a campaign', 'https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 1, 'Test Title', '2023-07-28');
-INSERT INTO [Campaigns] ([Id], [Description], [Map], [UserProfileId], [Title], [CreateDateTime]) VALUES (2, 'This is a test description for a campaign', 'https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 2, 'Test Title 2', '2023-07-28');
-INSERT INTO [Campaigns] ([Id], [Description], [Map], [UserProfileId], [Title], [CreateDateTime]) VALUES (3, 'This is a test description for a campaign', 'https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 3, 'Test Title 3', '2023-07-28');
+INSERT INTO [Campaigns] ([Id], [Description], [Map], [UserProfileId], [Title], [CreateDateTime]) VALUES (1, 'As the war has ended, some seek to take advantage of the silence', 'https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 1, 'Test Title', '2023-07-28');
+INSERT INTO [Campaigns] ([Id], [Description], [Map], [UserProfileId], [Title], [CreateDateTime]) VALUES (2, 'The drums of war sound, as a looming threat crests the horizon', 'https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 2, 'Test Title 2', '2023-07-28');
+INSERT INTO [Campaigns] ([Id], [Description], [Map], [UserProfileId], [Title], [CreateDateTime]) VALUES (3, 'Something stirs deep within the deserts of Marquet', 'https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 3, 'Test Title 3', '2023-07-28');
 SET IDENTITY_INSERT [Campaigns] OFF
 
 SET IDENTITY_INSERT [POI] ON
-INSERT INTO [POI] ([Id], [Name], [Description]) VALUES (1, 'Test POI Name', 'This is a test description for a POI') 
-INSERT INTO [POI] ([Id], [Name], [Description]) VALUES (2, 'Test POI Name', 'This is a test description for a POI') 
-INSERT INTO [POI] ([Id], [Name], [Description]) VALUES (3, 'Test POI Name', 'This is a test description for a POI') 
+INSERT INTO [POI] ([Id], [Name], [Description]) VALUES (1, 'Bladegarden', 'This is a test description for a POI') 
+INSERT INTO [POI] ([Id], [Name], [Description]) VALUES (2, 'Crookback Bog', 'This is a test description for a POI') 
+INSERT INTO [POI] ([Id], [Name], [Description]) VALUES (3, 'Rexxentrum', 'This is a test description for a POI')
+INSERT INTO [POI] ([Id], [Name], [Description]) VALUES (4, 'Bladegarden', 'This is a test description for a POI') 
+INSERT INTO [POI] ([Id], [Name], [Description]) VALUES (5, 'Crookback Bog', 'This is a test description for a POI') 
+INSERT INTO [POI] ([Id], [Name], [Description]) VALUES (6, 'Rexxentrum', 'This is a test description for a POI')
+INSERT INTO [POI] ([Id], [Name], [Description]) VALUES (7, 'Bladegarden', 'This is a test description for a POI') 
+INSERT INTO [POI] ([Id], [Name], [Description]) VALUES (8, 'Crookback Bog', 'This is a test description for a POI') 
+INSERT INTO [POI] ([Id], [Name], [Description]) VALUES (9, 'Rexxentrum', 'This is a test description for a POI')
 SET IDENTITY_INSERT [POI] OFF
 
 SET IDENTITY_INSERT [Map] ON
@@ -42,99 +48,99 @@ INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (9, '45, 20
 SET IDENTITY_INSERT [MapPOIs] OFF
 
 SET IDENTITY_INSERT [NPC] ON
-INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (1, 'Test NPC', 'This NPC is used as test data for you to test this app')
-INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (2, 'Test NPC', 'This NPC is used as test data for you to test this app')
-INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (3, 'Test NPC', 'This NPC is used as test data for you to test this app')
-INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (4, 'Test NPC', 'This NPC is used as test data for you to test this app')
-INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (5, 'Test NPC', 'This NPC is used as test data for you to test this app')
-INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (6, 'Test NPC', 'This NPC is used as test data for you to test this app')
-INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (7, 'Test NPC', 'This NPC is used as test data for you to test this app')
-INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (8, 'Test NPC', 'This NPC is used as test data for you to test this app')
-INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (9, 'Test NPC', 'This NPC is used as test data for you to test this app')
+INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (1, 'Lieutenant Bryce Harper', 'This NPC is used as test data for you to test this app')
+INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (2, 'Marril the Crone', 'This NPC is used as test data for you to test this app')
+INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (3, 'Martinet Ludanis Daleth', 'This NPC is used as test data for you to test this app')
+INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (4, 'Blacksmith Farrith', 'This NPC is used as test data for you to test this app')
+INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (5, 'Chitters', 'This NPC is used as test data for you to test this app')
+INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (6, 'Professor Karil Mortania', 'This NPC is used as test data for you to test this app')
+INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (7, 'Priestess Saren', 'This NPC is used as test data for you to test this app')
+INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (8, 'Klog', 'This NPC is used as test data for you to test this app')
+INSERT INTO [NPC] ([Id], [Name], [Description]) VALUES (9, 'King Bertrand Dwendal', 'This NPC is used as test data for you to test this app')
 SET IDENTITY_INSERT [NPC] OFF
 
 SET IDENTITY_INSERT [POINPCs] ON
 INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (1, 1, 1)
-INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (2, 2, 1)
-INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (3, 3, 1)
-INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (4, 4, 2)
-INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (5, 5, 2)
-INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (6, 6, 2)
-INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (7, 7, 3)
-INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (8, 8, 3)
-INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (9, 9, 3)
+INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (2, 2, 2)
+INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (3, 3, 3)
+INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (4, 4, 4)
+INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (5, 5, 5)
+INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (6, 6, 6)
+INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (7, 7, 7)
+INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (8, 8, 8)
+INSERT INTO [POINPCs] ([Id], [NPCId], [POIId]) VALUES (9, 9, 9)
 SET IDENTITY_INSERT [POINPCs] OFF
 
 SET IDENTITY_INSERT [Quest] ON
-INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (1, 'Test Quest 1', 'This quest was made up to give seed data for this app', NULL)
-INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (2, 'Test Quest 2', 'This quest was made up to give seed data for this app', 'The reward for this quest was the friends we made along the way')
-INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (3, 'Test Quest 3', 'This quest was made up to give seed data for this app', NULL)
-INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (4, 'Test Quest 4', 'This quest was made up to give seed data for this app', NULL)
-INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (5, 'Test Quest 5', 'This quest was made up to give seed data for this app', 'The reward for this quest was the friends we made along the way')
-INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (6, 'Test Quest 6', 'This quest was made up to give seed data for this app', NULL)
-INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (7, 'Test Quest 7', 'This quest was made up to give seed data for this app', NULL)
-INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (8, 'Test Quest 8', 'This quest was made up to give seed data for this app', 'The reward for this quest was the friends we made along the way')
-INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (9, 'Test Quest 9', 'This quest was made up to give seed data for this app', NULL)
+INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (1, 'A Traitor Amongst the Guard', 'This quest was made up to give seed data for this app', NULL)
+INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (2, 'A Fun-gus Time', 'This quest was made up to give seed data for this app', 'The reward for this quest was the friends we made along the way')
+INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (3, 'Reading Come to Life', 'This quest was made up to give seed data for this app', NULL)
+INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (4, 'Drinking Contest', 'This quest was made up to give seed data for this app', NULL)
+INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (5, 'A Ghostly Memory', 'This quest was made up to give seed data for this app', 'The reward for this quest was the friends we made along the way')
+INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (6, 'Familiar Woes', 'This quest was made up to give seed data for this app', NULL)
+INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (7, 'Assault from the East', 'This quest was made up to give seed data for this app', NULL)
+INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (8, 'The Crones Delimma', 'This quest was made up to give seed data for this app', 'The reward for this quest was the friends we made along the way')
+INSERT INTO [Quest] ([Id], [Title], [Description], [Reward]) VALUES (9, 'The Rogue Volstrucker', 'This quest was made up to give seed data for this app', NULL)
 SET IDENTITY_INSERT [Quest] OFF
 
 SET IDENTITY_INSERT [POIQuests] ON
 INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (1, 1, 1)
-INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (2, 2, 1)
-INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (3, 3, 1)
-INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (4, 4, 2)
-INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (5, 5, 2)
-INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (6, 6, 2)
-INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (7, 7, 3)
-INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (8, 8, 3)
-INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (9, 9, 3)
+INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (2, 2, 2)
+INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (3, 3, 3)
+INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (4, 4, 4)
+INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (5, 5, 5)
+INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (6, 6, 6)
+INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (7, 7, 7)
+INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (8, 8, 8)
+INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (9, 9, 9)
 SET IDENTITY_INSERT [POIQuests] OFF
 
 SET IDENTITY_INSERT [NoteableLocation] ON
-INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (1, 'Test Location 1', 'A large test building with tall test columns that make up the front of the test')
-INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (2, 'Test Location 2', 'A large test building with tall test columns that make up the front of the test')
-INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (3, 'Test Location 3', 'A large test building with tall test columns that make up the front of the test')
-INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (4, 'Test Location 4', 'A large test building with tall test columns that make up the front of the test')
-INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (5, 'Test Location 5', 'A large test building with tall test columns that make up the front of the test')
-INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (6, 'Test Location 6', 'A large test building with tall test columns that make up the front of the test')
-INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (7, 'Test Location 7', 'A large test building with tall test columns that make up the front of the test')
-INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (8, 'Test Location 8', 'A large test building with tall test columns that make up the front of the test')
-INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (9, 'Test Location 9', 'A large test building with tall test columns that make up the front of the test')
+INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (1, 'Righteous Brand Barracks', 'A large test building with tall test columns that make up the front of the test')
+INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (2, 'Marrils Cabin', 'A large test building with tall test columns that make up the front of the test')
+INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (3, 'Castle Ungebroch', 'A large test building with tall test columns that make up the front of the test')
+INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (4, 'Festles Magic Emporium', 'A large test building with tall test columns that make up the front of the test')
+INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (5, 'The Mire', 'A large test building with tall test columns that make up the front of the test')
+INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (6, 'Soltryce Academy', 'A large test building with tall test columns that make up the front of the test')
+INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (7, 'Kortashs Smithy', 'A large test building with tall test columns that make up the front of the test')
+INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (8, 'The Tomb of Angorbaldash', 'A large test building with tall test columns that make up the front of the test')
+INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (9, 'Dragon Seat', 'A large test building with tall test columns that make up the front of the test')
 SET IDENTITY_INSERT [NoteableLocation] OFF
 
 SET IDENTITY_INSERT [POINoteableLocations] ON
 INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (1, 1, 1)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (2, 2, 1)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (3, 3, 1)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (4, 4, 2)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (5, 5, 2)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (6, 6, 2)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (7, 7, 3)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (8, 8, 3)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (9, 9, 3)
+INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (2, 2, 2)
+INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (3, 3, 3)
+INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (4, 4, 4)
+INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (5, 5, 5)
+INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (6, 6, 6)
+INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (7, 7, 7)
+INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (8, 8, 8)
+INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (9, 9, 9)
 SET IDENTITY_INSERT [POINoteableLocations] OFF
 
 SET IDENTITY_INSERT [RandomEncountersTable] ON
-INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (1, 'A large group of test encounters')
-INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (2, 'A small group of test encounters')
-INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (3, 'A singular test encounter')
-INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (4, 'A large group of test encounters')
-INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (5, 'A small group of test encounters')
-INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (6, 'A singular test encounter')
-INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (7, 'A large group of test encounters')
-INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (8, 'A small group of test encounters')
-INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (9, 'A singular test encounter')
+INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (1, 'Five Bandits and One Bandit Captain')
+INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (2, 'A Young Black Dragon')
+INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (3, 'Four drunk bar patrons')
+INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (4, 'A pair of overzealous Crownsguard')
+INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (5, 'Three hungry bullywugs')
+INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (6, 'A heartbroken djinn whos master just passed')
+INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (7, 'A broken caravan of travelling merchants stuck in the mud outside of the city')
+INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (8, 'An ominous hut the party continues to see as they move forward')
+INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (9, 'An odd-looking fellow is running down the street screaming about ghosts')
 SET IDENTITY_INSERT [RandomEncountersTable] OFF
 
 SET IDENTITY_INSERT [POIRandEncounterTables] ON
 INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (1, 1, 1)
-INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (2, 2, 1)
-INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (3, 3, 1)
-INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (4, 4, 2)
-INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (5, 5, 2)
-INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (6, 6, 2)
-INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (7, 7, 3)
-INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (8, 8, 3)
-INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (9, 9, 3)
+INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (2, 2, 2)
+INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (3, 3, 3)
+INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (4, 4, 4)
+INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (5, 5, 5)
+INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (6, 6, 6)
+INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (7, 7, 7)
+INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (8, 8, 8)
+INSERT INTO [POIRandEncounterTables] ([Id], [RandEncountersTableId], [POIId]) VALUES (9, 9, 9)
 SET IDENTITY_INSERT [POIRandEncounterTables] OFF
 
 
