@@ -9,7 +9,7 @@ export const Campaign = ({ campaignProp }) => {
         <CardBody>
             <div>
                 <Link to={`/campaign/${campaignProp.id}`}>
-                    <CardTitle tag="h5" className="post-title">{campaignProp.title}</CardTitle>
+                    <CardTitle tag="h5" className="campaign-title">{campaignProp.title}</CardTitle>
                 </Link>
                 <CardSubtitle>{campaignProp.description}</CardSubtitle>
                 <div>Created: {formattedCreationDate}</div>
