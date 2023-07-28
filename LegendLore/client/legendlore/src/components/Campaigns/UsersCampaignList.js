@@ -4,6 +4,7 @@ import { Button, Card, CardBody, CardTitle, Col, Container, Row } from "reactstr
 import { Campaign } from "./Campaign";
 import './Campaign.css';
 import { FaPlus } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 export const UsersCampaigns = () => {
     const [userCampaign, setUserCampaign] = useState([]);
@@ -26,7 +27,7 @@ export const UsersCampaigns = () => {
                 <Col md={6} lg={4}>
                     <Card className="campaign-card">
                         <CardBody>
-                            <Button className="circle-button" color="primary"><FaPlus /></Button>
+                            <Button tag={Link} to="/campaigns/add" className="circle-button" color="primary"><FaPlus /></Button>
                         <CardTitle tag="h5" className="post-title">Add A New Campaign</CardTitle>
                         </CardBody>
                     </Card>

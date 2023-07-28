@@ -68,5 +68,29 @@ namespace LegendLore.Controllers
             _campaignsRepository.Delete(id);
             return NoContent();
         }
+
+        [HttpPost("upload-image")]
+        public IActionResult UploadImage(IFormFile image)
+        {
+            if (image != null && image.Length > 0)
+            {
+                // Generate a unique filename for the uploaded image
+                string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
+
+                // Builds the fullPath variable which gets the directory of the folder which is wwwroot/MapImageUploads
+                string uploadsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "MapImageUploads");
+                string fullPath = Path.Combine(uploadsDirectory, uniqueFileName);
+                //creates a FileStream to essentially save it to the folder
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    image.CopyTo(stream);
+                }
+                string publicImageUrl = $"/MapImageUploads/{uniqueFileName}";
+                // Return the URL or file path of the saved image to the frontend
+                return Ok(new { imageUrl = publicImageUrl });
+            }
+
+            return BadRequest();
+        }
     }
 }
