@@ -3,6 +3,7 @@ import { getAllUsersCampaigns } from "../../Managers/CampaignManager";
 import { Button, Card, CardBody, CardTitle, Col, Container, Row } from "reactstrap";
 import { Campaign } from "./Campaign";
 import './Campaign.css';
+import { FaPlus } from 'react-icons/fa';
 
 export const UsersCampaigns = () => {
     const [userCampaign, setUserCampaign] = useState([]);
@@ -25,10 +26,8 @@ export const UsersCampaigns = () => {
                 <Col md={6} lg={4}>
                     <Card className="campaign-card">
                         <CardBody>
-                            <Button className="circle-button"><span className="plus-sign">+</span></Button>
+                            <Button className="circle-button" color="primary"><FaPlus /></Button>
                         <CardTitle tag="h5" className="post-title">Add A New Campaign</CardTitle>
-                            <div><></></div>
-                            <div><></></div>
                         </CardBody>
                     </Card>
                 </Col>   
