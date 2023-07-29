@@ -43,7 +43,10 @@ export const Campaign = ({ campaignProp, setUserCampaign }) => {
                 <CardSubtitle>{campaignProp.description}</CardSubtitle>
                 <div>Created: {formattedCreationDate}</div>
             </div>
-            <Button className="campaign-button" onClick={handleDeleteButton}>Delete Campaign</Button>
+            <div className="button-group">
+            <Button size="sm" className="btn btn-primary edit-campaign-button" tag={Link} to={`/my-campaigns/edit/${campaignProp.id}`}>Edit Campaign Info</Button>
+            <Button size="sm" color="link" className="btn delete-campaign-button" onClick={handleDeleteButton}>Delete Campaign</Button>
+            </div>
             <Modal centered isOpen={showConfirmationModal} toggle={() => setShowConfirmationModal(false)}>
                 <ModalHeader toggle={() => setShowConfirmationModal(false)}></ModalHeader>
                 <ModalBody>

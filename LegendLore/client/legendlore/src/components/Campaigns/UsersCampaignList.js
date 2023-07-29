@@ -25,8 +25,8 @@ export const UsersCampaigns = () => {
         <Container>
             <Row className="campaign-row">
                 <Col md={6} lg={4}>
-                    <Card className="campaign-card">
-                        <CardBody>
+                    <Card className="campaign-card add-campaign-card">
+                        <CardBody className="add-campaign-card-body">
                             <Button tag={Link} to="/campaigns/add" className="circle-button" color="primary"><FaPlus /></Button>
                         <CardTitle tag="h5" className="post-title">Add A New Campaign</CardTitle>
                         </CardBody>

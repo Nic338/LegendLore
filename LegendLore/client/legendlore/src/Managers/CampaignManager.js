@@ -35,7 +35,7 @@ export const addCampaign = (singleCampaign) => {
 };
 
 export const editCampaign = (campaign) => {
-    return fetch(`${baseUrl}/${campaign.Id}`, {
+    return fetch(`${baseUrl}?id=${campaign.Id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
