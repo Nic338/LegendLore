@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.SqlServer.Types;
 
 namespace LegendLore.Models
 {
@@ -6,7 +7,7 @@ namespace LegendLore.Models
     {
         public int Id { get; set; }
         [Required]
-        public string Coordinates { get; set; }
+        public SqlGeography Coordinates { get; set; }
         [Required]
         public int MapId { get; set; }
         [Required]

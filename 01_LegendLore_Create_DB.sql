@@ -70,7 +70,7 @@ CREATE TABLE [dbo].[Map] (
 
 CREATE TABLE [dbo].[MapPOIs] (
     [Id]          INT           IDENTITY (1, 1) NOT NULL,
-    [Coordinates] NVARCHAR (255) NOT NULL,
+    [Coordinates] GEOGRAPHY      NOT NULL,
     [MapId]       INT            NOT NULL,
     [POIId]       INT            NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),

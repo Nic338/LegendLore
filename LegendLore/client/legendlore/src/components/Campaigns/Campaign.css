@@ -118,3 +118,7 @@
   outline: none;
 }
 
+/* sizing of map container */
+.leaflet-container {
+  height: 70vh;
+}

@@ -36,15 +36,15 @@ INSERT INTO [Map] ([Id], [Name], [CampaignId]) VALUES (3, 'Test Map 3', 3)
 SET IDENTITY_INSERT [Map] OFF
 
 SET IDENTITY_INSERT [MapPOIs] ON
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (1, '55, 25', 1, 1)
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (2, '50, 30', 1, 2)
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (3, '45, 20', 1, 3)
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (4, '55, 25', 2, 4)
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (5, '50, 30', 2, 5)
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (6, '45, 20', 2, 6)
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (7, '55, 25', 3, 7)
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (8, '50, 30', 3, 8)
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (9, '45, 20', 3, 9)
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (1, 'POINT(25 55)', 1, 1);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (2, 'POINT(30 50)', 1, 2);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (3, 'POINT(20 45)', 1, 3);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (4, 'POINT(25 55)', 2, 4);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (5, 'POINT(30 50)', 2, 5);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (6, 'POINT(20 45)', 2, 6);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (7, 'POINT(25 55)', 3, 7);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (8, 'POINT(30 50)', 3, 8);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (9, 'POINT(20 45)', 3, 9);
 SET IDENTITY_INSERT [MapPOIs] OFF
 
 SET IDENTITY_INSERT [NPC] ON
