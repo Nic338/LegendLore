@@ -37,7 +37,7 @@ export const UsersCampaigns = () => {
             {userCampaign.map((campaign) => (
                 <Col sm={12} md={8} lg={4} key={campaign.id}>
                     <Card className="campaign-card">
-                        <Campaign campaignProp={campaign} />
+                        <Campaign campaignProp={campaign} setUserCampaign={setUserCampaign} />
                     </Card>
                 </Col>
             ))}
