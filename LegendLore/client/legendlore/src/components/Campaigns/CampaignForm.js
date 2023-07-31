@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { addCampaign, uploadMapImage } from "../../Managers/CampaignManager";
+import { addCampaign } from "../../Managers/CampaignManager";
+import { addMap, uploadMapImage } from "../../Managers/MapManager";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import "./Campaign.css";
 
@@ -17,9 +18,14 @@ export const CampaignForm = () => {
     const [newCampaign, updateNewCampaign] = useState({
         title: "",
         description: "",
-        map: "",
         userProfileId: legendLoreUserObject.id,
         createDateTime: Date.now()
+    })
+
+    const [newMap, updateNewMap] = useState({
+        name: "",
+        mapImage: "",
+        campaignId: null
     })
 
     const handleSaveButtonClick = (e) => {
@@ -28,11 +34,20 @@ export const CampaignForm = () => {
         const campaignToSendToAPI = {
             Title: newCampaign.title,
             Description: newCampaign.description,
-            Map: newCampaign.map,
             CreateDateTime: correctedDate.toISOString(),
             userProfileId: legendLoreUserObject.id
         }
         addCampaign(campaignToSendToAPI)
+        .then((campaignId) => {
+            if (campaignId) {
+                const mapToSendToAPI = {
+                    Name: newMap.name,
+                    MapImage: newMap.mapImage,
+                    CampaignId: campaignId
+                }
+                addMap(mapToSendToAPI)
+            }
+        })
         .then(navigate('/my-campaigns'));
     }
 
@@ -43,9 +58,9 @@ export const CampaignForm = () => {
             const res = await uploadMapImage(file);
             const data = await res.json();
             if (data.imageUrl) {
-                const copy = {...newCampaign}
-                copy.map = data.imageUrl
-                updateNewCampaign(copy);
+                const copy = {...newMap}
+                copy.mapImage = data.imageUrl
+                updateNewMap(copy);
             }
             else {
                 alert("Image Upload Failed")
@@ -86,6 +101,21 @@ export const CampaignForm = () => {
                                 const copy = { ...newCampaign }
                                 copy.description = event.target.value
                                 updateNewCampaign(copy)
+                            }
+                        } />
+                </FormGroup>
+                <FormGroup className="form-group">
+                    <Label htmlFor="map-name">What is the Name of your Map?</Label>
+                    <Input
+                        className="campaign-input"
+                        type="text"
+                        id="title"
+                        value={newMap.name}
+                        onChange={
+                            (event) => {
+                                const copy = { ...newMap }
+                                copy.name = event.target.value
+                                updateNewMap(copy)
                             }
                         } />
                 </FormGroup>

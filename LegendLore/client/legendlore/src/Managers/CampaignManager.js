@@ -49,12 +49,3 @@ export const deleteCampaign = (id) => {
         method: "DELETE",
     })
 };
-
-export const uploadMapImage = (mapImage) => {
-    const formData = new FormData();
-    formData.append("image", mapImage)
-    return fetch(`${baseUrl}/upload-image`, {
-        method: "POST",
-        body: formData,
-    })
-};

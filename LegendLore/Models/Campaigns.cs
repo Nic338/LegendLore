@@ -9,9 +9,6 @@ namespace LegendLore.Models
         public string Title { get; set; }
         [Required]
         public string Description { get; set; }
-        [Required]
-        [DataType(DataType.Url)]
-        public string Map { get; set; }
         public DateTime CreateDateTime { get; set; }
         [Required]
         public int UserProfileId { get; set; }

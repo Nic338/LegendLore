@@ -133,7 +133,6 @@ namespace LegendLore.Repositories
                         SET
                         [Title] = @title,
                          [Description] = @description,
-                         [Map] = @map,
                          [CreateDateTime] = @createDateTime,
                          [UserProfileId] = @userProfileId
                         WHERE Id = @id
@@ -141,7 +140,6 @@ namespace LegendLore.Repositories
                     cmd.Parameters.AddWithValue("@id", campaign.Id);
                     cmd.Parameters.AddWithValue("@title", campaign.Title);
                     cmd.Parameters.AddWithValue("@description", campaign.Description);
-                    cmd.Parameters.AddWithValue("@map", campaign.Map);
                     cmd.Parameters.AddWithValue("@createDateTime", campaign.CreateDateTime);
                     cmd.Parameters.AddWithValue("@userProfileId", campaign.UserProfileId);
 

@@ -7,22 +7,22 @@ import "./Campaign.css";
 export const CampaignEdit = () => {
     const localLegendLoreUser = localStorage.getItem("userProfile");
     const legendLoreUserObject = JSON.parse(localLegendLoreUser);
-    const { campaignId } = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
 
     const [editedCampaign, setEditedCampaign] = useState({
         title: "",
         description: "",
-        map: "",
         userProfileId: legendLoreUserObject.id,
         createDateTime: Date.now()
     })
 
     useEffect(() => {
-        getCampaignById(campaignId).then((res) => {
+        getCampaignById(id).then((res) => {
             setEditedCampaign(res)
         })
-    },[campaignId])
+    },[id])
+    
     if(!editedCampaign) {
         return null;
     }
@@ -31,17 +31,16 @@ export const CampaignEdit = () => {
         e.preventDefault()
 
         const campaignToEdit = {
-            Id: parseInt(campaignId),
+            Id: parseInt(id),
             Title: editedCampaign.title,
             Description: editedCampaign.description,
-            Map: editedCampaign.map,
             CreateDateTime: editedCampaign.createDateTime,
             userProfileId: legendLoreUserObject.id
         }
-        return editCampaign(campaignToEdit)
-            .then(() => {
-                navigate(`/my-campaigns`)
-            })
+        editCampaign(campaignToEdit)
+        .then(() => {
+            navigate(`/my-campaigns`)
+        })
     }
     const handleGoBackButtonClick = (e) => {
         e.preventDefault()

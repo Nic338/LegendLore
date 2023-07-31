@@ -11,7 +11,7 @@ export const ApplicationViews = () => {
           <Route path="/my-campaigns" element={<UsersCampaigns />} />
           <Route path="/campaigns/:id" element={<></>} />
           <Route path="/campaigns/add" element={<CampaignForm />} />
-          <Route path="/my-campaigns/edit/:campaignId" element={<CampaignEdit />} />
+          <Route path="/my-campaigns/edit/:id" element={<CampaignEdit />} />
         </Routes>
     )
 }
