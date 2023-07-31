@@ -7,7 +7,7 @@ import "./Campaign.css";
 export const CampaignEdit = () => {
     const localLegendLoreUser = localStorage.getItem("userProfile");
     const legendLoreUserObject = JSON.parse(localLegendLoreUser);
-    const { id } = useParams();
+    const { campaignId } = useParams();
     const navigate = useNavigate();
 
     const [editedCampaign, setEditedCampaign] = useState({
@@ -18,10 +18,10 @@ export const CampaignEdit = () => {
     })
 
     useEffect(() => {
-        getCampaignById(id).then((res) => {
+        getCampaignById(campaignId).then((res) => {
             setEditedCampaign(res)
         })
-    },[id])
+    },[campaignId])
     
     if(!editedCampaign) {
         return null;
@@ -31,7 +31,7 @@ export const CampaignEdit = () => {
         e.preventDefault()
 
         const campaignToEdit = {
-            Id: parseInt(id),
+            Id: parseInt(campaignId),
             Title: editedCampaign.title,
             Description: editedCampaign.description,
             CreateDateTime: editedCampaign.createDateTime,

@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, CardBody, CardSubtitle, CardTitle, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import "./Campaign.css";
 import { deleteCampaign, getAllUsersCampaigns } from "../../Managers/CampaignManager";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getMapsByCampaign } from "../../Managers/MapManager";
 
 export const Campaign = ({ campaignProp, setUserCampaign }) => {
     const createDateTime = new Date(campaignProp.createDateTime);
@@ -10,6 +11,20 @@ export const Campaign = ({ campaignProp, setUserCampaign }) => {
     const localLegendLoreUser = localStorage.getItem("userProfile");
     const legendLoreUserObject = JSON.parse(localLegendLoreUser);
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+    const [showMapSelectModal, setShowMapSelectModal] = useState(false);
+    const [campaignMap, setCampaignMap] = useState([]);
+    const [selectedMapId, setSelectedMapId] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        getMapsByCampaign(campaignProp.id)
+        .then((data) => {
+            setCampaignMap(data)
+        })
+        .catch((error) => {
+            console.log("Error fetching campaign maps", error);
+        });
+    },[campaignProp.id])
 
     const handleDeleteButton = (e) => {
         e.preventDefault()
@@ -34,10 +49,16 @@ export const Campaign = ({ campaignProp, setUserCampaign }) => {
             .then(() => setShowConfirmationModal(false))
     };
 
+    const handleMapSelection = (mapId) => {
+        setSelectedMapId(mapId)
+        setShowMapSelectModal(false)
+        navigate(`/campaigns/${campaignProp.id}/${mapId}`)
+    }
+
     return (
         <CardBody>
             <div>
-                <Link to={`/campaign/${campaignProp.id}`}>
+                <Link onClick={() => setShowMapSelectModal(true)}>
                     <CardTitle tag="h5" className="campaign-title">{campaignProp.title}</CardTitle>
                 </Link>
                 <CardSubtitle>{campaignProp.description}</CardSubtitle>
@@ -55,6 +76,23 @@ export const Campaign = ({ campaignProp, setUserCampaign }) => {
                 <ModalFooter>
                     <Button color="danger" onClick={handleDelete}>Delete</Button>{' '}
                     <Button color="secondary" onClick={() => setShowConfirmationModal(false)}>Cancel</Button>
+                </ModalFooter>
+            </Modal>
+            <Modal centered isOpen={showMapSelectModal} toggle={() => setShowMapSelectModal(false)}>
+                <ModalHeader toggle={() => setShowMapSelectModal(false)}></ModalHeader>
+                <ModalBody className="map-select-modal">
+                    <select
+                    className="map-select"
+                    value={selectedMapId || ""}
+                    onChange={(e) => handleMapSelection(e.target.value)}>
+                        <option value="">Select A Map</option>
+                        {campaignMap.map((map) => (
+                            <option key={map.id} value={map.id}>{map.name}</option>
+                        ))}
+                    </select>
+                </ModalBody>
+                <ModalFooter>
+                    <Button color="secondary" onClick={() => setShowMapSelectModal(false)}>Cancel</Button>
                 </ModalFooter>
             </Modal>
         </CardBody>
