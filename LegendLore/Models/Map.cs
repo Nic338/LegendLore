@@ -8,6 +8,9 @@ namespace LegendLore.Models
         [Required]
         public string Name { get; set; }
         [Required]
+        [DataType(DataType.Url)]
+        public string MapImage { get; set; }
+        [Required]
         public int CampaignId { get; set; }
     }
 }

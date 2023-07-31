@@ -12,9 +12,9 @@ INSERT INTO [UserProfile] ([Id], [UserName], [FirstName], [LastName], [Email], [
 SET IDENTITY_INSERT [UserProfile] OFF
 
 SET IDENTITY_INSERT [Campaigns] ON
-INSERT INTO [Campaigns] ([Id], [Description], [Map], [UserProfileId], [Title], [CreateDateTime]) VALUES (1, 'As the war has ended, some seek to take advantage of the silence', 'https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 1, 'Test Title', '2023-07-28');
-INSERT INTO [Campaigns] ([Id], [Description], [Map], [UserProfileId], [Title], [CreateDateTime]) VALUES (2, 'The drums of war sound, as a looming threat crests the horizon', 'https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 2, 'Test Title 2', '2023-07-28');
-INSERT INTO [Campaigns] ([Id], [Description], [Map], [UserProfileId], [Title], [CreateDateTime]) VALUES (3, 'Something stirs deep within the deserts of Marquet', 'https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 3, 'Test Title 3', '2023-07-28');
+INSERT INTO [Campaigns] ([Id], [Description], [Map], [UserProfileId], [Title], [CreateDateTime]) VALUES (1, 'As the war has ended, some seek to take advantage of the silence', 1, 'Test Title', '2023-07-28');
+INSERT INTO [Campaigns] ([Id], [Description], [Map], [UserProfileId], [Title], [CreateDateTime]) VALUES (2, 'The drums of war sound, as a looming threat crests the horizon', 2, 'Test Title 2', '2023-07-28');
+INSERT INTO [Campaigns] ([Id], [Description], [Map], [UserProfileId], [Title], [CreateDateTime]) VALUES (3, 'Something stirs deep within the deserts of Marquet', 3, 'Test Title 3', '2023-07-28');
 SET IDENTITY_INSERT [Campaigns] OFF
 
 SET IDENTITY_INSERT [POI] ON
@@ -30,9 +30,9 @@ INSERT INTO [POI] ([Id], [Name], [Description]) VALUES (9, 'Rexxentrum', 'This i
 SET IDENTITY_INSERT [POI] OFF
 
 SET IDENTITY_INSERT [Map] ON
-INSERT INTO [Map] ([Id], [Name], [CampaignId]) VALUES (1, 'Test Map 1', 1)
-INSERT INTO [Map] ([Id], [Name], [CampaignId]) VALUES (2, 'Test Map 2', 2)
-INSERT INTO [Map] ([Id], [Name], [CampaignId]) VALUES (3, 'Test Map 3', 3)
+INSERT INTO [Map] ([Id], [Name], [MapImage], [CampaignId]) VALUES (1, 'Test Map 1','https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 1)
+INSERT INTO [Map] ([Id], [Name], [MapImage], [CampaignId]) VALUES (2, 'Test Map 2', 'https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 2)
+INSERT INTO [Map] ([Id], [Name], [MapImage], [CampaignId]) VALUES (3, 'Test Map 3', 'https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 3)
 SET IDENTITY_INSERT [Map] OFF
 
 SET IDENTITY_INSERT [MapPOIs] ON

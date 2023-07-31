@@ -15,7 +15,6 @@ namespace LegendLore.Repositories
                 Title = reader.GetString(reader.GetOrdinal("Title")),
                 Description = reader.GetString(reader.GetOrdinal("Description")),
                 CreateDateTime = reader.GetDateTime(reader.GetOrdinal("CreateDateTime")),
-                Map = reader.GetString(reader.GetOrdinal("Map")),
                 UserProfileId = reader.GetInt32(reader.GetOrdinal("UserProfileId"))
             };
         }
@@ -27,7 +26,7 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT c.Id, c.Title, c.Description, c.Map, c.CreateDateTime, c.UserProfileId
+                        SELECT c.Id, c.Title, c.Description, c.CreateDateTime, c.UserProfileId
                         FROM Campaigns c
                         ORDER BY CreateDateTime desc
                         ";
@@ -53,7 +52,7 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT c.Id, c.Title, c.Description, c.Map, c.CreateDateTime, c.UserProfileId
+                        SELECT c.Id, c.Title, c.Description, c.CreateDateTime, c.UserProfileId
                         FROM Campaigns c
                         WHERE c.UserProfileId = @userProfileId
                         ORDER BY CreateDateTime desc
@@ -81,10 +80,10 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT c.Id, c.Title, c.Description, c.Map, c.CreateDateTime, c.UserProfileId
+                        SELECT c.Id, c.Title, c.Description, c.CreateDateTime, c.UserProfileId
                         FROM Campaigns c
-                        WHERE c.Id = @id";
-
+                        WHERE c.Id = @id
+                    ";
                     cmd.Parameters.AddWithValue("@id", id);
                     var reader = cmd.ExecuteReader();
 
@@ -109,14 +108,13 @@ namespace LegendLore.Repositories
                 {
                     cmd.CommandText = @"
                         INSERT INTO Campaigns ( 
-                        Title, Description, CreateDateTime, Map, UserProfileId )
+                        Title, Description, CreateDateTime, UserProfileId )
                         OUTPUT INSERTED.ID
                         VALUES (
-                            @Title, @Description, @CreateDateTime, @Map, @UserProfileId )";
+                            @Title, @Description, @CreateDateTime, @UserProfileId )";
                     cmd.Parameters.AddWithValue("@Title", campaign.Title);
                     cmd.Parameters.AddWithValue("@Description", campaign.Description);
                     cmd.Parameters.AddWithValue("@CreateDateTime", campaign.CreateDateTime);
-                    cmd.Parameters.AddWithValue("@Map", campaign.Map);
                     cmd.Parameters.AddWithValue("@UserProfileId", campaign.UserProfileId);
 
                     campaign.Id = (int)cmd.ExecuteScalar();

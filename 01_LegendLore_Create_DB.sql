@@ -45,7 +45,6 @@ CREATE TABLE [dbo].[UserProfile] (
 CREATE TABLE [dbo].[Campaigns] (
     [Id]             INT            IDENTITY (1, 1) NOT NULL,
     [Description]    NVARCHAR (255) NOT NULL,
-    [Map]            NVARCHAR (255) NOT NULL,
     [UserProfileId]  INT            NOT NULL,
     [Title]          NVARCHAR (255) NOT NULL,
     [CreateDateTime] DATETIME       NOT NULL,
@@ -63,6 +62,7 @@ CREATE TABLE [dbo].[POI] (
 CREATE TABLE [dbo].[Map] (
     [Id]         INT            IDENTITY (1, 1) NOT NULL,
     [Name]       NVARCHAR (255) NOT NULL,
+    [MapImage]   NVARCHAR (255) NOT NULL,
     [CampaignId] INT            NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_Map_Campaign] FOREIGN KEY ([CampaignId]) REFERENCES [dbo].[Campaigns] ([Id]),
