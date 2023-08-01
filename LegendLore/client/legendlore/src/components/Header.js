@@ -12,68 +12,68 @@ import {
 } from "reactstrap";
 
 export const Header = ({ isLoggedIn, setIsLoggedIn }) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => setIsOpen(!isOpen);
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
 
-    return (
-        <div>
-          <Navbar color="light" light expand="md">
-            <NavbarBrand tag={RRNavLink} to="/">
-              Tabloid
-            </NavbarBrand>
-            <NavbarToggler onClick={toggle} />
-            <Collapse isOpen={isOpen} navbar>
-              <Nav className="mr-auto" navbar>
-                {/* When isLoggedIn === true, we will render the Home link */}
-                {isLoggedIn && (
-                  <NavItem>
-                    <NavLink tag={RRNavLink} to="/">
-                      Home
-                    </NavLink>
-                  </NavItem>
-                )}
-              </Nav>
-              <Nav navbar>
-                {isLoggedIn && (
-                  <>
-                  <NavItem>
+  return (
+    <div>
+      <Navbar color="light" light expand="md">
+        <NavbarBrand tag={RRNavLink} to="/">
+          Tabloid
+        </NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto" navbar>
+            {/* When isLoggedIn === true, we will render the Home link */}
+            {isLoggedIn && (
+              <NavItem>
+                <NavLink tag={RRNavLink} to="/">
+                  Home
+                </NavLink>
+              </NavItem>
+            )}
+          </Nav>
+          <Nav navbar>
+            {isLoggedIn && (
+              <>
+                <NavItem>
                   <NavLink tag={RRNavLink} to="/my-campaigns">
                     My Campaigns
-                </NavLink>
+                  </NavLink>
                 </NavItem>
-                    <NavItem>
-                      <a
-                        aria-current="page"
-                        className="nav-link"
-                        style={{ cursor: "pointer" }}
-                        onClick={() => {
-                          logout();
-                          setIsLoggedIn(false);
-                        }}
-                      >
-                        Logout
-                      </a>
-                    </NavItem>
-                   
-                  </>
-                )}
-                {!isLoggedIn && (
-                  <>
-                    <NavItem>
-                      <NavLink tag={RRNavLink} to="/login">
-                        Login
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink tag={RRNavLink} to="/register">
-                        Register
-                      </NavLink>
-                    </NavItem>
-                  </>
-                )}
-              </Nav>
-            </Collapse>
-          </Navbar>
-        </div>
-      );
+                <NavItem>
+                  <a
+                    aria-current="page"
+                    className="nav-link"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      logout();
+                      setIsLoggedIn(false);
+                    }}
+                  >
+                    Logout
+                  </a>
+                </NavItem>
+
+              </>
+            )}
+            {!isLoggedIn && (
+              <>
+                <NavItem>
+                  <NavLink tag={RRNavLink} to="/login">
+                    Login
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={RRNavLink} to="/register">
+                    Register
+                  </NavLink>
+                </NavItem>
+              </>
+            )}
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </div>
+  );
 }

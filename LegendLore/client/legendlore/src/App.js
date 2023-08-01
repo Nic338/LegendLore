@@ -8,26 +8,26 @@ import { useEffect, useState } from 'react';
 import { Header } from './components/Header';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
 
 
-  useEffect(() => {
-      if (!localStorage.getItem("userProfile")) {
-          setIsLoggedIn(false)
+    useEffect(() => {
+        if (!localStorage.getItem("userProfile")) {
+            setIsLoggedIn(false)
 
-      }
-  }, [isLoggedIn])
+        }
+    }, [isLoggedIn])
 
-  return (
-      <BrowserRouter>
-          <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-          {isLoggedIn ?
-              <ApplicationViews />
-              :
-              <Authorize setIsLoggedIn={setIsLoggedIn} />
-          }
-      </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+            {isLoggedIn ?
+                <ApplicationViews />
+                :
+                <Authorize setIsLoggedIn={setIsLoggedIn} />
+            }
+        </BrowserRouter>
+    );
 }
 
 export default App;

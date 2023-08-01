@@ -38,17 +38,17 @@ export const CampaignForm = () => {
             userProfileId: legendLoreUserObject.id
         }
         addCampaign(campaignToSendToAPI)
-        .then((campaignId) => {
-            if (campaignId) {
-                const mapToSendToAPI = {
-                    Name: newMap.name,
-                    MapImage: newMap.mapImage,
-                    CampaignId: campaignId
+            .then((campaignId) => {
+                if (campaignId) {
+                    const mapToSendToAPI = {
+                        Name: newMap.name,
+                        MapImage: newMap.mapImage,
+                        CampaignId: campaignId
+                    }
+                    addMap(mapToSendToAPI)
                 }
-                addMap(mapToSendToAPI)
-            }
-        })
-        .then(navigate('/my-campaigns'));
+            })
+            .then(navigate('/my-campaigns'));
     }
 
     const handleImageChange = async (e) => {
@@ -58,7 +58,7 @@ export const CampaignForm = () => {
             const res = await uploadMapImage(file);
             const data = await res.json();
             if (data.imageUrl) {
-                const copy = {...newMap}
+                const copy = { ...newMap }
                 copy.mapImage = data.imageUrl
                 updateNewMap(copy);
             }
@@ -74,60 +74,60 @@ export const CampaignForm = () => {
     return (
         <Form className="campaign-form">
             <h2 className="campaign-form-title">Create a New Campaign</h2>
-                <FormGroup className="form-group">
-                    <Label htmlFor="title">Title:</Label>
-                    <Input
-                        className="campaign-input"
-                        type="text"
-                        id="title"
-                        value={newCampaign.title}
-                        onChange={
-                            (event) => {
-                                const copy = { ...newCampaign }
-                                copy.title = event.target.value
-                                updateNewCampaign(copy)
-                            }
-                        } />
-                </FormGroup>
-                <FormGroup className="form-group">
-                    <Label htmlFor="description">Description:</Label>
-                    <Input
-                        className="campaign-input"
-                        type="textarea"
-                        id="description"
-                        value={newCampaign.description}
-                        onChange={
-                            (event) => {
-                                const copy = { ...newCampaign }
-                                copy.description = event.target.value
-                                updateNewCampaign(copy)
-                            }
-                        } />
-                </FormGroup>
-                <FormGroup className="form-group">
-                    <Label htmlFor="map-name">What is the Name of your Map?</Label>
-                    <Input
-                        className="campaign-input"
-                        type="text"
-                        id="title"
-                        value={newMap.name}
-                        onChange={
-                            (event) => {
-                                const copy = { ...newMap }
-                                copy.name = event.target.value
-                                updateNewMap(copy)
-                            }
-                        } />
-                </FormGroup>
-                <FormGroup className="form-group">
-                    <Label htmlFor="map-image">Upload a Map Image</Label>
-                    <Input
-                        className="campaign-input"
-                        type="file"
-                        id="map-image"
-                        onChange={handleImageChange} />
-                        {selectedImage && <p>Selected Image: {selectedImage}</p>}
-                </FormGroup>
+            <FormGroup className="form-group">
+                <Label htmlFor="title">Title:</Label>
+                <Input
+                    className="campaign-input"
+                    type="text"
+                    id="title"
+                    value={newCampaign.title}
+                    onChange={
+                        (event) => {
+                            const copy = { ...newCampaign }
+                            copy.title = event.target.value
+                            updateNewCampaign(copy)
+                        }
+                    } />
+            </FormGroup>
+            <FormGroup className="form-group">
+                <Label htmlFor="description">Description:</Label>
+                <Input
+                    className="campaign-input"
+                    type="textarea"
+                    id="description"
+                    value={newCampaign.description}
+                    onChange={
+                        (event) => {
+                            const copy = { ...newCampaign }
+                            copy.description = event.target.value
+                            updateNewCampaign(copy)
+                        }
+                    } />
+            </FormGroup>
+            <FormGroup className="form-group">
+                <Label htmlFor="map-name">What is the Name of your Map?</Label>
+                <Input
+                    className="campaign-input"
+                    type="text"
+                    id="title"
+                    value={newMap.name}
+                    onChange={
+                        (event) => {
+                            const copy = { ...newMap }
+                            copy.name = event.target.value
+                            updateNewMap(copy)
+                        }
+                    } />
+            </FormGroup>
+            <FormGroup className="form-group">
+                <Label htmlFor="map-image">Upload a Map Image</Label>
+                <Input
+                    className="campaign-input"
+                    type="file"
+                    id="map-image"
+                    onChange={handleImageChange} />
+                {selectedImage && <p>Selected Image: {selectedImage}</p>}
+            </FormGroup>
             <Button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} className="btn btn-primary">Add Campaign</Button>
         </Form>

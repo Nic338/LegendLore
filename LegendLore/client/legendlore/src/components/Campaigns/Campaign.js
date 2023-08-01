@@ -18,13 +18,13 @@ export const Campaign = ({ campaignProp, setUserCampaign }) => {
 
     useEffect(() => {
         getMapsByCampaign(campaignProp.id)
-        .then((data) => {
-            setCampaignMap(data)
-        })
-        .catch((error) => {
-            console.log("Error fetching campaign maps", error);
-        });
-    },[campaignProp.id])
+            .then((data) => {
+                setCampaignMap(data)
+            })
+            .catch((error) => {
+                console.log("Error fetching campaign maps", error);
+            });
+    }, [campaignProp.id])
 
     const handleDeleteButton = (e) => {
         e.preventDefault()
@@ -65,8 +65,8 @@ export const Campaign = ({ campaignProp, setUserCampaign }) => {
                 <div>Created: {formattedCreationDate}</div>
             </div>
             <div className="button-group">
-            <Button size="sm" className="btn btn-primary edit-campaign-button" tag={Link} to={`/my-campaigns/edit/${campaignProp.id}`}>Edit Campaign Info</Button>
-            <Button size="sm" color="link" className="btn delete-campaign-button" onClick={handleDeleteButton}>Delete Campaign</Button>
+                <Button size="sm" className="btn btn-primary edit-campaign-button" tag={Link} to={`/my-campaigns/edit/${campaignProp.id}`}>Edit Campaign Info</Button>
+                <Button size="sm" color="link" className="btn delete-campaign-button" onClick={handleDeleteButton}>Delete Campaign</Button>
             </div>
             <Modal centered isOpen={showConfirmationModal} toggle={() => setShowConfirmationModal(false)}>
                 <ModalHeader toggle={() => setShowConfirmationModal(false)}></ModalHeader>
@@ -82,9 +82,9 @@ export const Campaign = ({ campaignProp, setUserCampaign }) => {
                 <ModalHeader toggle={() => setShowMapSelectModal(false)}></ModalHeader>
                 <ModalBody className="map-select-modal">
                     <select
-                    className="map-select"
-                    value={selectedMapId || ""}
-                    onChange={(e) => handleMapSelection(e.target.value)}>
+                        className="map-select"
+                        value={selectedMapId || ""}
+                        onChange={(e) => handleMapSelection(e.target.value)}>
                         <option value="">Select A Map</option>
                         {campaignMap.map((map) => (
                             <option key={map.id} value={map.id}>{map.name}</option>

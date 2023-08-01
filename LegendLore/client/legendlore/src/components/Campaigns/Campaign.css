@@ -121,11 +121,6 @@
   outline: none;
 }
 
-/* sizing of map container */
-.leaflet-container {
-  height: 70vh;
-}
-
 .button-group {
   margin-right: 10px;
   display: flex;
@@ -141,4 +136,9 @@
 .map-select-modal {
   display: flex;
   justify-content: center;
+}
+
+.leaflet-container {
+  height: 80vh;
+  width: 80vw;
 }

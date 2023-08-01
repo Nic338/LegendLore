@@ -13,13 +13,13 @@ export const UsersCampaigns = () => {
 
     useEffect(() => {
         getAllUsersCampaigns(legendLoreUserObject.id)
-        .then((data) => {
-            setUserCampaign(data)
-        })
-        .catch((error) => {
-            console.log("Error fetching user campaigns:", error)
-        });
-    },[legendLoreUserObject.id]);
+            .then((data) => {
+                setUserCampaign(data)
+            })
+            .catch((error) => {
+                console.log("Error fetching user campaigns:", error)
+            });
+    }, [legendLoreUserObject.id]);
 
     return (
         <Container>
@@ -28,20 +28,20 @@ export const UsersCampaigns = () => {
                     <Card className="campaign-card add-campaign-card">
                         <CardBody className="add-campaign-card-body">
                             <Button tag={Link} to="/campaigns/add" className="circle-button" color="primary"><FaPlus /></Button>
-                        <CardTitle tag="h5" className="post-title">Add A New Campaign</CardTitle>
+                            <CardTitle tag="h5" className="post-title">Add A New Campaign</CardTitle>
                         </CardBody>
                     </Card>
-                </Col>   
-        </Row>
-        <Row className="campaign-row">
-            {userCampaign.map((campaign) => (
-                <Col sm={12} md={8} lg={4} key={campaign.id}>
-                    <Card className="campaign-card">
-                        <Campaign campaignProp={campaign} setUserCampaign={setUserCampaign} />
-                    </Card>
                 </Col>
-            ))}
-        </Row>
-    </Container>  
+            </Row>
+            <Row className="campaign-row">
+                {userCampaign.map((campaign) => (
+                    <Col sm={12} md={8} lg={4} key={campaign.id}>
+                        <Card className="campaign-card">
+                            <Campaign campaignProp={campaign} setUserCampaign={setUserCampaign} />
+                        </Card>
+                    </Col>
+                ))}
+            </Row>
+        </Container>
     );
 }

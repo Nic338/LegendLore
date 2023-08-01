@@ -1,38 +1,50 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
+import { MapContainer, TileLayer, Marker, Popup, ImageOverlay } from "react-leaflet"
 import "leaflet/dist/leaflet.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Icon } from "leaflet";
-import { getMapsByCampaign } from "../../Managers/MapManager";
+import { getMapById } from "../../Managers/MapManager";
 import { useParams } from "react-router-dom";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 
 export const CampaignMap = () => {
-const [mapPOIs, setMapPOIs] = useState([])
-const map = L.map('map', {
-    crs: L.CRS.Simple
-})
-const { id } = useParams();
+    const [mapObject, setMapObject] = useState({});
+    const [mapPOIs, setMapPOIs] = useState([]);
+    const { mapId } = useParams();
+    const referencePoint = [50, -100];
+    const pixelsPerUnit = 3;
+    const imageWidth = 2550;
+    const imageHeight = 1650;
+    const aspectRatio = imageWidth / imageHeight;
+    const topLeftLatLng = [
+        referencePoint[0] + (0 - imageHeight / 2) / pixelsPerUnit,
+        referencePoint[1] + (0 - imageWidth / 2) / (pixelsPerUnit * aspectRatio),
+      ];
+      const bottomRightLatLng = [
+        referencePoint[0] + (imageHeight / 2) / pixelsPerUnit,
+        referencePoint[1] + (imageWidth / 2) / (pixelsPerUnit * aspectRatio),
+      ];
+    const bounds = [topLeftLatLng, bottomRightLatLng]
 
-useEffect(() =>{
-    getMapsByCampaign(id)
-},[])
+    useEffect(() => {
+        getMapById(mapId)
+            .then((map) => {
+                setMapObject(map)
+                console.log(imageWidth)
+                console.log(imageHeight)
+            })
+    }, [mapId])
 
-const customIcon = new Icon({
-    iconUrl: "",
-    //flaticon.com to find an icon?
-    iconSize: [38, 38]
-})
-
-    return (
-        <MapContainer id="mapId" zoom={13}>
-            <TileLayer 
-            attribution=""
-            url=""/>
-        {/* {mapPOIs.map((poi) => (
-            <Marker position={poi.coordinates} icon={customIcon}>
-                <Popup></Popup>
-            </Marker>
-        ))} */}
-
-        </MapContainer>
-    );
+    if (!mapObject) {
+        return <div>LOADING....</div>
+    }
+    else {
+        return (
+            <MapContainer id="mapId" zoom={3} center={referencePoint}>
+                {mapObject && mapObject.mapImage && (
+                    <ImageOverlay url={mapObject.mapImage} bounds={bounds} />
+                )}
+            </MapContainer>
+        );
+    }
 }

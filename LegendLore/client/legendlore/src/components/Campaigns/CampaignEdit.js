@@ -21,9 +21,9 @@ export const CampaignEdit = () => {
         getCampaignById(campaignId).then((res) => {
             setEditedCampaign(res)
         })
-    },[campaignId])
-    
-    if(!editedCampaign) {
+    }, [campaignId])
+
+    if (!editedCampaign) {
         return null;
     }
 
@@ -38,9 +38,9 @@ export const CampaignEdit = () => {
             userProfileId: legendLoreUserObject.id
         }
         editCampaign(campaignToEdit)
-        .then(() => {
-            navigate(`/my-campaigns`)
-        })
+            .then(() => {
+                navigate(`/my-campaigns`)
+            })
     }
     const handleGoBackButtonClick = (e) => {
         e.preventDefault()
@@ -50,41 +50,41 @@ export const CampaignEdit = () => {
     return (
         <Form className="campaign-form">
             <h2 className="campaign-form-title">Campaign Edit</h2>
-                <FormGroup className="form-group">
-                    <Label htmlFor="title">Title:</Label>
-                    <Input
-                        className="campaign-input"
-                        type="text"
-                        id="title"
-                        value={editedCampaign.title}
-                        onChange={
-                            (event) => {
-                                const copy = { ...editedCampaign }
-                                copy.title = event.target.value
-                                setEditedCampaign(copy)
-                            }
-                        } />
-                </FormGroup>
-                <FormGroup className="form-group">
-                    <Label htmlFor="description">Description:</Label>
-                    <Input
-                        className="campaign-input"
-                        type="textarea"
-                        id="description"
-                        value={editedCampaign.description}
-                        onChange={
-                            (event) => {
-                                const copy = { ...editedCampaign }
-                                copy.description = event.target.value
-                                setEditedCampaign(copy)
-                            }
-                        } />
-                </FormGroup>
-                <FormGroup className="form-group">
-            <Button
-                onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} className="btn btn-primary">Save Campaign Information</Button>
-        <Button onClick={(clickEvent) => handleGoBackButtonClick(clickEvent)}>Go Back</Button>
-                </FormGroup>
+            <FormGroup className="form-group">
+                <Label htmlFor="title">Title:</Label>
+                <Input
+                    className="campaign-input"
+                    type="text"
+                    id="title"
+                    value={editedCampaign.title}
+                    onChange={
+                        (event) => {
+                            const copy = { ...editedCampaign }
+                            copy.title = event.target.value
+                            setEditedCampaign(copy)
+                        }
+                    } />
+            </FormGroup>
+            <FormGroup className="form-group">
+                <Label htmlFor="description">Description:</Label>
+                <Input
+                    className="campaign-input"
+                    type="textarea"
+                    id="description"
+                    value={editedCampaign.description}
+                    onChange={
+                        (event) => {
+                            const copy = { ...editedCampaign }
+                            copy.description = event.target.value
+                            setEditedCampaign(copy)
+                        }
+                    } />
+            </FormGroup>
+            <FormGroup className="form-group">
+                <Button
+                    onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} className="btn btn-primary">Save Campaign Information</Button>
+                <Button onClick={(clickEvent) => handleGoBackButtonClick(clickEvent)}>Go Back</Button>
+            </FormGroup>
         </Form>
     )
 }
