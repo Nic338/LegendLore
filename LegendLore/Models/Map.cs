@@ -12,5 +12,10 @@ namespace LegendLore.Models
         public string MapImage { get; set; }
         [Required]
         public int CampaignId { get; set; }
+        [Required]
+        public int Width { get; set; }
+        [Required]
+        public int Height { get; set; }
+
     }
 }

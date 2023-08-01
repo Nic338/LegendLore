@@ -25,7 +25,9 @@ export const CampaignForm = () => {
     const [newMap, updateNewMap] = useState({
         name: "",
         mapImage: "",
-        campaignId: null
+        campaignId: null,
+        width: null,
+        height: null
     })
 
     const handleSaveButtonClick = (e) => {
@@ -43,7 +45,9 @@ export const CampaignForm = () => {
                     const mapToSendToAPI = {
                         Name: newMap.name,
                         MapImage: newMap.mapImage,
-                        CampaignId: campaignId
+                        CampaignId: campaignId,
+                        Width: newMap.width,
+                        Height: newMap.height
                     }
                     addMap(mapToSendToAPI)
                 }
@@ -60,6 +64,8 @@ export const CampaignForm = () => {
             if (data.imageUrl) {
                 const copy = { ...newMap }
                 copy.mapImage = data.imageUrl
+                copy.width = data.width
+                copy.height = data.height
                 updateNewMap(copy);
             }
             else {

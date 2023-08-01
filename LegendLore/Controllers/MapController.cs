@@ -1,7 +1,9 @@
 ﻿using LegendLore.Repositories;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using LegendLore.Models;
+using System.IO;
+using SixLabors.ImageSharp;
+using Microsoft.Extensions.Hosting;
 
 namespace LegendLore.Controllers
 {
@@ -57,7 +59,7 @@ namespace LegendLore.Controllers
         }
 
         [HttpPost("upload-map-image")]
-        public IActionResult UploadImage(IFormFile image)
+        public IActionResult UploadImage(IFormFile image, [FromServices] IHostEnvironment hostingEnvironment)
         {
             if (image != null && image.Length > 0)
             {
@@ -72,9 +74,16 @@ namespace LegendLore.Controllers
                 {
                     image.CopyTo(stream);
                 }
+                int width;
+                int height;
+                using (var imageObject = Image.Load(fullPath))
+                {
+                   width = imageObject.Width;
+                   height = imageObject.Height;
+                }
                 string publicImageUrl = $"/MapImageUploads/{uniqueFileName}";
                 // Return the URL or file path of the saved image to the frontend
-                return Ok(new { imageUrl = publicImageUrl });
+                return Ok(new { imageUrl = publicImageUrl, width, height });
             }
 
             return BadRequest();

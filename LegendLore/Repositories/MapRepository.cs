@@ -1,5 +1,6 @@
 ﻿using LegendLore.Models;
 using Microsoft.Data.SqlClient;
+using LegendLore.Utils;
 
 namespace LegendLore.Repositories
 {
@@ -14,7 +15,9 @@ namespace LegendLore.Repositories
                 Id = reader.GetInt32(reader.GetOrdinal("Id")),
                 Name = reader.GetString(reader.GetOrdinal("Name")),
                 MapImage = reader.GetString(reader.GetOrdinal("MapImage")),
-                CampaignId = reader.GetInt32(reader.GetOrdinal("CampaignId"))
+                CampaignId = reader.GetInt32(reader.GetOrdinal("CampaignId")),
+                Width = reader.GetInt32(reader.GetOrdinal("Width")),
+                Height = reader.GetInt32(reader.GetOrdinal("Height"))
             };
         }
         public List<Map> GetAllMapsByCampaignId(int campaignId)
@@ -25,7 +28,7 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT m.Id, m.Name, m.MapImage, m.CampaignId
+                        SELECT m.Id, m.Name, m.MapImage, m.CampaignId, m.Width, m.Height
                         FROM Map m
                         WHERE m.CampaignId = @campaignId
                     ";
@@ -52,7 +55,7 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT m.Id, m.Name, m.MapImage, m.CampaignId
+                        SELECT m.Id, m.Name, m.MapImage, m.CampaignId, m.Width, m.Height
                         FROM Map m
                         WHERE m.Id = @id
                     ";
@@ -80,13 +83,16 @@ namespace LegendLore.Repositories
                 {
                     cmd.CommandText = @"
                         INSERT INTO Map (
-                        Name, MapImage, CampaignId )
+                        Name, MapImage, CampaignId, Width, Height )
                         OUTPUT INSERTED.ID
                         VALUES (
-                        @Name, @MapImage, @CampaignId )";
+                        @Name, @MapImage, @CampaignId, @Width, @Height )";
                     cmd.Parameters.AddWithValue("@Name", map.Name);
                     cmd.Parameters.AddWithValue("@MapImage", map.MapImage);
                     cmd.Parameters.AddWithValue("@CampaignId", map.CampaignId);
+                    cmd.Parameters.AddWithValue("@Width", map.Width);
+                    cmd.Parameters.AddWithValue("@Height", map.Height);
+
 
                     map.Id = (int)cmd.ExecuteScalar();
                 }
@@ -104,13 +110,18 @@ namespace LegendLore.Repositories
                         SET
                         [Name] = @name,
                         [MapImage] = @mapImage,
-                        [CampaignId] = @campaignId
+                        [CampaignId] = @campaignId,
+                        [Width] = @width,
+                        [Height] = @height,
                         WHERE Id = @id
                         ";
                     cmd.Parameters.AddWithValue("@id", map.Id);
                     cmd.Parameters.AddWithValue("@name", map.Name);
                     cmd.Parameters.AddWithValue("@mapImage", map.MapImage);
                     cmd.Parameters.AddWithValue("@campaignId", map.CampaignId);
+                    cmd.Parameters.AddWithValue("@width", map.Width);
+                    cmd.Parameters.AddWithValue("@height", map.Height);
+
 
                     cmd.ExecuteNonQuery();
                 }

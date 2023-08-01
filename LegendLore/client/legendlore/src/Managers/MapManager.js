@@ -39,9 +39,11 @@ export const editMap = (map) => {
     });
 };
 
-export const uploadMapImage = (mapImage) => {
+export const uploadMapImage = (mapImage, width, height) => {
     const formData = new FormData();
     formData.append("image", mapImage)
+    formData.append("width", width)
+    formData.append("height", height)
     return fetch(`${baseUrl}/upload-map-image`, {
         method: "POST",
         body: formData,

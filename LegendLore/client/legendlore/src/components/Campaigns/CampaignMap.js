@@ -13,8 +13,18 @@ export const CampaignMap = () => {
     const { mapId } = useParams();
     const referencePoint = [50, -100];
     const pixelsPerUnit = 3;
-    const imageWidth = 2550;
-    const imageHeight = 1650;
+    
+    useEffect(() => {
+        getMapById(mapId)
+        .then((map) => {
+            setMapObject(map)
+            console.log(imageWidth)
+            console.log(imageHeight)
+        })
+    }, [mapId])
+    
+    const imageWidth = mapObject.width;
+    const imageHeight = mapObject.height;
     const aspectRatio = imageWidth / imageHeight;
     const topLeftLatLng = [
         referencePoint[0] + (0 - imageHeight / 2) / pixelsPerUnit,
@@ -25,16 +35,6 @@ export const CampaignMap = () => {
         referencePoint[1] + (imageWidth / 2) / (pixelsPerUnit * aspectRatio),
       ];
     const bounds = [topLeftLatLng, bottomRightLatLng]
-
-    useEffect(() => {
-        getMapById(mapId)
-            .then((map) => {
-                setMapObject(map)
-                console.log(imageWidth)
-                console.log(imageHeight)
-            })
-    }, [mapId])
-
     if (!mapObject) {
         return <div>LOADING....</div>
     }
