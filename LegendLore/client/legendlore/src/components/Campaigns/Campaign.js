@@ -3,7 +3,7 @@ import { Button, CardBody, CardSubtitle, CardTitle, Modal, ModalBody, ModalFoote
 import "./Campaign.css";
 import { deleteCampaign, getAllUsersCampaigns } from "../../Managers/CampaignManager";
 import { useState, useEffect } from "react";
-import { getMapsByCampaign } from "../../Managers/MapManager";
+import { deleteMap, getMapsByCampaign } from "../../Managers/MapManager";
 
 export const Campaign = ({ campaignProp, setUserCampaign }) => {
     const createDateTime = new Date(campaignProp.createDateTime);
@@ -43,7 +43,8 @@ export const Campaign = ({ campaignProp, setUserCampaign }) => {
 
     const handleDelete = (e) => {
         e.preventDefault()
-        deleteCampaign(campaignProp.id)
+            deleteMap(campaignProp.id)
+            .then(deleteCampaign(campaignProp.id))
             .then(getAllUsersCampaigns(legendLoreUserObject.id))
             .then(onDeleteSuccess())
             .then(() => setShowConfirmationModal(false))

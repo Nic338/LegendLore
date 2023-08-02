@@ -49,3 +49,9 @@ export const uploadMapImage = (mapImage, width, height) => {
         body: formData,
     })
 };
+
+export const deleteMap = (campaignId) => {
+    return fetch(`${baseUrl}/${campaignId}`, {
+        method: "DELETE",
+    })
+};

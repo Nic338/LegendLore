@@ -8,5 +8,6 @@ namespace LegendLore.Repositories
         Map GetMapById(int id);
         void Add(Map map);
         void Update(Map map);
+        void Delete(int campaignId);
     }
 }

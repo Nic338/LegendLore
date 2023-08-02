@@ -57,6 +57,12 @@ namespace LegendLore.Controllers
             _mapRepository.Update(map);
             return NoContent();
         }
+        [HttpDelete("{campaignId}")]
+        public IActionResult Delete(int campaignId)
+        {
+            _mapRepository.Delete(campaignId);
+            return NoContent();
+        }
 
         [HttpPost("upload-map-image")]
         public IActionResult UploadImage(IFormFile image, [FromServices] IHostEnvironment hostingEnvironment)

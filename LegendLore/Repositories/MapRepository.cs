@@ -127,5 +127,22 @@ namespace LegendLore.Repositories
                 }
             }
         }
+        public void Delete(int campaignId)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        DELETE FROM Map
+                        Where CampaignId = @id";
+
+                    cmd.Parameters.AddWithValue("@id", campaignId);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
