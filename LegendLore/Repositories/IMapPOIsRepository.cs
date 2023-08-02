@@ -2,13 +2,13 @@
 
 namespace LegendLore.Repositories
 {
-    public interface IMapPOIRepository
+    public interface IMapPOIsRepository
     {
         List<MapPOIs> GetAllMapPOIs();
         MapPOIs GetById(int id);
         void Add(MapPOIs mapPOI);
         void Update(MapPOIs mapPOI);
         void Delete(int id);
-        void DeleteFromMap(int mapId);
+        void DeleteAllFromMap(int mapId);
     }
 }

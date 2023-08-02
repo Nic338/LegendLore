@@ -49,7 +49,7 @@ CREATE TABLE [dbo].[Campaigns] (
     [Title]          NVARCHAR (255) NOT NULL,
     [CreateDateTime] DATETIME       NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_Campaign_UserProfile] FOREIGN KEY ([UserProfileId]) REFERENCES [dbo].[UserProfile] ([Id])
+    CONSTRAINT [FK_Campaign_UserProfile] FOREIGN KEY ([UserProfileId]) REFERENCES [dbo].[UserProfile] ([Id]) ON DELETE CASCADE
 )
 
 CREATE TABLE [dbo].[POI] (
@@ -64,8 +64,10 @@ CREATE TABLE [dbo].[Map] (
     [Name]       NVARCHAR (255) NOT NULL,
     [MapImage]   NVARCHAR (255) NOT NULL,
     [CampaignId] INT            NOT NULL,
+    [Height]     INT            NULL,
+    [Width]      INT            NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_Map_Campaign] FOREIGN KEY ([CampaignId]) REFERENCES [dbo].[Campaigns] ([Id]),
+    CONSTRAINT [FK_Map_Campaign] FOREIGN KEY ([CampaignId]) REFERENCES [dbo].[Campaigns] ([Id]) ON DELETE CASCADE
 )
 
 CREATE TABLE [dbo].[MapPOIs] (
@@ -74,8 +76,8 @@ CREATE TABLE [dbo].[MapPOIs] (
     [MapId]       INT            NOT NULL,
     [POIId]       INT            NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_MapPOI_Map] FOREIGN KEY ([MapId]) REFERENCES [dbo].[Map] ([Id]),
-    CONSTRAINT [FK_MapPOI_POI] FOREIGN KEY ([POIId]) REFERENCES [dbo].[POI] ([Id])
+    CONSTRAINT [FK_MapPOI_Map] FOREIGN KEY ([MapId]) REFERENCES [dbo].[Map] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_MapPOI_POI] FOREIGN KEY ([POIId]) REFERENCES [dbo].[POI] ([Id]) ON DELETE CASCADE
 )
 
 CREATE TABLE [dbo].[NPC] (
@@ -90,8 +92,8 @@ CREATE TABLE [dbo].[POINPCs] (
     [NPCId] INT NOT NULL,
     [POIId] INT NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_POINPCs_POI] FOREIGN KEY ([POIId]) REFERENCES [dbo].[POI] ([Id]),
-    CONSTRAINT [FK_POINPCS_NPC] FOREIGN KEY ([NPCId]) REFERENCES [dbo].[NPC] ([Id])
+    CONSTRAINT [FK_POINPCs_POI] FOREIGN KEY ([POIId]) REFERENCES [dbo].[POI] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_POINPCS_NPC] FOREIGN KEY ([NPCId]) REFERENCES [dbo].[NPC] ([Id]) ON DELETE CASCADE
 )
 
 
@@ -108,8 +110,8 @@ CREATE TABLE [dbo].[POIQuests] (
     [QuestId] INT NOT NULL,
     [POIId]   INT NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
-   CONSTRAINT [FK_POIQuests_POI] FOREIGN KEY ([POIId]) REFERENCES [dbo].[POI] ([Id]),
-   CONSTRAINT [FK_POIQuests_Quest] FOREIGN KEY ([QuestId]) REFERENCES [dbo].[Quest] ([Id])
+   CONSTRAINT [FK_POIQuests_POI] FOREIGN KEY ([POIId]) REFERENCES [dbo].[POI] ([Id]) ON DELETE CASCADE,
+   CONSTRAINT [FK_POIQuests_Quest] FOREIGN KEY ([QuestId]) REFERENCES [dbo].[Quest] ([Id]) ON DELETE CASCADE
 )
 
 CREATE TABLE [dbo].[NotableLocation] (
@@ -124,8 +126,8 @@ CREATE TABLE [dbo].[POINoteableLocations] (
     [NoteableLocationId] INT NOT NULL,
     [POIId]              INT NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
-   CONSTRAINT [FK_POINoteableLocations_POI] FOREIGN KEY ([POIId]) REFERENCES [dbo].[POI] ([Id]),
-   CONSTRAINT [FK_POINoteableLocations_NoteableLocation] FOREIGN KEY ([NoteableLocationId]) REFERENCES [dbo].[NotableLocation] ([Id])
+   CONSTRAINT [FK_POINoteableLocations_POI] FOREIGN KEY ([POIId]) REFERENCES [dbo].[POI] ([Id]) ON DELETE CASCADE,
+   CONSTRAINT [FK_POINoteableLocations_NoteableLocation] FOREIGN KEY ([NoteableLocationId]) REFERENCES [dbo].[NotableLocation] ([Id]) ON DELETE CASCADE
 )
 
 CREATE TABLE [dbo].[RandomEncountersTable] (
@@ -139,8 +141,8 @@ CREATE TABLE [dbo].[POIRandEncounterTables] (
     [RandEncountersTableId] INT NOT NULL,
     [POIId]                 INT NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_POIRandEncounterTables_POI] FOREIGN KEY ([POIId]) REFERENCES [dbo].[POI] ([Id]),
-    CONSTRAINT [FK_POIRandEncounterTables_RandEncountersTable] FOREIGN KEY ([RandEncountersTableId]) REFERENCES [dbo].[RandomEncountersTable] ([Id])
+    CONSTRAINT [FK_POIRandEncounterTables_POI] FOREIGN KEY ([POIId]) REFERENCES [dbo].[POI] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_POIRandEncounterTables_RandEncountersTable] FOREIGN KEY ([RandEncountersTableId]) REFERENCES [dbo].[RandomEncountersTable] ([Id]) ON DELETE CASCADE
 )
 
 GO

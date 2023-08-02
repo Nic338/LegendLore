@@ -15,6 +15,8 @@ namespace LegendLore
             builder.Services.AddTransient<IUserProfileRepository, UserProfileRepository>();
             builder.Services.AddTransient<ICampaignsRepository, CampaignsRepository>();
             builder.Services.AddTransient<IMapRepository, MapRepository>();
+            builder.Services.AddTransient<IMapPOIsRepository, MapPOIsRepository>();
+            builder.Services.AddTransient<IPOIRepository, POIRepository>();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 

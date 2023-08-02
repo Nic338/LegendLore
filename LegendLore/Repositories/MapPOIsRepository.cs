@@ -4,9 +4,9 @@ using Microsoft.Data.SqlClient;
 
 namespace LegendLore.Repositories
 {
-    public class MapPOIRepository : BaseRepository, IMapPOIRepository
+    public class MapPOIsRepository : BaseRepository, IMapPOIsRepository
     {
-        public MapPOIRepository(IConfiguration configuration) : base(configuration) { }
+        public MapPOIsRepository(IConfiguration configuration) : base(configuration) { }
 
         private MapPOIs NewMapPOIFromReader(SqlDataReader reader)
         {
@@ -27,7 +27,7 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT m.Id, m.Latitude as Lat, m.Longitude as Long, m.MapId, m.POIId
+                        SELECT m.Id, m.[Coordinates].Lat as Lat, m.[Coordinates].Long as Long, m.MapId, m.POIId
                         FROM MapPOIs m
                         ORDER BY Id desc
                         ";
@@ -53,7 +53,7 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT m.Id, m.Latitude as Lat, m.Longitude as Long, m.MapId, m.POIId
+                        SELECT m.Id, m.[Coordinates].Lat as Lat, m.[Coordinates].Long as Long, m.MapId, m.POIId
                         FROM MapPOIs m
                         WHERE m.Id = @id
                     ";
@@ -83,7 +83,7 @@ namespace LegendLore.Repositories
                         INSERT INTO MapPOIs (
                         [Coordinates], POIId, MapId)
                         OUTPUT INSERTED.ID
-                        VALUES (geography: :Point(@Latitude, @Longitude, 4326), @POIId, @MapId)
+                        VALUES (geography: :Point(@Latitude, @Longitude), @POIId, @MapId)
                     ";
                     cmd.Parameters.AddWithValue("@Latitude", mapPOI.Latitude);
                     cmd.Parameters.AddWithValue("@Longitude", mapPOI.Longitude);
@@ -103,7 +103,7 @@ namespace LegendLore.Repositories
                 {
                     cmd.CommandText = @"
                         UPDATE MapPOIs
-                        SET [Coordinates] = geography: :Point(@Latitude, @Longitude, 4326),
+                        SET [Coordinates] = geography: :Point(@Latitude, @Longitude),
                         POIId = @POIId,
                         MapId = @MapId
                         WHERE Id = @id
@@ -135,6 +135,22 @@ namespace LegendLore.Repositories
                 }
             }
         }
-        public void DeleteFromMap(int mapId) { }
+        public void DeleteAllFromMap(int mapId)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                    DELETE FROM MapPOIs
+                        WHERE MapId = @mapId";
+
+                    cmd.Parameters.AddWithValue("@mapId", mapId);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
