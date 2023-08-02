@@ -142,3 +142,8 @@
   height: 80vh;
   width: 80vw;
 }
+
+.map-container {
+  margin-left: 7%;
+  margin-top: 50px;
+}
