@@ -1,7 +1,7 @@
 const baseUrl = "/api/MapPOIs"
 
-export const getAllMapPOIs = () => {
-    return fetch(baseUrl)
+export const getAllMapPOIsByMapId = (id) => {
+    return fetch(`${baseUrl}/GetMapPOIsByMapId/${id}`)
         .then((res) => res.json())
 };
 
@@ -24,9 +24,6 @@ export const addMapPOI = (singleMapPOI) => {
         }
         return res.json();
     })
-    .then((data) => {
-        return data.id;
-    });
 };
 
 export const editMapPOI = (singleMapPOI) => {

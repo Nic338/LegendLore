@@ -15,11 +15,21 @@ namespace LegendLore.Controllers
         {
             _mapPOIsRepository = mapPOIsRepository;
         }
-
         [HttpGet]
         public IActionResult Get()
         {
             return Ok(_mapPOIsRepository.GetAllMapPOIs());
+        }
+
+        [HttpGet("GetMapPOIsByMapId/{mapId}")]
+        public IActionResult Get(int mapId)
+        {
+            List<MapPOIs> mapPOIs = _mapPOIsRepository.GetAllMapPOIsByMapId(mapId);
+            if (mapPOIs == null)
+            {
+                return NotFound();
+            }
+            return Ok(mapPOIs);
         }
 
         [HttpGet("{id}")]
@@ -37,7 +47,7 @@ namespace LegendLore.Controllers
         public IActionResult Post(MapPOIs mapPOI)
         {
             _mapPOIsRepository.Add(mapPOI);
-            return CreatedAtAction("Get", new {id =  mapPOI.Id}, mapPOI);
+            return CreatedAtAction("Get", new {id = mapPOI.Id}, mapPOI);
         }
 
         [HttpPut]

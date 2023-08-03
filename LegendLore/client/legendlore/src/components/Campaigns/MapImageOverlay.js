@@ -16,7 +16,7 @@ export const MapImageOverlay = ({ mapObject }) => {
     // conditional that will change the width and height based on which is larger
     //if it is wider than it is tall, use the full width and adjust the height
     //if it is taller than it is wide, use the full height and adjust the width
-    let overlayWidth = null;
+  let overlayWidth = null;
   let overlayHeight = null;
   if (mapViewAspectRatio > aspectRatio) {
     overlayWidth = lngViewRange;

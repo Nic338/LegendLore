@@ -22,10 +22,13 @@ export const POIForm = ({ modalIsOpen, handleModalClose, mapId, lat, lng }) => {
                         Latitude: lat,
                         Longitude: lng,
                         POIId: pOIId,
-                        MapId: mapId
+                        MapId: parseInt(mapId)
                     }
                     addMapPOI(MapPOIToSendToAPI)
                 }
+            })
+            .then(() => {
+                handleModalClose()
             })
             .catch((error) => {
                 // Handle error when adding POI

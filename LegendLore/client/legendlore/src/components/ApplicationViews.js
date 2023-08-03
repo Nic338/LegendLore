@@ -4,6 +4,7 @@ import { UsersCampaigns } from "./Campaigns/UsersCampaignList"
 import { CampaignForm } from "./Campaigns/CampaignForm"
 import { CampaignEdit } from "./Campaigns/CampaignEdit"
 import { CampaignMap } from "./Campaigns/CampaignMap"
+import { POIDetails } from "./POIs/POIDetails"
 
 export const ApplicationViews = () => {
   return (
@@ -13,6 +14,7 @@ export const ApplicationViews = () => {
       <Route path="/campaigns/:campaignId/:mapId" element={<CampaignMap />} />
       <Route path="/campaigns/add" element={<CampaignForm />} />
       <Route path="/my-campaigns/edit/:campaignId" element={<CampaignEdit />} />
+      <Route path="/poi/:id" element={<POIDetails />} />
     </Routes>
   )
 }

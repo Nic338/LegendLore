@@ -29,8 +29,34 @@ namespace LegendLore.Repositories
                     cmd.CommandText = @"
                         SELECT m.Id, m.[Coordinates].Lat as Lat, m.[Coordinates].Long as Long, m.MapId, m.POIId
                         FROM MapPOIs m
-                        ORDER BY Id desc
+                    ";
+                    var reader = cmd.ExecuteReader();
+
+                    var mapPOIs = new List<MapPOIs>();
+
+                    while (reader.Read())
+                    {
+                        mapPOIs.Add(NewMapPOIFromReader(reader));
+                    }
+                    reader.Close();
+
+                    return mapPOIs;
+                }
+            }
+        }
+        public List<MapPOIs> GetAllMapPOIsByMapId(int mapId)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        SELECT m.Id, m.[Coordinates].Lat as Lat, m.[Coordinates].Long as Long, m.MapId, m.POIId
+                        FROM MapPOIs m
+                        WHERE m.MapId = @mapId
                         ";
+                    cmd.Parameters.AddWithValue("@mapId", mapId);
                     var reader = cmd.ExecuteReader();
 
                     var mapPOIs = new List<MapPOIs>();
@@ -83,7 +109,7 @@ namespace LegendLore.Repositories
                         INSERT INTO MapPOIs (
                         [Coordinates], POIId, MapId)
                         OUTPUT INSERTED.ID
-                        VALUES (geography: :Point(@Latitude, @Longitude), @POIId, @MapId)
+                        VALUES (geography::Point(@Latitude, @Longitude, 4326), @POIId, @MapId)
                     ";
                     cmd.Parameters.AddWithValue("@Latitude", mapPOI.Latitude);
                     cmd.Parameters.AddWithValue("@Longitude", mapPOI.Longitude);
@@ -103,7 +129,7 @@ namespace LegendLore.Repositories
                 {
                     cmd.CommandText = @"
                         UPDATE MapPOIs
-                        SET [Coordinates] = geography: :Point(@Latitude, @Longitude),
+                        SET [Coordinates] = geography::Point(@Latitude, @Longitude, 4326),
                         POIId = @POIId,
                         MapId = @MapId
                         WHERE Id = @id

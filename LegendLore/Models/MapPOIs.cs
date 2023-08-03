@@ -10,7 +10,7 @@ namespace LegendLore.Models
         public double Latitude { get; set; }
         [Required]
         public double Longitude { get; set; }
-        public SqlGeography Coordinates { get; set; }
+        public SqlGeography? Coordinates { get; set; }
         [Required]
         public int MapId { get; set; }
         [Required]
