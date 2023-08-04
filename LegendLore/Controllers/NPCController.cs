@@ -37,7 +37,7 @@ namespace LegendLore.Controllers
         public IActionResult Post(NPC singleNPC)
         {
             _NPCRepository.Add(singleNPC);
-            return CreatedAtAction("Get", new {id = singleNPC.Id }, singleNPC);
+            return CreatedAtAction("Get", new { id = singleNPC.Id }, singleNPC);
         }
 
         [HttpPut]

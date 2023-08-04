@@ -22,7 +22,7 @@ namespace LegendLore.Controllers
         public IActionResult Get(int id)
         {
             List<Map> maps = _mapRepository.GetAllMapsByCampaignId(id);
-            if(maps == null)
+            if (maps == null)
             {
                 return NotFound();
             }
@@ -84,8 +84,8 @@ namespace LegendLore.Controllers
                 int height;
                 using (var imageObject = Image.Load(fullPath))
                 {
-                   width = imageObject.Width;
-                   height = imageObject.Height;
+                    width = imageObject.Width;
+                    height = imageObject.Height;
                 }
                 string publicImageUrl = $"/MapImageUploads/{uniqueFileName}";
                 // Return the URL or file path of the saved image to the frontend

@@ -66,7 +66,7 @@ namespace LegendLore.Repositories
                     reader.Close();
 
                     return singleNPC;
-                }   
+                }
             }
         }
         public void Add(NPC singleNPC)

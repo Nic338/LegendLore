@@ -31,7 +31,7 @@ namespace LegendLore.Controllers
         {
             userProfile.UserTypeId = UserType.USER_ID;
             _userProfileRepository.Add(userProfile);
-            return CreatedAtAction("GetByEmail", new { email =  userProfile.Email }, userProfile);
+            return CreatedAtAction("GetByEmail", new { email = userProfile.Email }, userProfile);
         }
     }
 }

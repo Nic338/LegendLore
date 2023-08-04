@@ -47,11 +47,11 @@ namespace LegendLore.Controllers
         public IActionResult Post(MapPOIs mapPOI)
         {
             _mapPOIsRepository.Add(mapPOI);
-            return CreatedAtAction("Get", new {id = mapPOI.Id}, mapPOI);
+            return CreatedAtAction("Get", new { id = mapPOI.Id }, mapPOI);
         }
 
         [HttpPut]
-        public IActionResult Put(int id,  MapPOIs mapPOI)
+        public IActionResult Put(int id, MapPOIs mapPOI)
         {
             if (id != mapPOI.Id)
             {

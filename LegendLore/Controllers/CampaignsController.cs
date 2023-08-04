@@ -48,11 +48,11 @@ namespace LegendLore.Controllers
         public IActionResult Post(Campaigns campaign)
         {
             _campaignsRepository.Add(campaign);
-            return CreatedAtAction("Get", new {id = campaign.Id }, campaign);
+            return CreatedAtAction("Get", new { id = campaign.Id }, campaign);
         }
 
         [HttpPut]
-        public IActionResult Put(int id,  Campaigns campaign)
+        public IActionResult Put(int id, Campaigns campaign)
         {
             if (id != campaign.Id)
             {

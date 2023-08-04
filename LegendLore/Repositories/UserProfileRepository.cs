@@ -34,7 +34,7 @@ namespace LegendLore.Repositories
                             Id = DbUtils.GetInt(reader, "Id"),
                             FirstName = DbUtils.GetString(reader, "FirstName"),
                             UserName = DbUtils.GetString(reader, "UserName"),
-                            LastName = DbUtils.GetString(reader, "LastName"),                          
+                            LastName = DbUtils.GetString(reader, "LastName"),
                             Email = DbUtils.GetString(reader, "Email"),
                             UserTypeId = DbUtils.GetInt(reader, "UserTypeId"),
                         };

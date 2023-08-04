@@ -113,7 +113,7 @@ namespace LegendLore.Repositories
         }
         public void Delete(int id)
         {
-            using(var conn = Connection)
+            using (var conn = Connection)
             {
                 conn.Open();
                 using (var cmd = conn.CreateCommand())

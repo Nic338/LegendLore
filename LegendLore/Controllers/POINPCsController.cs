@@ -26,7 +26,7 @@ namespace LegendLore.Controllers
         public IActionResult Get(int poiId)
         {
             List<POINPCs> poiNPCs = _poiNPCsRepository.GetPOINPCsByPOIId(poiId);
-            if(poiNPCs == null)
+            if (poiNPCs == null)
             {
                 return NotFound();
             }

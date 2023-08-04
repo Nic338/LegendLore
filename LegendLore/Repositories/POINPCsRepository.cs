@@ -122,7 +122,7 @@ namespace LegendLore.Repositories
             using (var conn = Connection)
             {
                 conn.Open();
-                using ( var cmd = conn.CreateCommand())
+                using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
                         UPDATE POINPCs
