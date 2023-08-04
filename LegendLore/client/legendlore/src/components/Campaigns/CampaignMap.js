@@ -110,7 +110,7 @@ export const CampaignMap = () => {
                                 <Card className="poi-popup-card">
                                     <CardBody>
                                         <CardTitle className="poi-popup-title">
-                                            <Link to={`/poi/${poi.id}`}>
+                                            <Link to={`/poi/${poi?.id}`}>
                                             {poi?.name}
                                             </Link>
                                         </CardTitle>

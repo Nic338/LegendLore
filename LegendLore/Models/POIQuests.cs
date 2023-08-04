@@ -6,7 +6,7 @@ namespace LegendLore.Models
     {
         public int Id { get; set; }
         [Required]
-        public int QuestsId { get; set; }
+        public int QuestId { get; set; }
         [Required]
         public int POIId { get; set; }
     }
