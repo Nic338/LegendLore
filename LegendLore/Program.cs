@@ -42,7 +42,6 @@ namespace LegendLore
 
             app.UseAuthorization();
 
-
             app.MapControllers();
 
             app.Run();

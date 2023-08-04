@@ -51,7 +51,7 @@ namespace LegendLore.Controllers
             return NoContent();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             _questRepository.Delete(id);

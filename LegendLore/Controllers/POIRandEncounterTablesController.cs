@@ -51,7 +51,7 @@ namespace LegendLore.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{poiId")]
+        [HttpDelete("{poiId}")]
         public IActionResult DeleteFromPOI(int poiId)
         {
             _poiRandEncounterTablesRepository.DeleteFromPOI(poiId);
