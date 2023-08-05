@@ -2,12 +2,12 @@
 
 namespace LegendLore.Models
 {
-    public class POINoteableLocations
+    public class NotableLocation
     {
         public int Id { get; set; }
         [Required]
-        public int NoteableLocationId { get; set; }
+        public string Name { get; set; }
         [Required]
-        public int POIId { get; set; }
+        public string Description { get; set; }
     }
 }

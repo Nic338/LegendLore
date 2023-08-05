@@ -3,20 +3,20 @@ using LegendLore.Models;
 
 namespace LegendLore.Repositories
 {
-    public class NoteableLocationRepository : BaseRepository, INoteableLocationRepository
+    public class NotableLocationRepository : BaseRepository, INotableLocationRepository
     {
-        public NoteableLocationRepository(IConfiguration configuration) : base(configuration) { }
+        public NotableLocationRepository(IConfiguration configuration) : base(configuration) { }
 
-        private NoteableLocation NewNoteableLocationFromReader(SqlDataReader reader)
+        private NotableLocation NewNotableLocationFromReader(SqlDataReader reader)
         {
-            return new NoteableLocation()
+            return new NotableLocation()
             {
                 Id = reader.GetInt32(reader.GetOrdinal("Id")),
                 Name = reader.GetString(reader.GetOrdinal("Name")),
                 Description = reader.GetString(reader.GetOrdinal("Description"))
             };
         }
-        public List<NoteableLocation> GetAllNoteableLocations()
+        public List<NotableLocation> GetAllNotableLocations()
         {
             using (var conn = Connection)
             {
@@ -25,15 +25,15 @@ namespace LegendLore.Repositories
                 {
                     cmd.CommandText = @"
                         SELECT n.Id, n.Name, n.Description
-                        FROM NoteableLocation n
+                        FROM NotableLocation n
                     ";
                     var reader = cmd.ExecuteReader();
 
-                    var noteableLocations = new List<NoteableLocation>();
+                    var noteableLocations = new List<NotableLocation>();
 
                     while (reader.Read())
                     {
-                        noteableLocations.Add(NewNoteableLocationFromReader(reader));
+                        noteableLocations.Add(NewNotableLocationFromReader(reader));
                     }
                     reader.Close();
 
@@ -41,7 +41,7 @@ namespace LegendLore.Repositories
                 }
             }
         }
-        public NoteableLocation GetNoteableLocationById(int id)
+        public NotableLocation GetNotableLocationById(int id)
         {
             using (var conn = Connection)
             {
@@ -50,26 +50,26 @@ namespace LegendLore.Repositories
                 {
                     cmd.CommandText = @"
                         SELECT n.Id, n.Name, n.Description
-                        FROM NoteableLocation n
+                        FROM NotableLocation n
                         WHERE n.Id = @id
                     ";
                     cmd.Parameters.AddWithValue("@id", id);
 
                     var reader = cmd.ExecuteReader();
 
-                    NoteableLocation noteableLocation = null;
+                    NotableLocation notableLocation = null;
 
                     if (reader.Read())
                     {
-                        noteableLocation = NewNoteableLocationFromReader(reader);
+                        notableLocation = NewNotableLocationFromReader(reader);
                     }
                     reader.Close();
 
-                    return noteableLocation;
+                    return notableLocation;
                 }
             }
         }
-        public void Add(NoteableLocation noteableLocation)
+        public void Add(NotableLocation notableLocation)
         {
             using (var conn = Connection)
             {
@@ -77,19 +77,19 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        INSERT INTO NoteableLocation (
+                        INSERT INTO NotableLocation (
                         Name, Description )
                         OUTPUT INSERTED.ID
                         VALUES (
                             @Name, @Description )";
-                    cmd.Parameters.AddWithValue("@Name", noteableLocation.Name);
-                    cmd.Parameters.AddWithValue("@Description", noteableLocation.Description);
+                    cmd.Parameters.AddWithValue("@Name", notableLocation.Name);
+                    cmd.Parameters.AddWithValue("@Description", notableLocation.Description);
 
-                    noteableLocation.Id = (int)cmd.ExecuteScalar();
+                    notableLocation.Id = (int)cmd.ExecuteScalar();
                 }
             }
         }
-        public void Update(NoteableLocation noteableLocation)
+        public void Update(NotableLocation notableLocation)
         {
             using (var conn = Connection)
             {
@@ -97,15 +97,15 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                    UPDATE NoteableLocation
+                    UPDATE NotableLocation
                     SET
                     [Name] = @Name,
                     [Description] = @Description
                     WHERE Id = @id
                     ";
-                    cmd.Parameters.AddWithValue("@id", noteableLocation.Id);
-                    cmd.Parameters.AddWithValue("@Name", noteableLocation.Name);
-                    cmd.Parameters.AddWithValue("@Description", noteableLocation.Description);
+                    cmd.Parameters.AddWithValue("@id", notableLocation.Id);
+                    cmd.Parameters.AddWithValue("@Name", notableLocation.Name);
+                    cmd.Parameters.AddWithValue("@Description", notableLocation.Description);
                 }
             }
         }
@@ -117,7 +117,7 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        DELETE FROM NoteableLocation
+                        DELETE FROM NotableLocation
                         WHERE Id = @id";
 
                     cmd.Parameters.AddWithValue("@id", id);

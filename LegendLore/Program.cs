@@ -17,6 +17,15 @@ namespace LegendLore
             builder.Services.AddTransient<IMapRepository, MapRepository>();
             builder.Services.AddTransient<IMapPOIsRepository, MapPOIsRepository>();
             builder.Services.AddTransient<IPOIRepository, POIRepository>();
+            builder.Services.AddTransient<INotableLocationRepository, NotableLocationRepository>();
+            builder.Services.AddTransient<IQuestRepository, QuestRepository>();
+            builder.Services.AddTransient<INPCRepository, NPCRepository>();
+            builder.Services.AddTransient<IRandomEncountersTableRepository, RandomEncountersTableRepository>();
+            builder.Services.AddTransient<IPOINotableLocationsRepository, POINotableLocationsRepository>();
+            builder.Services.AddTransient<IPOINPCsRepository, POINPCsRepository>();
+            builder.Services.AddTransient<IPOIQuestsRepository, POIQuestsRepository>();
+            builder.Services.AddTransient<IPOIRandEncounterTablesRepository, POIRandEncounterTablesRepository>();
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
