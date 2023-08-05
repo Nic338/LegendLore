@@ -9,8 +9,8 @@ GO
 
 DROP TABLE IF EXISTS [POIRandEncounterTables];
 DROP TABLE IF EXISTS [RandomEncountersTable];
-DROP TABLE IF EXISTS [POINoteableLocations];
-DROP TABLE IF EXISTS [NoteableLocation];
+DROP TABLE IF EXISTS [POINotableLocations];
+DROP TABLE IF EXISTS [NotableLocation];
 DROP TABLE IF EXISTS [POIQuests];
 DROP TABLE IF EXISTS [Quest];
 DROP TABLE IF EXISTS [POINPCs];
@@ -121,13 +121,13 @@ CREATE TABLE [dbo].[NotableLocation] (
     PRIMARY KEY CLUSTERED ([Id] ASC)
 )
 
-CREATE TABLE [dbo].[POINoteableLocations] (
+CREATE TABLE [dbo].[POINotableLocations] (
     [Id]                 INT IDENTITY (1, 1) NOT NULL,
-    [NoteableLocationId] INT NOT NULL,
+    [NotableLocationId] INT NOT NULL,
     [POIId]              INT NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
-   CONSTRAINT [FK_POINoteableLocations_POI] FOREIGN KEY ([POIId]) REFERENCES [dbo].[POI] ([Id]) ON DELETE CASCADE,
-   CONSTRAINT [FK_POINoteableLocations_NoteableLocation] FOREIGN KEY ([NoteableLocationId]) REFERENCES [dbo].[NotableLocation] ([Id]) ON DELETE CASCADE
+   CONSTRAINT [FK_POINotableLocations_POI] FOREIGN KEY ([POIId]) REFERENCES [dbo].[POI] ([Id]) ON DELETE CASCADE,
+   CONSTRAINT [FK_POINotableLocations_NoteableLocation] FOREIGN KEY ([NotableLocationId]) REFERENCES [dbo].[NotableLocation] ([Id]) ON DELETE CASCADE
 )
 
 CREATE TABLE [dbo].[RandomEncountersTable] (

@@ -23,7 +23,7 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT p.Id, p.RandEncounterTablesId, p.POIId
+                        SELECT p.Id, p.RandEncountersTableId, p.POIId
                         FROM POIRandEncounterTables p
                         ";
                     var reader = cmd.ExecuteReader();
@@ -48,7 +48,7 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT p.Id, p.RandEncounterTablesId, p.POIId
+                        SELECT p.Id, p.RandEncountersTableId, p.POIId
                         FROM POIRandEncounterTables p
                         WHERE p.POIId = @poiId
                     ";
@@ -76,7 +76,7 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT p.Id, p.RandEncounterTablesId, p.POIId
+                        SELECT p.Id, p.RandEncountersTableId, p.POIId
                         FROM POIRandEncounterTables p
                         WHERE p.Id = @d
                     ";
@@ -105,12 +105,12 @@ namespace LegendLore.Repositories
                 {
                     cmd.CommandText = @"
                         INSERT INTO POIRandEncounterTables (
-                        POIId, RandEncounterTablesId)
+                        POIId, RandEncountersTableId)
                         OUTPUT INSERTED.ID
                         VALUES (@POIId, @RandEncounterTablesId)
                         ";
                     cmd.Parameters.AddWithValue("@POIId", poiRandEncounterTable.POIId);
-                    cmd.Parameters.AddWithValue("@RandEncounterTablesId", poiRandEncounterTable.RandEncountersTableId);
+                    cmd.Parameters.AddWithValue("@RandEncountersTableId", poiRandEncounterTable.RandEncountersTableId);
 
                     poiRandEncounterTable.Id = (int)cmd.ExecuteScalar();
                 }
@@ -126,12 +126,12 @@ namespace LegendLore.Repositories
                     cmd.CommandText = @"
                         UPDATE POIRandEncounterTables
                         SET POIId = @POIId,
-                            RandEncounterTablesId = @RandEncounterTablesId
+                            RandEncountersTableId = @RandEncountersTableId
                         WHERE Id = @id
                     ";
                     cmd.Parameters.AddWithValue("@id", poiRandEncounterTable.Id);
                     cmd.Parameters.AddWithValue("@POIId", poiRandEncounterTable.POIId);
-                    cmd.Parameters.AddWithValue("@RandEncounterTablesId", poiRandEncounterTable.RandEncountersTableId);
+                    cmd.Parameters.AddWithValue("@RandEncountersTableId", poiRandEncounterTable.RandEncountersTableId);
 
                     cmd.ExecuteNonQuery();
                 }

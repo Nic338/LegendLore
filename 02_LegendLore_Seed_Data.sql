@@ -95,7 +95,7 @@ INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (8, 8, 8)
 INSERT INTO [POIQuests] ([Id], [QuestId], [POIId]) VALUES (9, 9, 9)
 SET IDENTITY_INSERT [POIQuests] OFF
 
-SET IDENTITY_INSERT [NoteableLocation] ON
+SET IDENTITY_INSERT [NotableLocation] ON
 INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (1, 'Righteous Brand Barracks', 'A large test building with tall test columns that make up the front of the test')
 INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (2, 'Marrils Cabin', 'A large test building with tall test columns that make up the front of the test')
 INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (3, 'Castle Ungebroch', 'A large test building with tall test columns that make up the front of the test')
@@ -105,19 +105,19 @@ INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (6, 'Soltryce
 INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (7, 'Kortashs Smithy', 'A large test building with tall test columns that make up the front of the test')
 INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (8, 'The Tomb of Angorbaldash', 'A large test building with tall test columns that make up the front of the test')
 INSERT INTO [NotableLocation] ([Id], [Name], [Description]) VALUES (9, 'Dragon Seat', 'A large test building with tall test columns that make up the front of the test')
-SET IDENTITY_INSERT [NoteableLocation] OFF
+SET IDENTITY_INSERT [NotableLocation] OFF
 
-SET IDENTITY_INSERT [POINoteableLocations] ON
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (1, 1, 1)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (2, 2, 2)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (3, 3, 3)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (4, 4, 4)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (5, 5, 5)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (6, 6, 6)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (7, 7, 7)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (8, 8, 8)
-INSERT INTO [POINoteableLocations] ([Id], [NoteableLocationId], [POIId]) VALUES (9, 9, 9)
-SET IDENTITY_INSERT [POINoteableLocations] OFF
+SET IDENTITY_INSERT [POINotableLocations] ON
+INSERT INTO [POINotableLocations] ([Id], [NotableLocationId], [POIId]) VALUES (1, 1, 1)
+INSERT INTO [POINotableLocations] ([Id], [NotableLocationId], [POIId]) VALUES (2, 2, 2)
+INSERT INTO [POINotableLocations] ([Id], [NotableLocationId], [POIId]) VALUES (3, 3, 3)
+INSERT INTO [POINotableLocations] ([Id], [NotableLocationId], [POIId]) VALUES (4, 4, 4)
+INSERT INTO [POINotableLocations] ([Id], [NotableLocationId], [POIId]) VALUES (5, 5, 5)
+INSERT INTO [POINotableLocations] ([Id], [NotableLocationId], [POIId]) VALUES (6, 6, 6)
+INSERT INTO [POINotableLocations] ([Id], [NotableLocationId], [POIId]) VALUES (7, 7, 7)
+INSERT INTO [POINotableLocations] ([Id], [NotableLocationId], [POIId]) VALUES (8, 8, 8)
+INSERT INTO [POINotableLocations] ([Id], [NotableLocationId], [POIId]) VALUES (9, 9, 9)
+SET IDENTITY_INSERT [POINotableLocations] OFF
 
 SET IDENTITY_INSERT [RandomEncountersTable] ON
 INSERT INTO [RandomEncountersTable] ([Id], [Encounter]) VALUES (1, 'Five Bandits and One Bandit Captain')
