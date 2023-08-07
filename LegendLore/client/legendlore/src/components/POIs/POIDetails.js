@@ -10,6 +10,9 @@ import { NPCEditForm } from "./NPCEditForm";
 import { getAllPOIQuestsByPOIId } from "../../Managers/POIQuestsManager";
 import { deleteQuest, getAllQuests } from "../../Managers/QuestManager";
 import { QuestForm } from "./QuestCreateForm";
+import { CreateNPC } from "./CreateNPC";
+import { DeleteNPC } from "./DeleteNPC";
+import { EditNPC } from "./EditNPC";
 
 export const POIDetails = () => {
     const [POI, setPOI] = useState([]);
@@ -20,9 +23,7 @@ export const POIDetails = () => {
     const [editNPC, setEditNPC] = useState(null);
     const [editQuest, setEditQuest] = useState(null);
     const { id } = useParams();
-    const [newNPCModalIsOpen, setNewNPCModalIsOpen] = useState(false);
     const [editNPCModalIsOpen, setEditNPCModalIsOpen] = useState(false);
-    const [showNPCDeleteConfirmationModal, setShowNPCDeleteConfirmationModal] = useState(false);
     const [newQuestModalIsOpen, setNewQuestModalIsOpen] = useState(false);
     const [editQuestModalIsOpen, setEditQuestModalIsOpen] = useState(false);
 
@@ -98,45 +99,21 @@ export const POIDetails = () => {
             })
     }
 
-    const handleNewNPCModalOpen = () => {
-        setNewNPCModalIsOpen(true);
-    }
-    const handleEditNPCModalOpen = (npc) => {
-        setEditNPC(npc)
-        setEditNPCModalIsOpen(true);
-    }
+    // const handleEditNPCModalOpen = (npc) => {
+    //     setEditNPC(npc)
+    //     setEditNPCModalIsOpen(true);
+    // }
 
-    const handleNewNPCModalClose = () => {
-        setNewNPCModalIsOpen(false);
-        getAllPOINPCsByPOIId(id).then((poiNPCdata) => {
-            setPOINPCs(poiNPCdata)
-        })
-        getAllNPCs()
-            .then((npcs) => {
-                setNPCs(npcs)
-            })
-    };
-    const handleEditNPCModalClose = () => {
-        setEditNPCModalIsOpen(false);
-        getAllPOINPCsByPOIId(id).then((poiNPCdata) => {
-            setPOINPCs(poiNPCdata)
-        })
-        getAllNPCs()
-            .then((npcs) => {
-                setNPCs(npcs)
-            })
-    };
-
-    const handleNPCDelete = (npcId) => {
-        deleteNPC(npcId)
-        getAllPOINPCsByPOIId(id).then((poiNPCdata) => {
-            setPOINPCs(poiNPCdata)
-        })
-        getAllNPCs()
-            .then((npcs) => {
-                setNPCs(npcs)
-            })
-    }
+    // const handleEditNPCModalClose = () => {
+    //     setEditNPCModalIsOpen(false);
+    //     getAllPOINPCsByPOIId(id).then((poiNPCdata) => {
+    //         setPOINPCs(poiNPCdata)
+    //     })
+    //     getAllNPCs()
+    //         .then((npcs) => {
+    //             setNPCs(npcs)
+    //         })
+    // };
 
     return (
         <>
@@ -153,26 +130,16 @@ export const POIDetails = () => {
                                     <CardSubtitle>{npc?.description}</CardSubtitle>
                                 </CardBody>
                                 <div className="npc-delete-button-container">
-                                    <Button color="link" size="sm" className="delete-button" onClick={() => handleEditNPCModalOpen(npc)}>Edit</Button>
-                                    <Button color="link" size="sm" className="delete-button" onClick={() => setShowNPCDeleteConfirmationModal(true)}>Delete</Button>
+                                    {/* <Button color="link" size="sm" className="delete-button" onClick={() => handleEditNPCModalOpen(npc)}>Edit</Button> */}
+                                    <EditNPC pOIId={id} setNPCs={setNPCs} setPOINPCs={setPOINPCs} />
+                                    <DeleteNPC pOIId={id} npcProp={npc} setNPCs={setNPCs} setPOINPCs={setPOINPCs}/>
                                 </div>
-                                <Modal centered isOpen={showNPCDeleteConfirmationModal} toggle={() => setShowNPCDeleteConfirmationModal(false)}>
-                                    <ModalHeader toggle={() => setShowNPCDeleteConfirmationModal(false)}></ModalHeader>
-                                    <ModalBody>
-                                        Are you ABSOLUTELY SURE you want to delete your NPC "{npc?.name}"?
-                                    </ModalBody>
-                                    <ModalFooter>
-                                        <Button color="danger" onClick={() => handleNPCDelete(npc.id)}>Delete</Button>{' '}
-                                        <Button color="secondary" onClick={() => setShowNPCDeleteConfirmationModal(false)}>Cancel</Button>
-                                    </ModalFooter>
-                                </Modal>
                             </div>
-                            <NPCEditForm handleModalClose={handleEditNPCModalClose} npcId={editNPC?.id} modalIsOpen={editNPCModalIsOpen} />
+                            {/* <NPCEditForm handleModalClose={handleEditNPCModalClose} npcId={editNPC?.id} modalIsOpen={editNPCModalIsOpen} /> */}
                         </Card>
                     )
                 })}
-                <Button onClick={handleNewNPCModalOpen}>Add NPC</Button>
-                <NPCCreateForm handleModalClose={handleNewNPCModalClose} pOIId={id} modalIsOpen={newNPCModalIsOpen} />
+                <CreateNPC pOIId={id} setNPCs={setNPCs} setPOINPCs={setPOINPCs}/>
             </Container>
             <Container>
                 <h2>Quests</h2>
