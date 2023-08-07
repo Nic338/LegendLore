@@ -1,12 +1,20 @@
 import { Button } from "reactstrap";
 import { NPCEditForm } from "./NPCEditForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getAllPOINPCsByPOIId } from "../../Managers/POINPCsManager";
-import { getAllNPCs } from "../../Managers/NPCManager";
+import { getAllNPCs, getNPCbyId } from "../../Managers/NPCManager";
 
-export const EditNPC = ({pOIId, npcProp, setNPCs, setPOINPCs }) => {
+export const EditNPC = ({ pOIId, npcProp, setNPCs, setPOINPCs }) => {
     const [editNPC, setEditNPC] = useState(null);
     const [editNPCModalIsOpen, setEditNPCModalIsOpen] = useState(false);
+
+    useEffect(() => {
+        if (npcProp) {
+            getNPCbyId(npcProp.id).then((res) => {
+                setEditNPC(res)
+            })
+        }
+    }, [npcProp])
 
     const handleEditNPCModalOpen = (npcProp) => {
         setEditNPC(npcProp)
@@ -25,8 +33,12 @@ export const EditNPC = ({pOIId, npcProp, setNPCs, setPOINPCs }) => {
     };
     return (
         <>
-        <Button color="link" size="sm" className="delete-button" onClick={() => handleEditNPCModalOpen(npcProp)}>Edit</Button>
-        <NPCEditForm handleModalClose={handleEditNPCModalClose} npcId={editNPC?.id} modalIsOpen={editNPCModalIsOpen}/>
+            <Button color="link" size="sm" className="delete-button" onClick={() => handleEditNPCModalOpen(npcProp)}>Edit</Button>
+            <NPCEditForm
+                handleModalClose={handleEditNPCModalClose}
+                npcToEdit={editNPC}
+                modalIsOpen={editNPCModalIsOpen}
+            />
         </>
     )
 }

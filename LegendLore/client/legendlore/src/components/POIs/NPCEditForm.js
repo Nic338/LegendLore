@@ -2,25 +2,26 @@ import { useEffect, useState } from "react"
 import { editNPC, getNPCbyId } from "../../Managers/NPCManager";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 
-export const NPCEditForm = ({ handleModalClose, modalIsOpen, npcId }) => {
+export const NPCEditForm = ({ handleModalClose, modalIsOpen, npcToEdit }) => {
     const [editedNPC, setEditedNPC] = useState({
         name: "",
         description: ""
     })
 
     useEffect(() => {
-        if (npcId) {
-            getNPCbyId(npcId).then((res) => {
-                setEditedNPC(res)
+        if (npcToEdit) {
+            setEditedNPC({
+                name: npcToEdit.name,
+                description: npcToEdit.description
             })
         }
-    }, [npcId])
+    },[npcToEdit]);
 
     const handleSaveButtonClick = (e) => {
         e.preventDefault();
 
         const NPCToSendToAPI = {
-            Id: parseInt(npcId),
+            Id: parseInt(npcToEdit.id),
             Name: editedNPC.name,
             Description: editedNPC.description
         }

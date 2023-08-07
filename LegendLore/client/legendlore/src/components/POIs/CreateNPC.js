@@ -6,7 +6,7 @@ import { Button } from "reactstrap";
 
 export const CreateNPC = ({ pOIId, setNPCs, setPOINPCs }) => {
     const [newNPCModalIsOpen, setNewNPCModalIsOpen] = useState(false);
-    
+
 
     const handleNewNPCModalOpen = () => {
         setNewNPCModalIsOpen(true);
@@ -25,8 +25,12 @@ export const CreateNPC = ({ pOIId, setNPCs, setPOINPCs }) => {
 
     return (
         <>
-        <Button onClick={handleNewNPCModalOpen}>Add NPC</Button>
-    <NPCCreateForm handleModalClose={handleNewNPCModalClose} pOIId={pOIId} modalIsOpen={newNPCModalIsOpen} />
+            <Button onClick={handleNewNPCModalOpen}>Add NPC</Button>
+            <NPCCreateForm
+                handleModalClose={handleNewNPCModalClose}
+                pOIId={pOIId}
+                modalIsOpen={newNPCModalIsOpen}
+            />
         </>
     )
 }

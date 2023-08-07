@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { getPOIbyId } from "../../Managers/POIManager";
-import { NPCCreateForm } from "./NPCCreateForm";
-import { Button, Card, CardBody, CardSubtitle, CardTitle, Container, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+import { Button, Card, CardBody, CardSubtitle, CardTitle, Container} from "reactstrap";
 import { getAllPOINPCsByPOIId } from "../../Managers/POINPCsManager";
-import { deleteNPC, getAllNPCs } from "../../Managers/NPCManager";
+import { getAllNPCs } from "../../Managers/NPCManager";
 import './POI.css'
-import { NPCEditForm } from "./NPCEditForm";
 import { getAllPOIQuestsByPOIId } from "../../Managers/POIQuestsManager";
 import { deleteQuest, getAllQuests } from "../../Managers/QuestManager";
 import { QuestForm } from "./QuestCreateForm";
@@ -20,10 +18,8 @@ export const POIDetails = () => {
     const [NPCs, setNPCs] = useState([]);
     const [POIQuests, setPOIQuests] = useState([]);
     const [Quests, setQuests] = useState([]);
-    const [editNPC, setEditNPC] = useState(null);
     const [editQuest, setEditQuest] = useState(null);
     const { id } = useParams();
-    const [editNPCModalIsOpen, setEditNPCModalIsOpen] = useState(false);
     const [newQuestModalIsOpen, setNewQuestModalIsOpen] = useState(false);
     const [editQuestModalIsOpen, setEditQuestModalIsOpen] = useState(false);
 
@@ -98,23 +94,6 @@ export const POIDetails = () => {
                 setNPCs(quests)
             })
     }
-
-    // const handleEditNPCModalOpen = (npc) => {
-    //     setEditNPC(npc)
-    //     setEditNPCModalIsOpen(true);
-    // }
-
-    // const handleEditNPCModalClose = () => {
-    //     setEditNPCModalIsOpen(false);
-    //     getAllPOINPCsByPOIId(id).then((poiNPCdata) => {
-    //         setPOINPCs(poiNPCdata)
-    //     })
-    //     getAllNPCs()
-    //         .then((npcs) => {
-    //             setNPCs(npcs)
-    //         })
-    // };
-
     return (
         <>
             <h1>{POI.name}</h1>
@@ -130,12 +109,10 @@ export const POIDetails = () => {
                                     <CardSubtitle>{npc?.description}</CardSubtitle>
                                 </CardBody>
                                 <div className="npc-delete-button-container">
-                                    {/* <Button color="link" size="sm" className="delete-button" onClick={() => handleEditNPCModalOpen(npc)}>Edit</Button> */}
-                                    <EditNPC pOIId={id} setNPCs={setNPCs} setPOINPCs={setPOINPCs} />
+                                    <EditNPC pOIId={id} npcProp={npc} setNPCs={setNPCs} setPOINPCs={setPOINPCs} />
                                     <DeleteNPC pOIId={id} npcProp={npc} setNPCs={setNPCs} setPOINPCs={setPOINPCs}/>
                                 </div>
                             </div>
-                            {/* <NPCEditForm handleModalClose={handleEditNPCModalClose} npcId={editNPC?.id} modalIsOpen={editNPCModalIsOpen} /> */}
                         </Card>
                     )
                 })}
