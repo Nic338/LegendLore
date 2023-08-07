@@ -100,7 +100,7 @@ CREATE TABLE [dbo].[POINPCs] (
 CREATE TABLE [dbo].[Quest] (
     [Id]          INT            IDENTITY (1, 1) NOT NULL,
     [Title]       NVARCHAR (255) NOT NULL,
-    [Description] NVARCHAR (255) NOT NULL,
+    [Description] NVARCHAR (MAX) NOT NULL,
     [Reward]      NVARCHAR (255) NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 )

@@ -25,7 +25,7 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT q.Title, q.Description, q.Reward
+                        SELECT q.Id, q.Title, q.Description, q.Reward
                         FROM Quest q
                     ";
                     var reader = cmd.ExecuteReader();
@@ -50,7 +50,7 @@ namespace LegendLore.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT q.Title, q.Description, q.Reward
+                        SELECT q.Id, q.Title, q.Description, q.Reward
                         FROM Quest q
                         WHERE q.Id = @id
                     ";

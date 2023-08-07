@@ -3,7 +3,7 @@ import { addQuest } from "../../Managers/QuestManager";
 import { addPOIQuest } from "../../Managers/POIQuestsManager";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 
-export const QuestForm = ({ handleModalClose, pOIId, modalIsOpen }) => {
+export const QuestCreateForm = ({ handleModalClose, pOIId, modalIsOpen }) => {
     const [newQuest, setNewQuest] = useState({
         title: "",
         description: "",
@@ -13,24 +13,25 @@ export const QuestForm = ({ handleModalClose, pOIId, modalIsOpen }) => {
     const handleSaveButtonClick = (e) => {
         e.preventDefault();
         const QuestToSendToAPI = {
-            Name: newQuest.name,
-            Description: newQuest.description
+            Title: newQuest.title,
+            Description: newQuest.description,
+            Reward: newQuest.reward
         }
         addQuest(QuestToSendToAPI)
-        .then((questId) => {
-            if (questId) {
-                const POIQuestToSendToAPI = {
-                    POIId: pOIId,
-                    QuestId: questId
+            .then((questId) => {
+                if (questId) {
+                    const POIQuestToSendToAPI = {
+                        POIId: pOIId,
+                        QuestId: questId
+                    }
+                    addPOIQuest(POIQuestToSendToAPI)
                 }
-                addPOIQuest(POIQuestToSendToAPI)
-            }
-        })
+            })
             .then(() => {
                 handleModalClose()
             })
             .catch((error) => {
-                console.error("Error adding new NPC:", error);
+                console.error("Error adding new quest hook:", error);
             })
     }
 
@@ -40,16 +41,16 @@ export const QuestForm = ({ handleModalClose, pOIId, modalIsOpen }) => {
             <ModalBody>
                 <form>
                     <div className="form-group">
-                        <label htmlFor="name">Name:</label>
+                        <label htmlFor="name">Title:</label>
                         <input
                             type="text"
                             id="name"
                             className="form-control"
-                            value={newQuest.name}
+                            value={newQuest.title}
                             onChange={
                                 (event) => {
                                     const copy = { ...newQuest }
-                                    copy.name = event.target.value
+                                    copy.title = event.target.value
                                     setNewQuest(copy)
                                 }
                             }

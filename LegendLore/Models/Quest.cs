@@ -9,6 +9,6 @@ namespace LegendLore.Models
         public string Title { get; set; }
         [Required]
         public string Description { get; set; }
-        public string Reward { get; set; }
+        public string? Reward { get; set; }
     }
 }

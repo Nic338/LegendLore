@@ -11,6 +11,7 @@ import { QuestForm } from "./QuestCreateForm";
 import { CreateNPC } from "./CreateNPC";
 import { DeleteNPC } from "./DeleteNPC";
 import { EditNPC } from "./EditNPC";
+import { CreateQuest } from "./CreateQuest";
 
 export const POIDetails = () => {
     const [POI, setPOI] = useState([]);
@@ -20,7 +21,6 @@ export const POIDetails = () => {
     const [Quests, setQuests] = useState([]);
     const [editQuest, setEditQuest] = useState(null);
     const { id } = useParams();
-    const [newQuestModalIsOpen, setNewQuestModalIsOpen] = useState(false);
     const [editQuestModalIsOpen, setEditQuestModalIsOpen] = useState(false);
 
     useEffect(() => {
@@ -55,24 +55,11 @@ export const POIDetails = () => {
         })
     },[])
 
-    const handleNewQuestModalOpen = () => {
-        setNewQuestModalIsOpen(true);
-    }
     const handleEditQuestModalOpen = (quest) => {
         setEditQuest(quest)
         setEditQuestModalIsOpen(true);
     }
 
-    const handleNewQuestModalClose = () => {
-        setNewQuestModalIsOpen(false);
-        getAllPOIQuestsByPOIId(id).then((poiQuestdata) => {
-            setPOIQuests(poiQuestdata)
-        })
-        getAllQuests()
-            .then((quests) => {
-                setQuests(quests)
-            })
-    };
     const handleEditQuestModalClose = () => {
         setEditQuestModalIsOpen(false);
         getAllPOIQuestsByPOIId(id).then((poiQuestdata) => {
@@ -120,8 +107,22 @@ export const POIDetails = () => {
             </Container>
             <Container>
                 <h2>Quests</h2>
-                <Button onClick={handleNewQuestModalOpen}>Add Quest</Button>
-                <QuestForm handleModalClose={handleNewQuestModalClose} pOIId={id} modalIsOpen={newQuestModalIsOpen} />
+                {POIQuests.map(poiQuest => {
+                    const quest = Quests.find((quest) => quest.id === poiQuest.id)
+                    return (
+                        <Card key={poiQuest.id}>
+                            <div className="quest-card-content">
+                                <CardBody>
+                                    <CardTitle>{quest?.title}</CardTitle>
+                                    <CardSubtitle>{quest?.description}</CardSubtitle>
+                                    {quest?.reward ? <CardSubtitle>{quest?.reward}</CardSubtitle> : <></>}
+                                </CardBody>
+                                <div className="quest-delete-button-container"></div>
+                            </div>
+                        </Card>
+                    )
+                })}
+                <CreateQuest pOIId={id} setQuests={setQuests} setPOIQuests={setPOIQuests} />
             </Container>
         </>
     )
