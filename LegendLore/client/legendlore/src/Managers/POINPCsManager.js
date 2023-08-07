@@ -1,7 +1,7 @@
 const baseUrl = "/api/POINPCs"
 
 export const getAllPOINPCsByPOIId = (id) => {
-    return fetch(`${baseUrl}/GetPOINPCsByPOIId/${id}`)
+    return fetch(`${baseUrl}/GetPOINPCByPOIId/${id}`)
         .then((res) => res.json())
 };
 

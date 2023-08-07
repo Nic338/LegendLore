@@ -1,0 +1,10 @@
+.npc-card-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.npc-delete-button-container {
+    margin-top: auto;
+    margin-left: auto;
+}
