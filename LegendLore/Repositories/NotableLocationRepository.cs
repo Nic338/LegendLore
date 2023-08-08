@@ -106,6 +106,8 @@ namespace LegendLore.Repositories
                     cmd.Parameters.AddWithValue("@id", notableLocation.Id);
                     cmd.Parameters.AddWithValue("@Name", notableLocation.Name);
                     cmd.Parameters.AddWithValue("@Description", notableLocation.Description);
+
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

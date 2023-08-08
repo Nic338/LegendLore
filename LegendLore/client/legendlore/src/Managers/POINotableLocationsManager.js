@@ -1,6 +1,6 @@
 const baseUrl = "/api/POINotableLocations"
 
-export const getAllPOINotableLocationsByMapId = (id) => {
+export const getAllPOINotableLocationsByPOIId = (id) => {
     return fetch(`${baseUrl}/GetPOINotableLocationsByPOIId/${id}`)
         .then((res) => res.json())
 };

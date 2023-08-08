@@ -14,13 +14,18 @@ export const CreateNPC = ({ pOIId, setNPCs, setPOINPCs }) => {
 
     const handleNewNPCModalClose = () => {
         setNewNPCModalIsOpen(false);
-        getAllPOINPCsByPOIId(pOIId).then((poiNPCdata) => {
-            setPOINPCs(poiNPCdata)
-        })
-        getAllNPCs()
-            .then((npcs) => {
-                setNPCs(npcs)
+    
+        getAllPOINPCsByPOIId(pOIId)
+            .then((poiNPCdata) => {
+                setPOINPCs(poiNPCdata);
+                return getAllNPCs();
             })
+            .then((npcs) => {
+                setNPCs(npcs);
+            })
+            .catch((error) => {
+                console.error("Error closing modal:", error);
+            });
     };
 
     return (

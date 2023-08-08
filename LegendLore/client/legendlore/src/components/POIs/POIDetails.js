@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { getPOIbyId } from "../../Managers/POIManager";
-import { Button, Card, CardBody, CardSubtitle, CardTitle, Container} from "reactstrap";
-import { getAllPOINPCsByPOIId } from "../../Managers/POINPCsManager";
+import { Card, CardBody, CardSubtitle, CardTitle, Container} from "reactstrap";
 import { getAllNPCs } from "../../Managers/NPCManager";
-import './POI.css'
+import { getAllQuests } from "../../Managers/QuestManager";
+import { getAllNotableLocations } from "../../Managers/NotableLocationManager";
+import { getAllPOINPCsByPOIId } from "../../Managers/POINPCsManager";
 import { getAllPOIQuestsByPOIId } from "../../Managers/POIQuestsManager";
-import { deleteQuest, getAllQuests } from "../../Managers/QuestManager";
-import { QuestForm } from "./QuestCreateForm";
+import { getAllPOINotableLocationsByPOIId } from "../../Managers/POINotableLocationsManager";
 import { CreateNPC } from "./CreateNPC";
 import { DeleteNPC } from "./DeleteNPC";
 import { EditNPC } from "./EditNPC";
 import { CreateQuest } from "./CreateQuest";
+import { EditQuest } from "./EditQuest";
+import { DeleteQuest } from "./DeleteQuest";
+import './POI.css'
+import { CreateNotableLocation } from "./CreateNotableLocation";
+import { EditNotableLocation } from "./EditNotableLocation";
+import { DeleteNotableLocation } from "./DeleteNotableLocation";
 
 export const POIDetails = () => {
     const [POI, setPOI] = useState([]);
@@ -19,9 +25,9 @@ export const POIDetails = () => {
     const [NPCs, setNPCs] = useState([]);
     const [POIQuests, setPOIQuests] = useState([]);
     const [Quests, setQuests] = useState([]);
-    const [editQuest, setEditQuest] = useState(null);
+    const [POILocations, setPOILocations] = useState([]);
+    const [Locations, setLocations] = useState([]);
     const { id } = useParams();
-    const [editQuestModalIsOpen, setEditQuestModalIsOpen] = useState(false);
 
     useEffect(() => {
         getPOIbyId(id).then((poi) => {
@@ -53,34 +59,21 @@ export const POIDetails = () => {
         .then((quests) => {
             setQuests(quests)
         })
-    },[])
+    },[]);
 
-    const handleEditQuestModalOpen = (quest) => {
-        setEditQuest(quest)
-        setEditQuestModalIsOpen(true);
-    }
-
-    const handleEditQuestModalClose = () => {
-        setEditQuestModalIsOpen(false);
-        getAllPOIQuestsByPOIId(id).then((poiQuestdata) => {
-            setPOIQuests(poiQuestdata)
+    useEffect(() => {
+        getAllPOINotableLocationsByPOIId(id).then((poiLocationdata) => {
+            setPOILocations(poiLocationdata)
         })
-        getAllQuests()
-            .then((quests) => {
-                setNPCs(quests)
-            })
-    };
+    },[id]);
 
-    const handleQuestDelete = (questId) => {
-        deleteQuest(questId)
-        getAllPOIQuestsByPOIId(id).then((poiQuestdata) => {
-            setPOIQuests(poiQuestdata)
+    useEffect(() => {
+        getAllNotableLocations()
+        .then((notableLocations) => {
+            setLocations(notableLocations)
         })
-        getAllQuests()
-            .then((quests) => {
-                setNPCs(quests)
-            })
-    }
+    },[]);
+
     return (
         <>
             <h1>{POI.name}</h1>
@@ -108,7 +101,7 @@ export const POIDetails = () => {
             <Container>
                 <h2>Quests</h2>
                 {POIQuests.map(poiQuest => {
-                    const quest = Quests.find((quest) => quest.id === poiQuest.id)
+                    const quest = Quests.find((quest) => quest.id === poiQuest.questId)
                     return (
                         <Card key={poiQuest.id}>
                             <div className="quest-card-content">
@@ -118,11 +111,34 @@ export const POIDetails = () => {
                                     {quest?.reward ? <CardSubtitle>{quest?.reward}</CardSubtitle> : <></>}
                                 </CardBody>
                                 <div className="quest-delete-button-container"></div>
+                                <EditQuest pOIId={id} questProp={quest} setQuests={setQuests} setPOIQuests={setPOIQuests}/>
+                                <DeleteQuest pOIId={id} questProp={quest} setQuests={setQuests} setPOIQuests={setPOIQuests}/>
                             </div>
                         </Card>
                     )
                 })}
                 <CreateQuest pOIId={id} setQuests={setQuests} setPOIQuests={setPOIQuests} />
+            </Container>
+            <Container>
+                <h2>Notable Locations</h2>
+                {POILocations.map(poiLocation => {
+                    const location = Locations.find((location) => location.id === poiLocation.notableLocationId)
+                    return (
+                        <Card key={poiLocation.id}>
+                            <div className="location-card-content">
+                                <CardBody>
+                                    <CardTitle>{location?.name}</CardTitle>
+                                    <CardSubtitle>{location?.description}</CardSubtitle>
+                                </CardBody>
+                                <div className="quest-delete-button-container">
+                                <EditNotableLocation pOIId={id} locationProp={location} setLocations={setLocations} setPOILocations={setPOILocations}/>
+                                <DeleteNotableLocation pOIId={id} locationProp={location} setLocations={setLocations} setPOILocations={setPOILocations}/>
+                                </div>
+                            </div>
+                        </Card>
+                    )
+                })}
+                <CreateNotableLocation pOIId={id} setLocations={setLocations} setPOILocations={setPOILocations} />
             </Container>
         </>
     )

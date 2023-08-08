@@ -13,13 +13,18 @@ export const CreateQuest = ({ pOIId, setQuests, setPOIQuests }) => {
 
     const handleNewQuestModalClose = () => {
         setNewQuestModalIsOpen(false);
-        getAllPOIQuestsByPOIId(pOIId).then((poiQuestdata) => {
+
+        getAllPOIQuestsByPOIId(pOIId)
+        .then((poiQuestdata) => {
             setPOIQuests(poiQuestdata)
+            return getAllQuests();
         })
-        getAllQuests()
-            .then((quests) => {
-                setQuests(quests)
+        .then((quests) => {
+            setQuests(quests)
             })
+        .catch((error) => {
+            console.error("Error closing modal:", error);
+        })
     };
 
     return (

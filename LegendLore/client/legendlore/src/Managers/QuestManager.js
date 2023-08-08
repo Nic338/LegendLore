@@ -29,7 +29,7 @@ export const addQuest = (singleQuest) => {
     });
 };
 
-export const editMapQuest = (singleQuest) => {
+export const editQuest = (singleQuest) => {
     return fetch(`${baseUrl}?id=${singleQuest.Id}`, {
         method: "PUT",
         headers: {

@@ -106,12 +106,12 @@ namespace LegendLore.Repositories
                 {
                     cmd.CommandText = @"
                         INSERT INTO POINotableLocations (
-                        POIId, NoteableLocationId)
+                        POIId, NotableLocationId)
                         OUTPUT INSERTED.ID
-                        VALUES (@POIId, @NoteableLocationId)
+                        VALUES (@POIId, @NotableLocationId)
                         ";
                     cmd.Parameters.AddWithValue("@POIId", poiNotableLocation.POIId);
-                    cmd.Parameters.AddWithValue("@NoteableLocationId", poiNotableLocation.NotableLocationId);
+                    cmd.Parameters.AddWithValue("@NotableLocationId", poiNotableLocation.NotableLocationId);
 
                     poiNotableLocation.Id = (int)cmd.ExecuteScalar();
                 }

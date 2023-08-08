@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { editNPC, getNPCbyId } from "../../Managers/NPCManager";
+import { editNPC } from "../../Managers/NPCManager";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 
 export const NPCEditForm = ({ handleModalClose, modalIsOpen, npcToEdit }) => {
@@ -15,7 +15,7 @@ export const NPCEditForm = ({ handleModalClose, modalIsOpen, npcToEdit }) => {
                 description: npcToEdit.description
             })
         }
-    },[npcToEdit]);
+    }, [npcToEdit]);
 
     const handleSaveButtonClick = (e) => {
         e.preventDefault();
@@ -31,8 +31,8 @@ export const NPCEditForm = ({ handleModalClose, modalIsOpen, npcToEdit }) => {
             })
             .catch((error) => {
                 console.error("Error editing NPC:", error);
-            })
-    }
+            });
+    };
 
     return (
         <Modal isOpen={modalIsOpen} toggle={handleModalClose}>

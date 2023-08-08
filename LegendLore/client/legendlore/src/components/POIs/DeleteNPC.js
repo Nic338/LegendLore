@@ -8,13 +8,20 @@ export const DeleteNPC = ({ pOIId, npcProp, setPOINPCs, setNPCs }) => {
 
     const handleNPCDelete = (npcId) => {
         deleteNPC(npcId)
-        getAllPOINPCsByPOIId(pOIId).then((poiNPCdata) => {
-            setPOINPCs(poiNPCdata)
-        })
-        getAllNPCs()
-            .then((npcs) => {
-                setNPCs(npcs)
+            .then(() => {
+                setShowNPCDeleteConfirmationModal(false)
+                return getAllPOINPCsByPOIId(pOIId);
             })
+            .then((poiNPCdata) => {
+                setPOINPCs(poiNPCdata)
+                return getAllNPCs();
+            })
+            .then((npcs) => {
+                setNPCs(npcs);
+            })
+            .catch((error) => {
+                console.error("Error deleting NPC:", error);
+            });
     }
     return (
         <>

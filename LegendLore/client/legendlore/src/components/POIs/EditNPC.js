@@ -23,14 +23,20 @@ export const EditNPC = ({ pOIId, npcProp, setNPCs, setPOINPCs }) => {
 
     const handleEditNPCModalClose = () => {
         setEditNPCModalIsOpen(false);
-        getAllPOINPCsByPOIId(pOIId).then((poiNPCdata) => {
-            setPOINPCs(poiNPCdata)
-        })
-        getAllNPCs()
-            .then((npcs) => {
-                setNPCs(npcs)
+
+        getAllPOINPCsByPOIId(pOIId)
+            .then((poiNPCdata) => {
+                setPOINPCs(poiNPCdata);
+                return getAllNPCs();
             })
+            .then((npcs) => {
+                setNPCs(npcs);
+            })
+            .catch((error) => {
+                console.error("Error closing modal:", error);
+            });
     };
+
     return (
         <>
             <Button color="link" size="sm" className="delete-button" onClick={() => handleEditNPCModalOpen(npcProp)}>Edit</Button>
