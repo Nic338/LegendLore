@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { getPOIbyId } from "../../Managers/POIManager";
-import { Card, CardBody, CardSubtitle, CardTitle, Container} from "reactstrap";
+import { Card, CardBody, CardSubtitle, CardTitle, Container } from "reactstrap";
 import { getAllNPCs } from "../../Managers/NPCManager";
 import { getAllQuests } from "../../Managers/QuestManager";
 import { getAllNotableLocations } from "../../Managers/NotableLocationManager";
@@ -52,94 +52,103 @@ export const POIDetails = () => {
         getAllPOIQuestsByPOIId(id).then((poiQuestData) => {
             setPOIQuests(poiQuestData)
         })
-    },[id])
+    }, [id])
 
     useEffect(() => {
         getAllQuests()
-        .then((quests) => {
-            setQuests(quests)
-        })
-    },[]);
+            .then((quests) => {
+                setQuests(quests)
+            })
+    }, []);
 
     useEffect(() => {
         getAllPOINotableLocationsByPOIId(id).then((poiLocationdata) => {
             setPOILocations(poiLocationdata)
         })
-    },[id]);
+    }, [id]);
 
     useEffect(() => {
         getAllNotableLocations()
-        .then((notableLocations) => {
-            setLocations(notableLocations)
-        })
-    },[]);
+            .then((notableLocations) => {
+                setLocations(notableLocations)
+            })
+    }, []);
 
     return (
-        <>
-            <h1>{POI.name}</h1>
-            <Container>
-                <h2>NPCs</h2>
-                {POINPCs.map(poiNPC => {
-                    const npc = NPCs.find((npc) => npc.id === poiNPC.npcId)
-                    return (
-                        <Card key={poiNPC.id}>
-                            <div className="npc-card-content">
-                                <CardBody>
-                                    <CardTitle>{npc?.name}</CardTitle>
-                                    <CardSubtitle>{npc?.description}</CardSubtitle>
-                                </CardBody>
-                                <div className="npc-delete-button-container">
-                                    <EditNPC pOIId={id} npcProp={npc} setNPCs={setNPCs} setPOINPCs={setPOINPCs} />
-                                    <DeleteNPC pOIId={id} npcProp={npc} setNPCs={setNPCs} setPOINPCs={setPOINPCs}/>
-                                </div>
-                            </div>
-                        </Card>
-                    )
-                })}
-                <CreateNPC pOIId={id} setNPCs={setNPCs} setPOINPCs={setPOINPCs}/>
-            </Container>
-            <Container>
-                <h2>Quests</h2>
-                {POIQuests.map(poiQuest => {
-                    const quest = Quests.find((quest) => quest.id === poiQuest.questId)
-                    return (
-                        <Card key={poiQuest.id}>
-                            <div className="quest-card-content">
-                                <CardBody>
-                                    <CardTitle>{quest?.title}</CardTitle>
-                                    <CardSubtitle>{quest?.description}</CardSubtitle>
-                                    {quest?.reward ? <CardSubtitle>{quest?.reward}</CardSubtitle> : <></>}
-                                </CardBody>
-                                <div className="quest-delete-button-container"></div>
-                                <EditQuest pOIId={id} questProp={quest} setQuests={setQuests} setPOIQuests={setPOIQuests}/>
-                                <DeleteQuest pOIId={id} questProp={quest} setQuests={setQuests} setPOIQuests={setPOIQuests}/>
-                            </div>
-                        </Card>
-                    )
-                })}
-                <CreateQuest pOIId={id} setQuests={setQuests} setPOIQuests={setPOIQuests} />
-            </Container>
-            <Container>
-                <h2>Notable Locations</h2>
-                {POILocations.map(poiLocation => {
-                    const location = Locations.find((location) => location.id === poiLocation.notableLocationId)
-                    return (
-                        <Card key={poiLocation.id}>
-                            <div className="location-card-content">
-                                <CardBody>
-                                    <CardTitle>{location?.name}</CardTitle>
-                                    <CardSubtitle>{location?.description}</CardSubtitle>
-                                </CardBody>
-                                <div className="quest-delete-button-container">
-                                <EditNotableLocation pOIId={id} locationProp={location} setLocations={setLocations} setPOILocations={setPOILocations}/>
-                                <DeleteNotableLocation pOIId={id} locationProp={location} setLocations={setLocations} setPOILocations={setPOILocations}/>
-                                </div>
-                            </div>
-                        </Card>
-                    )
-                })}
-                <CreateNotableLocation pOIId={id} setLocations={setLocations} setPOILocations={setPOILocations} />
-            </Container>
-        </>
+        <div className="poi-info-container">
+            <div className="poi-page">
+                <div className="poi-header">
+                <h1>{POI.name}</h1>
+                <h4>{POI.description}</h4>
+                </div>
+                <div className="two-column-layout">
+                    <Container>
+                        <h2>NPCs</h2>
+                        {POINPCs.map(poiNPC => {
+                            const npc = NPCs.find((npc) => npc.id === poiNPC.npcId)
+                            return (
+                                <Card key={poiNPC.id} className="poi-card">
+                                    <div className="npc-card-content">
+                                        <CardBody>
+                                            <CardTitle>{npc?.name}</CardTitle>
+                                            <CardSubtitle>{npc?.description}</CardSubtitle>
+                                        </CardBody>
+                                        <div className="npc-delete-button-container">
+                                            <EditNPC pOIId={id} npcProp={npc} setNPCs={setNPCs} setPOINPCs={setPOINPCs} />
+                                            <DeleteNPC pOIId={id} npcProp={npc} setNPCs={setNPCs} setPOINPCs={setPOINPCs} />
+                                        </div>
+                                    </div>
+                                </Card>
+                            )
+                        })}
+                        <CreateNPC pOIId={id} setNPCs={setNPCs} setPOINPCs={setPOINPCs} />
+                    </Container>
+                    <Container>
+                        <h2>Notable Locations</h2>
+                        {POILocations.map(poiLocation => {
+                            const location = Locations.find((location) => location.id === poiLocation.notableLocationId)
+                            return (
+                                <Card key={poiLocation.id} className="poi-card">
+                                    <div className="location-card-content">
+                                        <CardBody>
+                                            <CardTitle>{location?.name}</CardTitle>
+                                            <CardSubtitle>{location?.description}</CardSubtitle>
+                                        </CardBody>
+                                        <div className="quest-delete-button-container">
+                                            <EditNotableLocation pOIId={id} locationProp={location} setLocations={setLocations} setPOILocations={setPOILocations} />
+                                            <DeleteNotableLocation pOIId={id} locationProp={location} setLocations={setLocations} setPOILocations={setPOILocations} />
+                                        </div>
+                                    </div>
+                                </Card>
+                            )
+                        })}
+                        <CreateNotableLocation pOIId={id} setLocations={setLocations} setPOILocations={setPOILocations} />
+                    </Container>
+                </div>
+                <div className="two-column-layout">
+                    <Container>
+                        <h2>Quests</h2>
+                        {POIQuests.map(poiQuest => {
+                            const quest = Quests.find((quest) => quest.id === poiQuest.questId)
+                            return (
+                                <Card key={poiQuest.id} className="poi-card">
+                                    <div className="quest-card-content">
+                                        <CardBody>
+                                            <CardTitle>{quest?.title}</CardTitle>
+                                            <CardSubtitle>{quest?.description}</CardSubtitle>
+                                            {quest?.reward ? <CardSubtitle>{quest?.reward}</CardSubtitle> : <></>}
+                                        </CardBody>
+                                        <div className="quest-delete-button-container"></div>
+                                        <EditQuest pOIId={id} questProp={quest} setQuests={setQuests} setPOIQuests={setPOIQuests} />
+                                        <DeleteQuest pOIId={id} questProp={quest} setQuests={setQuests} setPOIQuests={setPOIQuests} />
+                                    </div>
+                                </Card>
+                            )
+                        })}
+                        <CreateQuest pOIId={id} setQuests={setQuests} setPOIQuests={setPOIQuests} />
+                    </Container>
+                </div>
+            </div>
+        </div>
     )
 }

@@ -8,3 +8,44 @@
     margin-top: auto;
     margin-left: auto;
 }
+
+.poi-info-container {
+    background-image: url('https://t3.ftcdn.net/jpg/03/66/10/14/240_F_366101427_8yazUJK82fDrLi4YtpnQO3DJ4dTygxoe.jpg'); /* Set your parchment-like background image */
+    background-size: cover;
+    background-repeat: repeat;
+    padding: 20px;
+  }
+  
+  .poi-page {
+    background-color: rgba(255, 255, 255, 0.9); /* Page background color */
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style your cards and their content */
+  .poi-card {
+    margin: 10px 0;
+    border: none;
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .two-column-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 25px;
+    margin-top: 20px;
+  }
+  .poi-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }

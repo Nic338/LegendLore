@@ -1,0 +1,38 @@
+
+
+.landing-container {
+    background-color: #021f54;
+    background-size: cover;
+    background-image: "";
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  .legend-header {
+    font-size: 7rem;
+    color: gold;
+    text-shadow: 2px 2px 4px #000;
+  }
+  .lore-header {
+    margin-left: 15%;
+    font-size: 5rem;
+    color: gold;
+    text-shadow: 2px 2px 4px #000;
+    margin-bottom: 5%
+  }

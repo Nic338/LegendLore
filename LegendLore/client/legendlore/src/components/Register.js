@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { register } from "../Managers/UserProfileManager";
 import { useState } from "react";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import './Auth.css'
 
 export const Register = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
@@ -23,28 +24,31 @@ export const Register = ({ setIsLoggedIn }) => {
 
 
   return (
+    <div className="auth-container">
+      <h1 className="auth-header">Register</h1>
     <Form>
       <fieldset>
         <FormGroup>
-          <Label htmlFor="firstName">First Name</Label>
-          <Input id="firstName" type="text" onChange={e => setFirstName(e.target.value)} />
+          <Label htmlFor="firstName" className="auth-label">First Name</Label>
+          <Input id="firstName" type="text" onChange={e => setFirstName(e.target.value)} className="auth-input" />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="lastName">Last Name</Label>
-          <Input id="lastName" type="text" onChange={e => setLastName(e.target.value)} />
+          <Label htmlFor="lastName" className="auth-label">Last Name</Label>
+          <Input id="lastName" type="text" onChange={e => setLastName(e.target.value)} className="auth-input"/>
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="userName">User Name</Label>
-          <Input id="userName" type="text" onChange={e => setUserName(e.target.value)} />
+          <Label htmlFor="userName" className="auth-label">User Name</Label>
+          <Input id="userName" type="text" onChange={e => setUserName(e.target.value)} className="auth-input"/>
         </FormGroup>
         <FormGroup>
-          <Label for="email">Email</Label>
-          <Input id="email" type="text" onChange={e => setEmail(e.target.value)} />
+          <Label for="email" className="auth-label">Email</Label>
+          <Input id="email" type="text" onChange={e => setEmail(e.target.value)} className="auth-input"/>
         </FormGroup>
         <FormGroup>
-          <Button onClick={registerClick}>Register</Button>
+          <Button onClick={registerClick} className="auth-button">Register</Button>
         </FormGroup>
       </fieldset>
     </Form>
+    </div>
   );
 }

@@ -17,63 +17,62 @@ export const Header = ({ isLoggedIn, setIsLoggedIn }) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand tag={RRNavLink} to="/">
-          Tabloid
+      <Navbar style={{ backgroundColor: '#004e63' }} light expand="md">
+        <NavbarBrand tag={RRNavLink} to="/" style={{ color: "white" }}>
+          Legend Lore
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            {/* When isLoggedIn === true, we will render the Home link */}
             {isLoggedIn && (
               <NavItem>
-                <NavLink tag={RRNavLink} to="/">
-                  Home
+                <NavLink
+                  tag={RRNavLink}
+                  to="/my-campaigns"
+                  style={{ color: "white" }}
+                >
+                  My Campaigns
                 </NavLink>
               </NavItem>
-            )}
-          </Nav>
-          <Nav navbar>
-            {isLoggedIn && (
-              <>
-                <NavItem>
-                  <NavLink tag={RRNavLink} to="/my-campaigns">
-                    My Campaigns
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <a
-                    aria-current="page"
-                    className="nav-link"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => {
-                      logout();
-                      setIsLoggedIn(false);
-                    }}
-                  >
-                    Logout
-                  </a>
-                </NavItem>
-
-              </>
             )}
             {!isLoggedIn && (
               <>
                 <NavItem>
-                  <NavLink tag={RRNavLink} to="/login">
+                  <NavLink tag={RRNavLink} to="/login" style={{ color: "white" }}>
                     Login
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={RRNavLink} to="/register">
+                  <NavLink
+                    tag={RRNavLink}
+                    to="/register"
+                    style={{ color: "white" }}
+                  >
                     Register
                   </NavLink>
                 </NavItem>
               </>
             )}
           </Nav>
+          <Nav className="ms-auto" navbar>
+            {isLoggedIn && (
+              <NavItem>
+                <a
+                  aria-current="page"
+                  className="nav-link"
+                  style={{ cursor: "pointer", color: "white"}}
+                  onClick={() => {
+                    logout();
+                    setIsLoggedIn(false);
+                  }}
+                >
+                  Logout
+                </a>
+              </NavItem>
+            )}
+          </Nav>
         </Collapse>
       </Navbar>
     </div>
   );
-}
+};

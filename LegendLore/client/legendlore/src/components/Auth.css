@@ -1,0 +1,53 @@
+/* Auth.css */
+.auth-container {
+    text-align: center;
+    background-color: #021f54;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  .auth-header {
+    font-size: 7rem;
+    color: gold;
+    text-shadow: 2px 2px 4px #000;
+    padding-top: 35px;
+  }
+  
+  .auth-subheader {
+    margin-left: 15%;
+    font-size: 5rem;
+    color: gold;
+    text-shadow: 2px 2px 4px #000;
+    margin-bottom: 5%;
+  }
+  
+  .auth-form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .auth-label {
+    font-size: 1.2rem;
+    color: white;
+  }
+  
+  .auth-input {
+    width: 35%;
+    padding: 10px;
+    margin: 10px auto;
+  }
+  
+  .auth-button-container {
+    margin-top: 20px;
+  }
+  
+  .auth-button {
+    background-color: gold;
+    color: black;
+  }
+  
+  .auth-link {
+    color: white;
+    margin-top: 10px;
+  }
+  

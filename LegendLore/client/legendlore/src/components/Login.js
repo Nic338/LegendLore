@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { login } from "../Managers/UserProfileManager";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import './Login.css'
 
 export const Login = ({ setIsLoggedIn }) => {
     const navigate = useNavigate();
@@ -23,19 +24,28 @@ export const Login = ({ setIsLoggedIn }) => {
     }
 
     return (
-        <Form onSubmit={loginSubmit}>
-            <fieldset>
+        <div className="login-container">
+            <h1 className="legend-header">Legend</h1>
+            <h1 className="lore-header">Lore</h1>
+            <Form onSubmit={loginSubmit} className="login-form">
                 <FormGroup>
-                    <Label for="email">Email</Label>
-                    <Input id="email" type="text" onChange={e => setEmail(e.target.value)} />
+                    <Label for="email" className="email-label">
+                        Email
+                    </Label>
+                    <Input
+                        id="email"
+                        type="text"
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="email-input"
+                    />
                 </FormGroup>
-                <FormGroup>
-                    <Button>Login</Button>
+                <FormGroup className="login-button-container">
+                    <Button className="login-button">Login</Button>
                 </FormGroup>
-                <em>
+                <em className="register-link">
                     Not registered? <Link to="/register">Register</Link>
                 </em>
-            </fieldset>
-        </Form>
+            </Form>
+        </div>
     );
-}
+};
