@@ -1,4 +1,4 @@
-import { MapContainer, Marker, Popup } from "react-leaflet"
+import { MapContainer, Marker, Popup, useMap } from "react-leaflet"
 import "./CampaignMap.css";
 import { useEffect, useState } from "react";
 import { getMapById } from "../../Managers/MapManager";
@@ -90,6 +90,8 @@ export const CampaignMap = () => {
         //moved ImageOverlay to a child component because useMap can only be used in a component wrapped within a MapContainer
         return (<div className="map-page-container">
             <h1 className="map-name">{mapObject.name}</h1>
+            <p className="map-instructions">Click anywhere on your map to add a Point of Interest</p>
+            <p className="map-instructions">Once you have finished adding a POI, click on the marker and then the name of the POI to add details about your new point of interest.</p>
             <MapContainer className="map-container" id="mapId" zoom={3} center={referencePoint}>
                 {mapObject && mapObject.mapImage && mapObject.width && mapObject.height && (
                     <MapImageOverlay mapObject={mapObject} />
@@ -106,7 +108,7 @@ export const CampaignMap = () => {
                     const poi = POIs.find((poi) => poi.id === marker.poiId)
                     return (
                         <Marker key={marker.id} position={[marker.latitude, marker.longitude]} icon={customIcon}>
-                            <Popup>
+                            <Popup className="poi-popup">
                                 <Card className="poi-popup-card">
                                     <CardBody>
                                         <CardTitle className="poi-popup-title">

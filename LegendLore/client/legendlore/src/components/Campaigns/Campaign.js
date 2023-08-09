@@ -62,11 +62,11 @@ export const Campaign = ({ campaignProp, setUserCampaign }) => {
                 <Link onClick={() => setShowMapSelectModal(true)}>
                     <CardTitle tag="h5" className="campaign-title">{campaignProp.title}</CardTitle>
                 </Link>
-                <CardSubtitle>{campaignProp.description}</CardSubtitle>
+                <CardSubtitle className="mb-2 mt-3 text-muted">{campaignProp.description}</CardSubtitle>
                 <div>Created: {formattedCreationDate}</div>
             </div>
             <div className="button-group">
-                <Button size="sm" className="btn btn-primary edit-campaign-button" tag={Link} to={`/my-campaigns/edit/${campaignProp.id}`}>Edit Campaign Info</Button>
+                <Button size="sm" color="link" className="btn edit-campaign-button" tag={Link} to={`/my-campaigns/edit/${campaignProp.id}`}>Edit Campaign Info</Button>
                 <Button size="sm" color="link" className="btn delete-campaign-button" onClick={handleDeleteButton}>Delete Campaign</Button>
             </div>
             <Modal centered isOpen={showConfirmationModal} toggle={() => setShowConfirmationModal(false)}>

@@ -1,3 +1,5 @@
+
+
 .npc-card-content {
     display: flex;
     flex-direction: column;
@@ -10,8 +12,8 @@
 }
 
 .poi-info-container {
-    background-image: url('https://t3.ftcdn.net/jpg/03/66/10/14/240_F_366101427_8yazUJK82fDrLi4YtpnQO3DJ4dTygxoe.jpg'); /* Set your parchment-like background image */
-    background-size: cover;
+    background-image: url('https://t3.ftcdn.net/jpg/03/66/10/14/240_F_366101427_8yazUJK82fDrLi4YtpnQO3DJ4dTygxoe.jpg'); 
+    background-size: contain;
     background-repeat: repeat;
     padding: 20px;
   }
@@ -29,6 +31,7 @@
     border: none;
     box-shadow: none;
     background-color: rgba(255, 255, 255, 0.9);
+    width: auto;
   }
   
   .card-content {

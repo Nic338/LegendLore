@@ -50,4 +50,7 @@
     color: white;
     margin-top: 10px;
   }
-  
+  input:-webkit-autofill::after {
+    content: "";
+    display: none !important;
+  }

@@ -25,7 +25,8 @@ export const Register = ({ setIsLoggedIn }) => {
 
   return (
     <div className="auth-container">
-      <h1 className="auth-header">Register</h1>
+      <h1 className="auth-header">Welcome to Legend Lore</h1>
+      <h1 className="auth-header" style={{marginBottom: 70}}>Create Your Account</h1>
     <Form>
       <fieldset>
         <FormGroup>
