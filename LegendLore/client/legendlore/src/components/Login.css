@@ -1,20 +1,20 @@
 .login-container {
     text-align: center;
-    background-color: 153243;
+    background-color: #153243;
     height: 100vh;
     padding: 20px;
   }
   
   .legend-header {
     font-size: 10rem;
-    color: gold;
+    color: goldenrod;
     text-shadow: 2px 2px 4px #000;
     padding-top: 35px;
   }
   .lore-header {
     margin-left: 15%;
     font-size: 7rem;
-    color: gold;
+    color: goldenrod;
     text-shadow: 2px 2px 4px #000;
     margin-bottom: 5%
   }
@@ -40,7 +40,7 @@
   }
   
   .login-button {
-    background-color: gold;
+    background-color: goldenrod;
     color: black;
   }
   

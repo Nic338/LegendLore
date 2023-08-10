@@ -12,6 +12,8 @@ import { Icon } from "leaflet";
 import { getAllPOIs } from "../../Managers/POIManager";
 import { Button, Card, CardBody, CardSubtitle, CardTitle, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import customMarker from '../../../src/img/point-of-interest.png'
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const CampaignMap = () => {
     const [mapObject, setMapObject] = useState({});
@@ -113,7 +115,7 @@ export const CampaignMap = () => {
                                     <CardBody>
                                         <CardTitle className="poi-popup-title">
                                             <Link to={`/poi/${poi?.id}`}>
-                                            {poi?.name}
+                                                {poi?.name}
                                             </Link>
                                         </CardTitle>
                                         <CardSubtitle className="poi-popup-subtitle">
@@ -131,7 +133,7 @@ export const CampaignMap = () => {
                                         </ModalFooter>
                                     </Modal>
                                 </Card>
-                                <Button onClick={() => setShowConfirmationModal(true)}>Delete</Button>
+                                <FontAwesomeIcon className="poi-delete-icon" icon={faTrash} title="Delete Point of Interest" onClick={() => setShowConfirmationModal(true)} />
                             </Popup>
                         </Marker>
                     );

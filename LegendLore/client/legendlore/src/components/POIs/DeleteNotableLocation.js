@@ -2,6 +2,8 @@ import { useState } from "react"
 import { deleteNotableLocation, getAllNotableLocations } from "../../Managers/NotableLocationManager";
 import { getAllPOINotableLocationsByPOIId } from "../../Managers/POINotableLocationsManager";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const DeleteNotableLocation = ({ pOIId, locationProp, setPOILocations, setLocations }) => {
     const [showLocationDeleteConfirmationModal, setShowLocationDeleteConfirmationModal] = useState(false);
@@ -26,7 +28,7 @@ export const DeleteNotableLocation = ({ pOIId, locationProp, setPOILocations, se
 
     return (
         <>
-        <Button color="link" size="sm" className="delete-button" onClick={() => setShowLocationDeleteConfirmationModal(true)}>Delete</Button>
+        <FontAwesomeIcon className="poi-delete-icon" icon={faTrash} title="Delete" onClick={() => setShowLocationDeleteConfirmationModal(true)}/>
             <Modal centered isOpen={showLocationDeleteConfirmationModal} toggle={() => setShowLocationDeleteConfirmationModal(false)}>
                 <ModalHeader toggle={() => setShowLocationDeleteConfirmationModal(false)}></ModalHeader>
                 <ModalBody>

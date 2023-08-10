@@ -3,6 +3,8 @@ import { getAllQuests, getQuestbyId } from "../../Managers/QuestManager";
 import { getAllPOIQuestsByPOIId } from "../../Managers/POIQuestsManager";
 import { QuestEditForm } from "./QuestEditForm";
 import { Button } from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 
 export const EditQuest = ({pOIId, questProp, setQuests, setPOIQuests}) => {
     const [editQuest, setEditQuest] = useState(null);
@@ -33,7 +35,7 @@ export const EditQuest = ({pOIId, questProp, setQuests, setPOIQuests}) => {
     };
     return (
         <>
-            <Button color="link" size="sm" className="delete-button" onClick={() => handleEditQuestModalOpen(questProp)}>Edit</Button>
+            <FontAwesomeIcon icon={faPenToSquare} title="Edit" onClick={() => handleEditQuestModalOpen(questProp)}/>
             <QuestEditForm 
                 handleModalClose={handleEditQuestModalClose}
                 questToEdit={editQuest}

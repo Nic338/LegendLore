@@ -83,7 +83,7 @@ export const CampaignEdit = () => {
             <FormGroup className="form-group">
                 <Button
                     onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} className="btn btn-primary">Save Campaign Information</Button>
-                <Button onClick={(clickEvent) => handleGoBackButtonClick(clickEvent)}>Go Back</Button>
+                <Button className="campaign-edit-goback-button" onClick={(clickEvent) => handleGoBackButtonClick(clickEvent)}>Go Back</Button>
             </FormGroup>
         </Form>
     )

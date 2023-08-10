@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { editNotableLocation } from "../../Managers/NotableLocationManager";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 
 export const NotableLocationEditForm = ({ handleModalClose, modalIsOpen, locationToEdit }) => {
     const [editedLocation, setEditedLocation] = useState({

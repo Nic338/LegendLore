@@ -83,7 +83,7 @@ export const POIDetails = () => {
                 </div>
                 <div className="two-column-layout">
                     <Container>
-                        <h2>Notable Locations</h2>
+                        <h2 className="poi-header">Notable Locations</h2>
                         {POILocations.map(poiLocation => {
                             const location = Locations.find((location) => location.id === poiLocation.notableLocationId)
                             return (
@@ -104,7 +104,7 @@ export const POIDetails = () => {
                         <CreateNotableLocation pOIId={id} setLocations={setLocations} setPOILocations={setPOILocations} />
                     </Container>
                     <Container>
-                        <h2>NPCs</h2>
+                        <h2 className="poi-header">NPCs</h2>
                         {POINPCs.map(poiNPC => {
                             const npc = NPCs.find((npc) => npc.id === poiNPC.npcId)
                             return (
@@ -127,7 +127,7 @@ export const POIDetails = () => {
                 </div>
                 <div className="two-column-layout">
                     <Container>
-                        <h2>Quests</h2>
+                        <h2 className="poi-header">Quests</h2>
                         {POIQuests.map(poiQuest => {
                             const quest = Quests.find((quest) => quest.id === poiQuest.questId)
                             return (

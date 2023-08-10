@@ -3,6 +3,8 @@ import { getAllNotableLocations, getNotableLocationbyId } from "../../Managers/N
 import { getAllPOINotableLocationsByPOIId } from "../../Managers/POINotableLocationsManager";
 import { Button } from "reactstrap";
 import { NotableLocationEditForm } from "./NotableLocationEditForm";
+import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const EditNotableLocation = ({ locationProp, pOIId, setLocations, setPOILocations }) => {
     const [editLocation, setEditLocation] = useState(null);
@@ -39,7 +41,7 @@ export const EditNotableLocation = ({ locationProp, pOIId, setLocations, setPOIL
 
     return (
         <>
-        <Button color="link" size="sm" className="delete-button" onClick={() => handleEditLocationModalOpen(locationProp)}>Edit</Button>
+        <FontAwesomeIcon icon={faPenToSquare} title="Edit" onClick={() => handleEditLocationModalOpen(locationProp)}/>
         <NotableLocationEditForm 
             handleModalClose={handleEditLocationModalClose}
             locationToEdit={editLocation}

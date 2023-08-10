@@ -3,6 +3,8 @@ import { NPCCreateForm } from "./NPCCreateForm"
 import { getAllNPCs } from "../../Managers/NPCManager";
 import { getAllPOINPCsByPOIId } from "../../Managers/POINPCsManager";
 import { Button } from "reactstrap";
+import { faSquarePlus } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const CreateNPC = ({ pOIId, setNPCs, setPOINPCs }) => {
     const [newNPCModalIsOpen, setNewNPCModalIsOpen] = useState(false);
@@ -30,7 +32,7 @@ export const CreateNPC = ({ pOIId, setNPCs, setPOINPCs }) => {
 
     return (
         <>
-            <Button onClick={handleNewNPCModalOpen}>Add NPC</Button>
+            <FontAwesomeIcon icon={faSquarePlus} size="xl" title="Add a new NPC" onClick={handleNewNPCModalOpen}/>
             <NPCCreateForm
                 handleModalClose={handleNewNPCModalClose}
                 pOIId={pOIId}

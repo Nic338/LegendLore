@@ -3,6 +3,8 @@ import { getAllPOINotableLocationsByPOIId } from "../../Managers/POINotableLocat
 import { getAllNotableLocations } from "../../Managers/NotableLocationManager";
 import { Button } from "reactstrap";
 import { NotableLocationCreateForm } from "./NotableLocationCreateForm";
+import { faSquarePlus } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const CreateNotableLocation = ({ pOIId, setLocations, setPOILocations }) => {
     const [newLocationModalIsOpen, setNewLocationModalIsOpen] = useState(false);
@@ -29,7 +31,7 @@ export const CreateNotableLocation = ({ pOIId, setLocations, setPOILocations }) 
 
     return (
         <>
-            <Button onClick={handleNewLocationModalOpen}>Add Notable Location</Button>
+            <FontAwesomeIcon icon={faSquarePlus} size="xl" title="Add a new Notable Location" onClick={handleNewLocationModalOpen}/>
             <NotableLocationCreateForm
                 handleModalClose={handleNewLocationModalClose}
                 pOIId={pOIId}

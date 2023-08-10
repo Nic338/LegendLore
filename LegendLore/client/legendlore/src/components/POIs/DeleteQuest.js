@@ -2,6 +2,8 @@ import { useState } from "react"
 import { deleteQuest, getAllQuests } from "../../Managers/QuestManager";
 import { getAllPOIQuestsByPOIId } from "../../Managers/POIQuestsManager";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const DeleteQuest = ({ pOIId, questProp, setPOIQuests, setQuests }) => {
     const [showQuestDeleteConfirmationModal, setShowQuestDeleteConfirmationModal] = useState(false);
@@ -26,7 +28,7 @@ export const DeleteQuest = ({ pOIId, questProp, setPOIQuests, setQuests }) => {
 
     return (
         <>
-            <Button color="link" size="sm" className="delete-button" onClick={() => setShowQuestDeleteConfirmationModal(true)}>Delete</Button>
+            <FontAwesomeIcon icon={faTrash} title="Delete" onClick={() => setShowQuestDeleteConfirmationModal(true)}/>
             <Modal centered isOpen={showQuestDeleteConfirmationModal} toggle={() => setShowQuestDeleteConfirmationModal(false)}>
                 <ModalHeader toggle={() => setShowQuestDeleteConfirmationModal(false)}></ModalHeader>
                 <ModalBody>

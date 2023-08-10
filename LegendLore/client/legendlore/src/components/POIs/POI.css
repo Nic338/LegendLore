@@ -21,16 +21,15 @@
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Style your cards and their content */
-  .poi-card {
     background-image: url('https://t3.ftcdn.net/jpg/03/66/10/14/240_F_366101427_8yazUJK82fDrLi4YtpnQO3DJ4dTygxoe.jpg'); 
     background-size: cover;
+  }
+  
+  .poi-card {
     margin: 10px 0;
     border: 2px solid black;
     box-shadow: none;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0);
     width: auto;
   }
   
@@ -51,20 +50,31 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.555);
   }
   .poi-card-title {
     font-weight: bolder;
     font-size: 20px;
-    color: white;
-    text-shadow: 2px 2px 4px black;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.555);
     margin-bottom: 25px;
   }
   .poi-card-subtitle {
     font-size: 20px;
-    color: white;
-    text-shadow: 2px 2px 4px black;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.555);
   }
   .poi-quest-reward {
-    color: rgb(255, 255, 255);
-    text-shadow: 2px 2px 4px goldenrod;
+    margin-top: 5px;
+    color: darkgreen;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgb(255, 255, 255);
+  }
+  .fa-pen-to-square{
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  .fa-trash {
+    margin-left: 8px;
+    margin-right: 8px;
   }

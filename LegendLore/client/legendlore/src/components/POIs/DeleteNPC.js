@@ -2,6 +2,8 @@ import { useState } from "react";
 import { deleteNPC, getAllNPCs } from "../../Managers/NPCManager";
 import { getAllPOINPCsByPOIId } from "../../Managers/POINPCsManager";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export const DeleteNPC = ({ pOIId, npcProp, setPOINPCs, setNPCs }) => {
     const [showNPCDeleteConfirmationModal, setShowNPCDeleteConfirmationModal] = useState(false);
@@ -25,7 +27,7 @@ export const DeleteNPC = ({ pOIId, npcProp, setPOINPCs, setNPCs }) => {
     }
     return (
         <>
-            <Button color="link" size="sm" className="delete-button" onClick={() => setShowNPCDeleteConfirmationModal(true)}>Delete</Button>
+            <FontAwesomeIcon icon={faTrash} title="Delete" onClick={() => setShowNPCDeleteConfirmationModal(true)}/>
             <Modal centered isOpen={showNPCDeleteConfirmationModal} toggle={() => setShowNPCDeleteConfirmationModal(false)}>
                 <ModalHeader toggle={() => setShowNPCDeleteConfirmationModal(false)}></ModalHeader>
                 <ModalBody>

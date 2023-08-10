@@ -3,6 +3,8 @@ import { NPCEditForm } from "./NPCEditForm";
 import { useEffect, useState } from "react";
 import { getAllPOINPCsByPOIId } from "../../Managers/POINPCsManager";
 import { getAllNPCs, getNPCbyId } from "../../Managers/NPCManager";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 
 export const EditNPC = ({ pOIId, npcProp, setNPCs, setPOINPCs }) => {
     const [editNPC, setEditNPC] = useState(null);
@@ -39,7 +41,7 @@ export const EditNPC = ({ pOIId, npcProp, setNPCs, setPOINPCs }) => {
 
     return (
         <>
-            <Button color="link" size="sm" className="delete-button" onClick={() => handleEditNPCModalOpen(npcProp)}>Edit</Button>
+        <FontAwesomeIcon icon={faPenToSquare} title="Edit" onClick={() => handleEditNPCModalOpen(npcProp)}/>
             <NPCEditForm
                 handleModalClose={handleEditNPCModalClose}
                 npcToEdit={editNPC}

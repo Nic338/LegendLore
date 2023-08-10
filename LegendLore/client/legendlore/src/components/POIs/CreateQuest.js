@@ -3,6 +3,8 @@ import { QuestCreateForm } from "./QuestCreateForm";
 import { getAllQuests } from "../../Managers/QuestManager";
 import { getAllPOIQuestsByPOIId } from "../../Managers/POIQuestsManager";
 import { Button } from "reactstrap";
+import { faSquarePlus } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const CreateQuest = ({ pOIId, setQuests, setPOIQuests }) => {
     const [newQuestModalIsOpen, setNewQuestModalIsOpen] = useState(false);
@@ -29,7 +31,7 @@ export const CreateQuest = ({ pOIId, setQuests, setPOIQuests }) => {
 
     return (
         <>
-            <Button onClick={handleNewQuestModalOpen}>Add Quest</Button>
+            <FontAwesomeIcon icon={faSquarePlus} size="xl" title="Add a new Quest Hook" onClick={handleNewQuestModalOpen}/>
             <QuestCreateForm
                 handleModalClose={handleNewQuestModalClose}
                 pOIId={pOIId}
