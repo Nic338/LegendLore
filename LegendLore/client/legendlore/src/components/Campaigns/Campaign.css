@@ -7,7 +7,7 @@
 .campaign-container {
     text-align: center;
     height: 105vh;
-    background: #021f54;
+    background: #153243;
     color: whitesmoke;
 }
 .container {
@@ -24,11 +24,12 @@
   padding: 0;
   background-color: gold;
 }
-.card {
+.campaign-card {
   width: auto;
   height: 25vh;
   margin-bottom: 15px;
-  background-color: rgb(219, 219, 219);
+  background-color: #B4B8AB;
+  border: 3px solid #EEF0EB;
 }
 .campaign-card .card-body {
   display: flex;
@@ -57,6 +58,8 @@
 .campaign-title {
   margin-top: 10px;
   justify-content: center;
+  color: whitesmoke;
+ text-shadow: 1px 1px 2px #000000
 }
 .campaign-input {
   margin: 10px 0;
@@ -77,7 +80,7 @@
   justify-content: center;
   min-height: 100vh;
   padding: 20px;
-  background-color: #021f54;
+  background-color: #153243;
   color: white;
   text-shadow: 2px 2px 4px #000
 

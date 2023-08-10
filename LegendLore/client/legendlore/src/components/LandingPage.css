@@ -1,7 +1,7 @@
 
 
 .landing-container {
-    background-color: #021f54;
+  background-color: #153243;
     background-size: cover;
     background-image: "";
     background-repeat: no-repeat;
@@ -24,15 +24,15 @@
     font-size: 1.5rem;
     margin: 10px 0;
   }
-  .legend-header {
-    font-size: 7rem;
-    color: gold;
+  .legend-landing-header {
+    font-size: 12rem;
+    color: goldenrod;
     text-shadow: 2px 2px 4px #000;
   }
-  .lore-header {
+  .lore-landing-header {
     margin-left: 15%;
-    font-size: 5rem;
-    color: gold;
+    font-size: 8rem;
+    color: goldenrod;
     text-shadow: 2px 2px 4px #000;
     margin-bottom: 5%
   }

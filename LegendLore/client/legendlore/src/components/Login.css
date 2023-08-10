@@ -1,19 +1,19 @@
 .login-container {
     text-align: center;
-    background-color: #021f54;
+    background-color: 153243;
     height: 100vh;
     padding: 20px;
   }
   
   .legend-header {
-    font-size: 7rem;
+    font-size: 10rem;
     color: gold;
     text-shadow: 2px 2px 4px #000;
     padding-top: 35px;
   }
   .lore-header {
     margin-left: 15%;
-    font-size: 5rem;
+    font-size: 7rem;
     color: gold;
     text-shadow: 2px 2px 4px #000;
     margin-bottom: 5%

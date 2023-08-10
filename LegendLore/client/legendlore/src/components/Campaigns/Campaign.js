@@ -59,7 +59,7 @@ export const Campaign = ({ campaignProp, setUserCampaign }) => {
     return (
         <CardBody>
             <div>
-                <Link onClick={() => setShowMapSelectModal(true)}>
+                <Link style={{textDecoration: 'none'}} onClick={() => setShowMapSelectModal(true)}>
                     <CardTitle tag="h5" className="campaign-title">{campaignProp.title}</CardTitle>
                 </Link>
                 <CardSubtitle className="mb-2 mt-3 text-muted">{campaignProp.description}</CardSubtitle>

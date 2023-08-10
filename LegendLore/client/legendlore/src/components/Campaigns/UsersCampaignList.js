@@ -29,7 +29,7 @@ export const UsersCampaigns = () => {
                     <Col md={2} lg={4}>
                         <Card className="campaign-card add-campaign-card">
                             <CardBody className="add-campaign-card-body">
-                                <Button tag={Link} to="/campaigns/add" className="circle-button" color="primary"><FaPlus /></Button>
+                                <Button tag={Link} to="/campaigns/add" className="circle-button" color="dark"><FaPlus /></Button>
                                 <CardTitle tag="h5" className="add-campaign-title">Add A New Campaign</CardTitle>
                             </CardBody>
                         </Card>

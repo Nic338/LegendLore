@@ -9,13 +9,13 @@ text-shadow: 2px 2px 4px #000
 display: flex;
 flex-direction: column;
 align-items: center;
-background-color: #021f54f1;
+background-color: #153243;
 color: whitesmoke;
 }
 .map-container {
-    margin-top: 50px;
-    margin-bottom: 80px;
-    border: 5px solid whitesmoke;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  border: 5px solid whitesmoke;
   }
 .poi-popup-title {
   margin-top: 10px;
@@ -34,7 +34,7 @@ color: whitesmoke;
 }
 .poi-popup-subtitle {
   font-size: 16px;
-  color: #777; /* Use any desired color for the description text */
+  color: #3a3a3a; /* Use any desired color for the description text */
 }
 .leaflet-container {
   height: 80vh;
