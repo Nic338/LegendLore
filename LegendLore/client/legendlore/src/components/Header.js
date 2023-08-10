@@ -18,7 +18,7 @@ export const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <div>
       <Navbar style={{ backgroundColor: '#004e63' }} light expand="md">
-        <NavbarBrand tag={RRNavLink} to="/" style={{ color: "white" }}>
+        <NavbarBrand tag={RRNavLink} to="/" style={{ color: "white", textShadow: "2px 2px 4px #000",fontFamily: "Fauna One, san serif" }}>
           Legend Lore
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
@@ -29,7 +29,7 @@ export const Header = ({ isLoggedIn, setIsLoggedIn }) => {
                 <NavLink
                   tag={RRNavLink}
                   to="/my-campaigns"
-                  style={{ color: "white" }}
+                  style={{ color: "white", textShadow: "2px 2px 4px #000", fontFamily: "Fauna One, san serif" }}
                 >
                   My Campaigns
                 </NavLink>
@@ -38,7 +38,7 @@ export const Header = ({ isLoggedIn, setIsLoggedIn }) => {
             {!isLoggedIn && (
               <>
                 <NavItem>
-                  <NavLink tag={RRNavLink} to="/login" style={{ color: "white" }}>
+                  <NavLink tag={RRNavLink} to="/login" style={{ color: "white", textShadow: "2px 2px 4px #000", fontFamily: "Fauna One, san serif" }}>
                     Login
                   </NavLink>
                 </NavItem>
@@ -46,7 +46,7 @@ export const Header = ({ isLoggedIn, setIsLoggedIn }) => {
                   <NavLink
                     tag={RRNavLink}
                     to="/register"
-                    style={{ color: "white" }}
+                    style={{ color: "white", fontFamily: "Fauna One, san serif", textShadow: "2px 2px 4px #000" }}
                   >
                     Register
                   </NavLink>
@@ -60,7 +60,7 @@ export const Header = ({ isLoggedIn, setIsLoggedIn }) => {
                 <a
                   aria-current="page"
                   className="nav-link"
-                  style={{ cursor: "pointer", color: "white"}}
+                  style={{ cursor: "pointer", color: "white", textShadow: "2px 2px 4px #000", fontFamily: "Fauna One, san serif" }}
                   onClick={() => {
                     logout();
                     setIsLoggedIn(false);

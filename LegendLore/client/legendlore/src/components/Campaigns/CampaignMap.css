@@ -1,9 +1,10 @@
 .map-name {
 margin-top: 25px;
-text-shadow: 2px 2px 4px #000
+text-shadow: 2px 2px 4px #000;
+font-family: 'Cinzel', serif;
 }
 .map-instructions {
-  text-shadow: 2px 2px 4px #000
+  text-shadow: 2px 2px 4px #000;
 }
 .map-page-container {
 display: flex;
@@ -23,7 +24,9 @@ color: whitesmoke;
   font-size: 20px;
   font-weight: bold;
   color: whitesmoke;
+  font-family: 'Cinzel', serif;
 }
+
 .poi-popup-card {
   display: flex;
   flex-direction: column;
@@ -31,6 +34,7 @@ color: whitesmoke;
   border: none;
   height: auto;
   color: whitesmoke;
+  font-family: 'Fauna One', sans-serif;
 }
 .poi-popup-subtitle {
   font-size: 16px;
@@ -39,4 +43,8 @@ color: whitesmoke;
 .leaflet-container {
   height: 80vh;
   width: 80vw;
+}
+.leaflet-popup {
+  background-color: #B4B8AB;
+
 }

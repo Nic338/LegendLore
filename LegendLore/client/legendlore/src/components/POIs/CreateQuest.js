@@ -31,7 +31,7 @@ export const CreateQuest = ({ pOIId, setQuests, setPOIQuests }) => {
 
     return (
         <>
-            <FontAwesomeIcon icon={faSquarePlus} size="xl" title="Add a new Quest Hook" onClick={handleNewQuestModalOpen}/>
+            <FontAwesomeIcon icon={faSquarePlus} size="xl" title="Add a new Quest Hook" style={{cursor: "pointer"}} onClick={handleNewQuestModalOpen}/>
             <QuestCreateForm
                 handleModalClose={handleNewQuestModalClose}
                 pOIId={pOIId}

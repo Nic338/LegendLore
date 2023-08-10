@@ -1,5 +1,4 @@
-
-
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Cinzel+Decorative&display=swap');
 .landing-container {
   background-color: #153243;
     background-size: cover;
@@ -13,26 +12,42 @@
     text-align: center;
     color: white;
     padding: 20px;
+    
   }
   
   h1 {
     font-size: 3rem;
     margin-bottom: 10px;
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: bold;
+
   }
-  
+
+  h2 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px #000;
+    font-family: 'Fauna One', sans-serif;
+
+  }
+
   p {
     font-size: 1.5rem;
     margin: 10px 0;
+    text-shadow: 2px 2px 4px #000;
+    font-family: 'Fauna One', sans-serif;
+
   }
+
   .legend-landing-header {
     font-size: 12rem;
     color: goldenrod;
     text-shadow: 2px 2px 4px #000;
   }
+
   .lore-landing-header {
     margin-left: 15%;
-    font-size: 8rem;
+    font-size: 9rem;
     color: goldenrod;
     text-shadow: 2px 2px 4px #000;
-    margin-bottom: 5%
+    margin-bottom: 3%;
   }

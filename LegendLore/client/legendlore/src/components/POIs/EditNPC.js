@@ -41,7 +41,7 @@ export const EditNPC = ({ pOIId, npcProp, setNPCs, setPOINPCs }) => {
 
     return (
         <>
-        <FontAwesomeIcon icon={faPenToSquare} title="Edit" onClick={() => handleEditNPCModalOpen(npcProp)}/>
+        <FontAwesomeIcon icon={faPenToSquare} style={{cursor: "pointer"}} title="Edit" onClick={() => handleEditNPCModalOpen(npcProp)}/>
             <NPCEditForm
                 handleModalClose={handleEditNPCModalClose}
                 npcToEdit={editNPC}

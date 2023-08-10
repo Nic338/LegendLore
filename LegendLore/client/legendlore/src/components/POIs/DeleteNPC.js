@@ -27,7 +27,7 @@ export const DeleteNPC = ({ pOIId, npcProp, setPOINPCs, setNPCs }) => {
     }
     return (
         <>
-            <FontAwesomeIcon icon={faTrash} title="Delete" onClick={() => setShowNPCDeleteConfirmationModal(true)}/>
+            <FontAwesomeIcon icon={faTrash} title="Delete" style={{cursor: "pointer"}} onClick={() => setShowNPCDeleteConfirmationModal(true)}/>
             <Modal centered isOpen={showNPCDeleteConfirmationModal} toggle={() => setShowNPCDeleteConfirmationModal(false)}>
                 <ModalHeader toggle={() => setShowNPCDeleteConfirmationModal(false)}></ModalHeader>
                 <ModalBody>

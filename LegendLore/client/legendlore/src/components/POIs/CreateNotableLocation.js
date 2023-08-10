@@ -31,7 +31,7 @@ export const CreateNotableLocation = ({ pOIId, setLocations, setPOILocations }) 
 
     return (
         <>
-            <FontAwesomeIcon icon={faSquarePlus} size="xl" title="Add a new Notable Location" onClick={handleNewLocationModalOpen}/>
+            <FontAwesomeIcon icon={faSquarePlus} size="xl" title="Add a new Notable Location" style={{cursor: "pointer"}} onClick={handleNewLocationModalOpen}/>
             <NotableLocationCreateForm
                 handleModalClose={handleNewLocationModalClose}
                 pOIId={pOIId}

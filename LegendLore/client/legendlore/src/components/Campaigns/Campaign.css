@@ -35,6 +35,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Fauna One', sans-serif;
 }
 .add-campaign-card {
   height: 31vh;
@@ -49,11 +50,12 @@
   justify-content: center;
   margin-top: 60px;
   height: 100%;
-  
+  font-family: 'Fauna One', sans-serif;
 }
 .add-campaign-title {
  font-size: 34px;
- text-shadow: 2px 2px 4px #ffffff
+ text-shadow: 2px 2px 4px #ffffff;
+ font-family: 'Cinzel', serif;
 }
 .campaign-title {
   margin-top: 10px;
@@ -65,7 +67,8 @@
   margin: 10px 0;
   padding: 10px;
   width: 400px;
-  box-sizing: border-box,
+  box-sizing: border-box;
+  font-family: 'Fauna One', sans-serif;
 }
 .campaign-row {
   display: flex;
@@ -82,7 +85,8 @@
   padding: 20px;
   background-color: #153243;
   color: white;
-  text-shadow: 2px 2px 4px #000
+  text-shadow: 2px 2px 4px #000;
+  font-family: 'Fauna One', sans-serif;
 
 }
 
@@ -152,7 +156,7 @@
 .button-group {
   margin-right: 10px;
   display: flex;
-  margin-top: 15px;
+  margin-top: 8px;
 }
 
 .map-select {

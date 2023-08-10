@@ -35,7 +35,7 @@ export const EditQuest = ({pOIId, questProp, setQuests, setPOIQuests}) => {
     };
     return (
         <>
-            <FontAwesomeIcon icon={faPenToSquare} title="Edit" onClick={() => handleEditQuestModalOpen(questProp)}/>
+            <FontAwesomeIcon icon={faPenToSquare} style={{cursor: "pointer"}} title="Edit" onClick={() => handleEditQuestModalOpen(questProp)}/>
             <QuestEditForm 
                 handleModalClose={handleEditQuestModalClose}
                 questToEdit={editQuest}

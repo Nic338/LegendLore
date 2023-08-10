@@ -32,7 +32,7 @@ export const CreateNPC = ({ pOIId, setNPCs, setPOINPCs }) => {
 
     return (
         <>
-            <FontAwesomeIcon icon={faSquarePlus} size="xl" title="Add a new NPC" onClick={handleNewNPCModalOpen}/>
+            <FontAwesomeIcon icon={faSquarePlus} size="xl" title="Add a new NPC" style={{cursor: "pointer"}} onClick={handleNewNPCModalOpen}/>
             <NPCCreateForm
                 handleModalClose={handleNewNPCModalClose}
                 pOIId={pOIId}

@@ -28,7 +28,7 @@ export const DeleteQuest = ({ pOIId, questProp, setPOIQuests, setQuests }) => {
 
     return (
         <>
-            <FontAwesomeIcon icon={faTrash} title="Delete" onClick={() => setShowQuestDeleteConfirmationModal(true)}/>
+            <FontAwesomeIcon icon={faTrash} title="Delete" style={{cursor: "pointer"}} onClick={() => setShowQuestDeleteConfirmationModal(true)}/>
             <Modal centered isOpen={showQuestDeleteConfirmationModal} toggle={() => setShowQuestDeleteConfirmationModal(false)}>
                 <ModalHeader toggle={() => setShowQuestDeleteConfirmationModal(false)}></ModalHeader>
                 <ModalBody>

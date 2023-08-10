@@ -28,7 +28,7 @@ export const DeleteNotableLocation = ({ pOIId, locationProp, setPOILocations, se
 
     return (
         <>
-        <FontAwesomeIcon className="poi-delete-icon" icon={faTrash} title="Delete" onClick={() => setShowLocationDeleteConfirmationModal(true)}/>
+        <FontAwesomeIcon className="poi-delete-icon" icon={faTrash} title="Delete" style={{cursor: "pointer"}} onClick={() => setShowLocationDeleteConfirmationModal(true)}/>
             <Modal centered isOpen={showLocationDeleteConfirmationModal} toggle={() => setShowLocationDeleteConfirmationModal(false)}>
                 <ModalHeader toggle={() => setShowLocationDeleteConfirmationModal(false)}></ModalHeader>
                 <ModalBody>
