@@ -62,7 +62,7 @@ export const Campaign = ({ campaignProp, setUserCampaign }) => {
                 <Link style={{textDecoration: 'none'}} onClick={() => setShowMapSelectModal(true)}>
                     <CardTitle tag="h5" className="campaign-title">{campaignProp.title}</CardTitle>
                 </Link>
-                <CardSubtitle className="mb-2 mt-3 text-muted">{campaignProp.description}</CardSubtitle>
+                <CardSubtitle className="mb-2 mt-3 text-muted campaign-description">{campaignProp.description}</CardSubtitle>
                 <div>Created: {formattedCreationDate}</div>
             </div>
             <div className="button-group">

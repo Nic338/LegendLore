@@ -10,6 +10,14 @@
     background: #153243;
     color: whitesmoke;
 }
+.campaign-description {
+  max-height: 90px;
+  overflow: auto;
+}
+.campaign-description::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
+}
 .container {
   max-width: 1320px;
   max-height: 915px;
