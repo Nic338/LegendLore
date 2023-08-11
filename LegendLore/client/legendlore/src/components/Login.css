@@ -28,6 +28,7 @@
   .email-label {
     font-size: 1.2rem;
     color: white;
+    font-family: 'Fauna One', sans-serif;
   }
   
   .email-input {
@@ -43,10 +44,12 @@
   .login-button {
     background-color: goldenrod;
     color: black;
+    font-family: 'Fauna One', sans-serif;
   }
   
   .register-link {
     color: white;
     margin-top: 10px;
+    font-family: 'Fauna One', sans-serif;
   }
   

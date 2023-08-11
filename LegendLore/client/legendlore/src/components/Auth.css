@@ -7,7 +7,7 @@
   }
   
   .auth-header {
-    font-size: 7rem;
+    font-size: 6rem;
     color: gold;
     text-shadow: 2px 2px 4px #000;
     padding-top: 35px;
@@ -29,6 +29,7 @@
   .auth-label {
     font-size: 1.2rem;
     color: white;
+    font-family: 'Fauna One', sans-serif;
   }
   
   .auth-input {
@@ -44,6 +45,7 @@
   .auth-button {
     background-color: gold;
     color: black;
+    font-family: 'Fauna One', sans-serif;
   }
   
   .auth-link {
