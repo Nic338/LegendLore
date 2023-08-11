@@ -30,21 +30,21 @@ INSERT INTO [POI] ([Id], [Name], [Description]) VALUES (9, 'Rexxentrum', 'This i
 SET IDENTITY_INSERT [POI] OFF
 
 SET IDENTITY_INSERT [Map] ON
-INSERT INTO [Map] ([Id], [Name], [MapImage], [CampaignId]) VALUES (1, 'Test Map 1','https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 1)
-INSERT INTO [Map] ([Id], [Name], [MapImage], [CampaignId]) VALUES (2, 'Test Map 2', 'https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 2)
-INSERT INTO [Map] ([Id], [Name], [MapImage], [CampaignId]) VALUES (3, 'Test Map 3', 'https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 3)
+INSERT INTO [Map] ([Id], [Name], [MapImage], [CampaignId], [Height], [Width]) VALUES (1, 'Test Map 1','https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 1, 894, 894)
+INSERT INTO [Map] ([Id], [Name], [MapImage], [CampaignId], [Height], [Width]) VALUES (2, 'Test Map 2', 'https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 2, 894, 894)
+INSERT INTO [Map] ([Id], [Name], [MapImage], [CampaignId], [Height], [Width]) VALUES (3, 'Test Map 3', 'https://i.pinimg.com/564x/3c/e2/70/3ce270f365c53b6274a3f3c5eef30be9.jpg', 3, 894, 894)
 SET IDENTITY_INSERT [Map] OFF
 
 SET IDENTITY_INSERT [MapPOIs] ON
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (1, 'POINT(25 55)', 1, 1);
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (2, 'POINT(30 50)', 1, 2);
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (3, 'POINT(20 45)', 1, 3);
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (4, 'POINT(25 55)', 2, 4);
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (5, 'POINT(30 50)', 2, 5);
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (6, 'POINT(20 45)', 2, 6);
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (7, 'POINT(25 55)', 3, 7);
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (8, 'POINT(30 50)', 3, 8);
-INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (9, 'POINT(20 45)', 3, 9);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (1,geography::POINT(-85, 60), 1, 1);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (2,geography::POINT(-125, 70), 1, 2);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (3,geography::POINT(35, -55), 1, 3);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (4,geography::POINT(-115, 40), 2, 4);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (5,geography::POINT(-80, 70), 2, 5);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (6,geography::POINT(-98, 98), 2, 6);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (7,geography::POINT(123, 47), 3, 7);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (8,geography::POINT(-85, 60), 3, 8);
+INSERT INTO [MapPOIs] ([Id], [Coordinates], [MapId], [POIId]) VALUES (9,geography::POINT(-65, 50), 3, 9);
 SET IDENTITY_INSERT [MapPOIs] OFF
 
 SET IDENTITY_INSERT [NPC] ON

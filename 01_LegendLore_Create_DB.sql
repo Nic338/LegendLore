@@ -44,7 +44,7 @@ CREATE TABLE [dbo].[UserProfile] (
 
 CREATE TABLE [dbo].[Campaigns] (
     [Id]             INT            IDENTITY (1, 1) NOT NULL,
-    [Description]    NVARCHAR (255) NOT NULL,
+    [Description]    NVARCHAR (MAX) NOT NULL,
     [UserProfileId]  INT            NOT NULL,
     [Title]          NVARCHAR (255) NOT NULL,
     [CreateDateTime] DATETIME       NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE [dbo].[Campaigns] (
 CREATE TABLE [dbo].[POI] (
     [Id]          INT            IDENTITY (1, 1) NOT NULL,
     [Name]        NVARCHAR (255) NOT NULL,
-    [Description] NVARCHAR (255) NOT NULL,
+    [Description] NVARCHAR (MAX) NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 )
 
@@ -83,7 +83,7 @@ CREATE TABLE [dbo].[MapPOIs] (
 CREATE TABLE [dbo].[NPC] (
     [Id]          INT            IDENTITY (1, 1) NOT NULL,
     [Name]        NVARCHAR (255) NOT NULL,
-    [Description] NVARCHAR (255) NOT NULL,
+    [Description] NVARCHAR (MAX) NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 )
 
@@ -117,7 +117,7 @@ CREATE TABLE [dbo].[POIQuests] (
 CREATE TABLE [dbo].[NotableLocation] (
     [Id]          INT            IDENTITY (1, 1) NOT NULL,
     [Name]        NVARCHAR (255) NOT NULL,
-    [Description] NVARCHAR (255) NOT NULL,
+    [Description] NVARCHAR (MAX) NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 )
 
