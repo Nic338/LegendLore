@@ -133,7 +133,7 @@ export const CampaignMap = () => {
                                         </ModalFooter>
                                     </Modal>
                                 </Card>
-                                <FontAwesomeIcon className="poi-delete-icon" icon={faTrash} title="Delete Point of Interest" onClick={() => setShowConfirmationModal(true)} />
+                                <FontAwesomeIcon className="poi-delete-icon" icon={faTrash} title="Delete Point of Interest" style={{cursor: "pointer"}} onClick={() => setShowConfirmationModal(true)} />
                             </Popup>
                         </Marker>
                     );

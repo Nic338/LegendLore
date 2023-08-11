@@ -43,7 +43,7 @@ export const Login = ({ setIsLoggedIn }) => {
                     <Button className="login-button">Login</Button>
                 </FormGroup>
                 <em className="register-link">
-                    Not registered? <Link to="/register">Register</Link>
+                    Not a user? <Link to="/register">Register Here</Link>
                 </em>
             </Form>
         </div>
