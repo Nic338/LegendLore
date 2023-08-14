@@ -56,6 +56,10 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.555);
 }
 
+.poi-header-name {
+  font-size: 84px;
+}
+
 .poi-card-title {
   font-family: 'Cinzel', serif;
   font-weight: bolder;

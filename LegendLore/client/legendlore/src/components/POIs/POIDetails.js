@@ -81,7 +81,7 @@ export const POIDetails = () => {
         <div className="poi-info-container">
             <div className="poi-page">
                 <div className="poi-header">
-                    <h1>{POI.name}</h1>
+                    <h1 className="poi-header-name">{POI.name}</h1>
                     <h4>{POI.description}</h4>
                     <FontAwesomeIcon icon={faPenToSquare} style={{ cursor: "pointer" }} title="Edit" onClick={() => navigate(`/poi/edit/${id}`)} />
                 </div>
