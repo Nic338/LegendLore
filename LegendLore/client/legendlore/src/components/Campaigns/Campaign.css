@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   text-shadow: 2px 2px 4px #000;
-  margin-top: 0;
+  margin-top: 15px;
 }
 .campaign-container {
     text-align: center;
