@@ -28,13 +28,13 @@ export const DeleteNotableLocation = ({ pOIId, locationProp, setPOILocations, se
 
     return (
         <>
-        <FontAwesomeIcon className="poi-delete-icon" icon={faTrash} title="Delete" style={{cursor: "pointer"}} onClick={() => setShowLocationDeleteConfirmationModal(true)}/>
+            <FontAwesomeIcon className="poi-delete-icon" icon={faTrash} title="Delete" style={{ cursor: "pointer" }} onClick={() => setShowLocationDeleteConfirmationModal(true)} />
             <Modal centered isOpen={showLocationDeleteConfirmationModal} toggle={() => setShowLocationDeleteConfirmationModal(false)}>
-                <ModalHeader toggle={() => setShowLocationDeleteConfirmationModal(false)}></ModalHeader>
-                <ModalBody>
+                <ModalHeader className="poi-details-modal-header" toggle={() => setShowLocationDeleteConfirmationModal(false)}></ModalHeader>
+                <ModalBody className="poi-details-modal-body">
                     Are you ABSOLUTELY SURE you want to delete your Notable Location "{locationProp?.name}"?
                 </ModalBody>
-                <ModalFooter>
+                <ModalFooter className="poi-details-modal-footer">
                     <Button color="danger" onClick={() => handleLocationDelete(locationProp.id)}>Delete</Button>{' '}
                     <Button color="secondary" onClick={() => setShowLocationDeleteConfirmationModal(false)}>Cancel</Button>
                 </ModalFooter>

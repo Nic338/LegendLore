@@ -41,11 +41,11 @@ export const EditNotableLocation = ({ locationProp, pOIId, setLocations, setPOIL
 
     return (
         <>
-        <FontAwesomeIcon icon={faPenToSquare} style={{cursor: "pointer"}} title="Edit" onClick={() => handleEditLocationModalOpen(locationProp)}/>
-        <NotableLocationEditForm 
-            handleModalClose={handleEditLocationModalClose}
-            locationToEdit={editLocation}
-            modalIsOpen={editLocationModalIsOpen}/>
+            <FontAwesomeIcon icon={faPenToSquare} style={{ cursor: "pointer" }} title="Edit" onClick={() => handleEditLocationModalOpen(locationProp)} />
+            <NotableLocationEditForm
+                handleModalClose={handleEditLocationModalClose}
+                locationToEdit={editLocation}
+                modalIsOpen={editLocationModalIsOpen} />
         </>
     )
 

@@ -173,10 +173,26 @@
   padding: 8px;
 }
 
-.map-select-modal {
+.map-select-modal-body {
   display: flex;
   justify-content: center;
+  background-color: #153243;
+  font-family: 'Fauna One', sans-serif;
 }
+
+.campaign-delete-modal-body {
+  display: flex;
+  justify-content: center;
+  background-color: #153243;
+  font-family: 'Fauna One', sans-serif;
+  color: whitesmoke;
+}
+
+.map-select-modal-header, .map-select-modal-footer, .campaign-delete-modal-header, .campaign-delete-modal-footer {
+background-color: #284B63;
+font-family: 'Fauna One', sans-serif;
+}
+
 .campaign-edit-goback-button {
   margin-left: 30px;
 }

@@ -34,9 +34,9 @@ export const NotableLocationCreateForm = ({ handleModalClose, pOIId, modalIsOpen
     }
 
     return (
-        <Modal isOpen={modalIsOpen} toggle={handleModalClose}>
-            <ModalHeader toggle={handleModalClose}>New Notable Location</ModalHeader>
-            <ModalBody>
+        <Modal centered isOpen={modalIsOpen} toggle={handleModalClose}>
+            <ModalHeader className="poi-details-add-modal-header" toggle={handleModalClose}>New Notable Location</ModalHeader>
+            <ModalBody className="poi-details-add-modal-body">
                 <form>
                     <div className="form-group">
                         <label htmlFor="name">Name:</label>
@@ -71,7 +71,7 @@ export const NotableLocationCreateForm = ({ handleModalClose, pOIId, modalIsOpen
                     </div>
                 </form>
             </ModalBody>
-            <ModalFooter>
+            <ModalFooter className="poi-details-add-modal-footer">
                 <Button color="primary" onClick={handleSaveButtonClick}>
                     Save
                 </Button>

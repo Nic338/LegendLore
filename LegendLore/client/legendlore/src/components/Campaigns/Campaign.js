@@ -43,7 +43,7 @@ export const Campaign = ({ campaignProp, setUserCampaign }) => {
 
     const handleDelete = (e) => {
         e.preventDefault()
-            deleteMap(campaignProp.id)
+        deleteMap(campaignProp.id)
             .then(deleteCampaign(campaignProp.id))
             .then(getAllUsersCampaigns(legendLoreUserObject.id))
             .then(onDeleteSuccess())
@@ -59,30 +59,30 @@ export const Campaign = ({ campaignProp, setUserCampaign }) => {
     return (
         <CardBody>
             <div>
-                <Link style={{textDecoration: 'none'}} onClick={() => setShowMapSelectModal(true)}>
+                <Link style={{ textDecoration: 'none' }} onClick={() => setShowMapSelectModal(true)}>
                     <CardTitle tag="h5" className="campaign-title">{campaignProp.title}</CardTitle>
                 </Link>
                 <CardSubtitle className="mb-2 mt-3 text-muted campaign-description">{campaignProp.description}</CardSubtitle>
                 <div>Created: {formattedCreationDate}</div>
             </div>
             <div className="button-group">
-            <Button style={{textDecoration: 'none'}} size="sm" color="link" className="btn edit-campaign-button" tag={Link} to={`/my-campaigns/${campaignProp.id}/new-map`}>Add A New Map</Button>
-                <Button style={{textDecoration: 'none'}} size="sm" color="link" className="btn edit-campaign-button" tag={Link} to={`/my-campaigns/edit/${campaignProp.id}`}>Edit Campaign Info</Button>
-                <Button style={{textDecoration: 'none'}} size="sm" color="link" className="btn delete-campaign-button" onClick={handleDeleteButton}>Delete Campaign</Button>
+                <Button style={{ textDecoration: 'none' }} size="sm" color="link" className="btn edit-campaign-button" tag={Link} to={`/my-campaigns/${campaignProp.id}/new-map`}>Add A New Map</Button>
+                <Button style={{ textDecoration: 'none' }} size="sm" color="link" className="btn edit-campaign-button" tag={Link} to={`/my-campaigns/edit/${campaignProp.id}`}>Edit Campaign Info</Button>
+                <Button style={{ textDecoration: 'none' }} size="sm" color="link" className="btn delete-campaign-button" onClick={handleDeleteButton}>Delete Campaign</Button>
             </div>
             <Modal centered isOpen={showConfirmationModal} toggle={() => setShowConfirmationModal(false)}>
-                <ModalHeader toggle={() => setShowConfirmationModal(false)}></ModalHeader>
-                <ModalBody>
+                <ModalHeader className="campaign-delete-modal-header" toggle={() => setShowConfirmationModal(false)}></ModalHeader>
+                <ModalBody className="campaign-delete-modal-body">
                     Are you sure you want to delete your campaign "{campaignProp.title}"?
                 </ModalBody>
-                <ModalFooter>
+                <ModalFooter className="campaign-delete-modal-footer">
                     <Button color="danger" onClick={handleDelete}>Delete</Button>{' '}
                     <Button color="secondary" onClick={() => setShowConfirmationModal(false)}>Cancel</Button>
                 </ModalFooter>
             </Modal>
             <Modal centered isOpen={showMapSelectModal} toggle={() => setShowMapSelectModal(false)}>
-                <ModalHeader toggle={() => setShowMapSelectModal(false)}></ModalHeader>
-                <ModalBody className="map-select-modal">
+                <ModalHeader className="map-select-modal-header" toggle={() => setShowMapSelectModal(false)}></ModalHeader>
+                <ModalBody className="map-select-modal-body">
                     <select
                         className="map-select"
                         value={selectedMapId || ""}
@@ -93,7 +93,7 @@ export const Campaign = ({ campaignProp, setUserCampaign }) => {
                         ))}
                     </select>
                 </ModalBody>
-                <ModalFooter>
+                <ModalFooter className="map-select-modal-footer">
                     <Button color="secondary" onClick={() => setShowMapSelectModal(false)}>Cancel</Button>
                 </ModalFooter>
             </Modal>

@@ -36,12 +36,10 @@ export const POIForm = ({ modalIsOpen, handleModalClose, mapId, lat, lng }) => {
             })
     }
 
-
-
     return (
-        <Modal isOpen={modalIsOpen} toggle={handleModalClose}>
-            <ModalHeader toggle={handleModalClose}>New POI</ModalHeader>
-            <ModalBody>
+        <Modal centered isOpen={modalIsOpen} toggle={handleModalClose}>
+            <ModalHeader className="poi-add-modal-header" toggle={handleModalClose}>New POI</ModalHeader>
+            <ModalBody className="poi-add-modal-body">
                 <form>
                     <div className="form-group">
                         <label htmlFor="name">Name:</label>
@@ -76,7 +74,7 @@ export const POIForm = ({ modalIsOpen, handleModalClose, mapId, lat, lng }) => {
                     </div>
                 </form>
             </ModalBody>
-            <ModalFooter>
+            <ModalFooter className="poi-add-modal-footer">
                 <Button color="primary" onClick={handleSaveButtonClick}>
                     Save
                 </Button>

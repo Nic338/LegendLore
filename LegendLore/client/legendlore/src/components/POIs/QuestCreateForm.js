@@ -36,9 +36,9 @@ export const QuestCreateForm = ({ handleModalClose, pOIId, modalIsOpen }) => {
     }
 
     return (
-        <Modal isOpen={modalIsOpen} toggle={handleModalClose}>
-            <ModalHeader toggle={handleModalClose}>New Quest Hook</ModalHeader>
-            <ModalBody>
+        <Modal centered isOpen={modalIsOpen} toggle={handleModalClose}>
+            <ModalHeader className="poi-details-modal-header" toggle={handleModalClose}>New Quest Hook</ModalHeader>
+            <ModalBody className="poi-details-modal-body">
                 <form>
                     <div className="form-group">
                         <label htmlFor="name">Title:</label>
@@ -88,7 +88,7 @@ export const QuestCreateForm = ({ handleModalClose, pOIId, modalIsOpen }) => {
                     </div>
                 </form>
             </ModalBody>
-            <ModalFooter>
+            <ModalFooter className="poi-details-modal-footer">
                 <Button color="primary" onClick={handleSaveButtonClick}>
                     Save
                 </Button>
