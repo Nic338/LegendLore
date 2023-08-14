@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getPOIbyId } from "../../Managers/POIManager";
 import { Card, CardBody, CardSubtitle, CardTitle, Container } from "reactstrap";
 import { getAllNPCs } from "../../Managers/NPCManager";
@@ -18,6 +18,8 @@ import './POI.css'
 import { CreateNotableLocation } from "./CreateNotableLocation";
 import { EditNotableLocation } from "./EditNotableLocation";
 import { DeleteNotableLocation } from "./DeleteNotableLocation";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const POIDetails = () => {
     const [POI, setPOI] = useState([]);
@@ -28,6 +30,7 @@ export const POIDetails = () => {
     const [POILocations, setPOILocations] = useState([]);
     const [Locations, setLocations] = useState([]);
     const { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         getPOIbyId(id).then((poi) => {
@@ -80,6 +83,7 @@ export const POIDetails = () => {
                 <div className="poi-header">
                     <h1>{POI.name}</h1>
                     <h4>{POI.description}</h4>
+                    <FontAwesomeIcon icon={faPenToSquare} style={{ cursor: "pointer" }} title="Edit" onClick={() => navigate(`/poi/edit/${id}`)} />
                 </div>
                 <div className="two-column-layout">
                     <Container>

@@ -29,7 +29,7 @@ export const addPOI = (singlePOI) => {
     });
 };
 
-export const editMapPOI = (singlePOI) => {
+export const editPOI = (singlePOI) => {
     return fetch(`${baseUrl}?id=${singlePOI.Id}`, {
         method: "PUT",
         headers: {

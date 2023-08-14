@@ -104,3 +104,78 @@
   color: whitesmoke;
 }
 
+.poi-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #153243;
+  color: white;
+  text-shadow: 2px 2px 4px #000;
+  font-family: 'Fauna One', sans-serif;
+
+}
+
+.poi-form .form-group {
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.poi-form-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000
+
+}
+
+.poi-form .form-group label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.poi-form .form-group p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.poi-form .btn-primary {
+  background-color: goldenrod;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-shadow: 2px 2px 4px #000;
+}
+
+.poi-form .btn-primary:hover,
+.poi-form .btn-primary:focus {
+  background-color: goldenrod;
+  outline: none;
+}
+
+
+.poi-form .btn-primary:hover,
+.poi-form .btn-primary:focus {
+  background-color: goldenrod; /* Replace with your preferred color */
+  outline: none;
+}
+
+.button-group {
+  margin-right: 10px;
+  display: flex;
+  margin-top: 8px;
+}
+
+.poi-edit-goback-button {
+  margin-left: 30px;
+}
+
