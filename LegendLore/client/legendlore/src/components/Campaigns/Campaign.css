@@ -11,7 +11,7 @@
     color: whitesmoke;
 }
 .campaign-description {
-  max-height: 90px;
+  max-height: 72px;
   overflow: auto;
 }
 .campaign-description::-webkit-scrollbar {

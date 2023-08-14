@@ -5,6 +5,7 @@ import { CampaignForm } from "./Campaigns/CampaignForm"
 import { CampaignEdit } from "./Campaigns/CampaignEdit"
 import { CampaignMap } from "./Campaigns/CampaignMap"
 import { POIDetails } from "./POIs/POIDetails"
+import { AdditionalMapForm } from "./Campaigns/AdditionalMapForm"
 
 export const ApplicationViews = () => {
   return (
@@ -15,6 +16,7 @@ export const ApplicationViews = () => {
       <Route path="/campaigns/add" element={<CampaignForm />} />
       <Route path="/my-campaigns/edit/:campaignId" element={<CampaignEdit />} />
       <Route path="/poi/:id" element={<POIDetails />} />
+      <Route path="/my-campaigns/:campaignId/new-map" element={<AdditionalMapForm />} />
     </Routes>
   )
 }
