@@ -45,7 +45,7 @@ export const CampaignMap = () => {
             .then((pois) => {
                 setPOIs(pois)
             })
-    }, []);
+    }, [mapId]);
 
     const handleMapClickEvent = (e) => {
         const lat = e.latlng.lat;
@@ -63,13 +63,14 @@ export const CampaignMap = () => {
                 return getAllPOIs();
             })
             .then((pois) => {
-                setPOIs(pois);
+                setPOIs(pois)
             })
         setSelectedLatitude(null);
         setSelectedLongitude(null);
     };
 
-    const handlePOIDelete = (mapPOIId) => {
+    const handlePOIDelete = (e, mapPOIId) => {
+        e.preventDefault();
         deleteMapPOI(mapPOIId)
             .then(() => {
                 return getAllMapPOIsByMapId(mapId);
@@ -130,7 +131,7 @@ export const CampaignMap = () => {
                                             Are you ABSOLUTELY SURE you want to delete your point of interest "{poi?.name}"?
                                         </ModalBody>
                                         <ModalFooter className="poi-delete-modal-footer">
-                                            <Button color="danger" onClick={() => handlePOIDelete(marker.id)}>Delete</Button>{' '}
+                                            <Button color="danger" onClick={(e) => handlePOIDelete(e, marker.id)}>Delete</Button>{' '}
                                             <Button color="secondary" onClick={() => setShowConfirmationModal(false)}>Cancel</Button>
                                         </ModalFooter>
                                     </Modal>

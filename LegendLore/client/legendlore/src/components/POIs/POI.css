@@ -51,9 +51,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-weight: bold;
   align-items: center;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.555);
+  text-shadow: 2px 2px 4px rgb(255, 255, 255);
+}
+
+.poi-subheader-description {
+  font-weight: bold;
 }
 
 .poi-header-name {
@@ -63,17 +68,19 @@
 .poi-card-title {
   font-family: 'Cinzel', serif;
   font-weight: bolder;
-  font-size: 24px;
+  font-size: 28px;
   color: black;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.555);
+  text-shadow: 2px 2px 4px rgb(255, 255, 255);
   margin-bottom: 25px;
 }
 
 .poi-card-subtitle {
   font-family: 'Fauna One', sans-serif;
   font-size: 22px;
+  font-weight: bold;
+  font-style: italic;
   color: black;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.555);
+  text-shadow: 2px 2px 4px rgb(255, 255, 255);
 }
 
 .poi-quest-reward {
