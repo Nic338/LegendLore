@@ -30,6 +30,12 @@ export const POIForm = ({ modalIsOpen, handleModalClose, mapId, lat, lng }) => {
             .then(() => {
                 handleModalClose()
             })
+            .then(() => {
+                setNewPOI({
+                    name: "",
+                    description: ""
+                })
+            })
             .catch((error) => {
                 // Handle error when adding POI
                 console.error("Error adding POI:", error);

@@ -28,6 +28,12 @@ export const NPCCreateForm = ({ handleModalClose, pOIId, modalIsOpen }) => {
             .then(() => {
                 handleModalClose()
             })
+            .then(() => {
+                setNewNPC({
+                    name: "",
+                    description: ""
+                })
+            })
             .catch((error) => {
                 console.error("Error adding new NPC:", error);
             })

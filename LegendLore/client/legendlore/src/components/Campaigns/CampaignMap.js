@@ -56,21 +56,22 @@ export const CampaignMap = () => {
     };
 
     const handleModalClose = () => {
-        setModalIsOpen(false);
+        setModalIsOpen(false)
         getAllMapPOIsByMapId(mapId)
-            .then((mapPOIs) => {
+        .then((mapPOIs) => {
                 setMapPOIs(mapPOIs)
                 return getAllPOIs();
             })
             .then((pois) => {
-                setPOIs(pois)
+                setPOIs(pois);
             })
-        setSelectedLatitude(null);
-        setSelectedLongitude(null);
+            setSelectedLatitude(null);
+            setSelectedLongitude(null);
     };
 
     const handlePOIDelete = (e, mapPOIId) => {
         e.preventDefault();
+        setShowConfirmationModal(false);
         deleteMapPOI(mapPOIId)
             .then(() => {
                 return getAllMapPOIsByMapId(mapId);

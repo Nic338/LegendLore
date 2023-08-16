@@ -28,6 +28,12 @@ export const NotableLocationCreateForm = ({ handleModalClose, pOIId, modalIsOpen
             .then(() => {
                 handleModalClose();
             })
+            .then(() => {
+                setNewLocation({
+                    name: "",
+                    description: ""
+                })
+            })
             .catch((error) => {
                 console.error("Error adding new Notable Location", error);
             })
@@ -35,8 +41,8 @@ export const NotableLocationCreateForm = ({ handleModalClose, pOIId, modalIsOpen
 
     return (
         <Modal centered isOpen={modalIsOpen} toggle={handleModalClose}>
-            <ModalHeader className="poi-details-add-modal-header" toggle={handleModalClose}>New Notable Location</ModalHeader>
-            <ModalBody className="poi-details-add-modal-body">
+            <ModalHeader className="poi-details-modal-header" toggle={handleModalClose}>New Notable Location</ModalHeader>
+            <ModalBody className="poi-details-modal-body">
                 <form>
                     <div className="form-group">
                         <label htmlFor="name">Name:</label>
@@ -71,7 +77,7 @@ export const NotableLocationCreateForm = ({ handleModalClose, pOIId, modalIsOpen
                     </div>
                 </form>
             </ModalBody>
-            <ModalFooter className="poi-details-add-modal-footer">
+            <ModalFooter className="poi-details-modal-footer">
                 <Button color="primary" onClick={handleSaveButtonClick}>
                     Save
                 </Button>

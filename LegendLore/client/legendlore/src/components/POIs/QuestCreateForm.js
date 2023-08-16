@@ -30,6 +30,13 @@ export const QuestCreateForm = ({ handleModalClose, pOIId, modalIsOpen }) => {
             .then(() => {
                 handleModalClose()
             })
+            .then(() => {
+                setNewQuest({
+                    title: "",
+                    description: "",
+                    reward: ""
+                })
+            })
             .catch((error) => {
                 console.error("Error adding new quest hook:", error);
             })
