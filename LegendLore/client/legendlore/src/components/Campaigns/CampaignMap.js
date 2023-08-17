@@ -31,21 +31,27 @@ export const CampaignMap = () => {
             .then((map) => {
                 setMapObject(map)
             })
-    }, [mapId]);
-
-    useEffect(() => {
-        getAllMapPOIsByMapId(mapId)
+        .then(() => {
+            getAllMapPOIsByMapId(mapId)
             .then((mapPOIs) => {
                 setMapPOIs(mapPOIs)
             })
+        })
     }, [mapId]);
+
+    // useEffect(() => {
+    //     getAllMapPOIsByMapId(mapId)
+    //         .then((mapPOIs) => {
+    //             setMapPOIs(mapPOIs)
+    //         })
+    // }, [mapId]);
 
     useEffect(() => {
         getAllPOIs()
             .then((pois) => {
                 setPOIs(pois)
             })
-    }, [mapId]);
+    }, []);
 
     const handleMapClickEvent = (e) => {
         const lat = e.latlng.lat;
@@ -56,18 +62,28 @@ export const CampaignMap = () => {
     };
 
     const handleModalClose = () => {
-        setModalIsOpen(false)
+        setModalIsOpen(false);
+        setSelectedLatitude(null);
+        setSelectedLongitude(null);
+        getMapById(mapId)
+            .then((map) => {
+                setMapObject(map)
+            })       
         getAllMapPOIsByMapId(mapId)
-        .then((mapPOIs) => {
-                setMapPOIs(mapPOIs)
-                return getAllPOIs();
-            })
-            .then((pois) => {
-                setPOIs(pois);
-            })
-            setSelectedLatitude(null);
-            setSelectedLongitude(null);
-    };
+          .then((mapPOIs) => {
+            setMapPOIs(mapPOIs);
+          })
+          .catch((error) => {
+            console.log("Error fetching map POIs:", error);
+          });
+        getAllPOIs()
+          .then((pois) => {
+            setPOIs(pois);
+          })
+          .catch((error) => {
+            console.log("Error fetching all POIs:", error);
+          });
+      };
 
     const handlePOIDelete = (e, mapPOIId) => {
         e.preventDefault();

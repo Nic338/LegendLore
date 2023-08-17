@@ -37,7 +37,6 @@ export const POIForm = ({ modalIsOpen, handleModalClose, mapId, lat, lng }) => {
                 })
             })
             .catch((error) => {
-                // Handle error when adding POI
                 console.error("Error adding POI:", error);
             })
     }

@@ -75,3 +75,7 @@ background-color: #284B63;
 font-family: 'Fauna One', sans-serif;
 color: whitesmoke;
 }
+
+body.modal-open {
+  overflow: hidden;
+}

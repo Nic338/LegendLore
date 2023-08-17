@@ -36,46 +36,69 @@ export const POIDetails = () => {
         getPOIbyId(id).then((poi) => {
             setPOI(poi)
         })
-    }, [id]);
-
-    useEffect(() => {
-        getAllPOINPCsByPOIId(id).then((poiNPCdata) => {
-            setPOINPCs(poiNPCdata)
+        .then(() => {
+            getAllPOINPCsByPOIId(id).then((poiNPCdata) => {
+                setPOINPCs(poiNPCdata)
+            }) 
+        })
+        .then(() => {
+            getAllPOIQuestsByPOIId(id).then((poiQuestData) => {
+                setPOIQuests(poiQuestData)
+            })
+        })
+        .then(() => {
+            getAllPOINotableLocationsByPOIId(id).then((poiLocationdata) => {
+                setPOILocations(poiLocationdata)
+            })
         })
     }, [id]);
+
+    // useEffect(() => {
+    //     getAllPOINPCsByPOIId(id).then((poiNPCdata) => {
+    //         setPOINPCs(poiNPCdata)
+    //     })
+    // }, [id]);
 
     useEffect(() => {
         getAllNPCs()
             .then((npcs) => {
                 setNPCs(npcs)
             })
-    }, []);
-
-    useEffect(() => {
-        getAllPOIQuestsByPOIId(id).then((poiQuestData) => {
-            setPOIQuests(poiQuestData)
-        })
-    }, [id])
-
-    useEffect(() => {
-        getAllQuests()
+            getAllQuests()
             .then((quests) => {
                 setQuests(quests)
             })
-    }, []);
-
-    useEffect(() => {
-        getAllPOINotableLocationsByPOIId(id).then((poiLocationdata) => {
-            setPOILocations(poiLocationdata)
-        })
-    }, [id]);
-
-    useEffect(() => {
-        getAllNotableLocations()
+            getAllNotableLocations()
             .then((notableLocations) => {
                 setLocations(notableLocations)
             })
     }, []);
+
+    // useEffect(() => {
+    //     getAllPOIQuestsByPOIId(id).then((poiQuestData) => {
+    //         setPOIQuests(poiQuestData)
+    //     })
+    // }, [id])
+
+    // useEffect(() => {
+    //     getAllQuests()
+    //         .then((quests) => {
+    //             setQuests(quests)
+    //         })
+    // }, []);
+
+    // useEffect(() => {
+    //     getAllPOINotableLocationsByPOIId(id).then((poiLocationdata) => {
+    //         setPOILocations(poiLocationdata)
+    //     })
+    // }, [id]);
+
+    // useEffect(() => {
+    //     getAllNotableLocations()
+    //         .then((notableLocations) => {
+    //             setLocations(notableLocations)
+    //         })
+    // }, []);
 
     return (
         <div className="poi-info-container">
@@ -86,7 +109,7 @@ export const POIDetails = () => {
                     <FontAwesomeIcon icon={faPenToSquare} style={{ cursor: "pointer" }} title="Edit" onClick={() => navigate(`/poi/edit/${id}`)} />
                 </div>
                 <div className="two-column-layout">
-                    <Container>
+                    <Container className="location-container">
                         <h2 className="poi-header">Notable Locations</h2>
                         {POILocations.map(poiLocation => {
                             const location = Locations.find((location) => location.id === poiLocation.notableLocationId)
@@ -107,7 +130,7 @@ export const POIDetails = () => {
                         })}
                         <CreateNotableLocation pOIId={id} setLocations={setLocations} setPOILocations={setPOILocations} />
                     </Container>
-                    <Container>
+                    <Container className="npc-container">
                         <h2 className="poi-header">NPCs</h2>
                         {POINPCs.map(poiNPC => {
                             const npc = NPCs.find((npc) => npc.id === poiNPC.npcId)
@@ -130,7 +153,7 @@ export const POIDetails = () => {
                     </Container>
                 </div>
                 <div className="two-column-layout">
-                    <Container>
+                    <Container className="">
                         <h2 className="poi-header">Quests</h2>
                         {POIQuests.map(poiQuest => {
                             const quest = Quests.find((quest) => quest.id === poiQuest.questId)
