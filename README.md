@@ -1,7 +1,7 @@
 # Legend Lore
 
 ## Overview
-Legend Lore is an interactive D&D 5e world building and campaign managment app for DMs made to help keep your story ideas and thoughts organized and easily accessable. You may create your campaign along with a map you are using that you have either made yourself, or found and downloaded off the internet. After which you can place Points of Interest (POIs) onto the map where you can store information such as notable locations, NPCs, or quest hooks in the POI you have created. This will help keep your thoughts organized and give you an easier time to prep for sessions letting you access the specific information or areas that your party will be encountering on their journey.
+Legend Lore is an interactive D&D 5e world building and campaign management app for DMs made to help keep your story ideas and thoughts organized and easily accessible. You may create your campaign along with a map you are using that you have either made yourself, or found and downloaded off the internet. After which you can place Points of Interest (POIs) onto the map where you can store information such as notable locations, NPCs, or quest hooks in the POI you have created. This will help keep your thoughts organized and give you an easier time to prep for sessions letting you access the specific information or areas that your party will be encountering on their journey.
 
 ## Installation
 1. Fork or clone down this repository to a local branch on your computer
