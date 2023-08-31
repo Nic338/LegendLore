@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   text-shadow: 2px 2px 4px #000;
-  margin-top: 0;
+  margin-top: 15px;
 }
 .campaign-container {
     text-align: center;
@@ -11,7 +11,7 @@
     color: whitesmoke;
 }
 .campaign-description {
-  max-height: 90px;
+  max-height: 72px;
   overflow: auto;
 }
 .campaign-description::-webkit-scrollbar {
@@ -20,7 +20,6 @@
 }
 .container {
   max-width: 1320px;
-  max-height: 915px;
 }
 .circle-button {
   border-radius: 50%;
@@ -47,11 +46,12 @@
 }
 .add-campaign-card {
   height: 32vh;
-  width: 21.75vw;
+  width: 21.7vw;
   background-image: url("https://img.freepik.com/free-vector/old-nautical-map-template_225004-981.jpg?w=1060&t=st=1691526607~exp=1691527207~hmac=c18c67fa1c65354c13737909dc8b2c372cc386ea3dfaf8d69a4c8aa478b8a0c1");
   background-size: cover;
   margin-bottom: 25px;
 }
+
 .add-campaign-card-body {
   display: flex;
   flex-direction: column;
@@ -157,7 +157,7 @@
 
 .campaign-form .btn-primary:hover,
 .campaign-form .btn-primary:focus {
-  background-color: goldenrod; /* Replace with your preferred color */
+  background-color: goldenrod;
   outline: none;
 }
 
@@ -171,12 +171,30 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 8px;
+  background-color: #284B63;
+  color: whitesmoke;
 }
 
-.map-select-modal {
+.map-select-modal-body {
   display: flex;
   justify-content: center;
+  background-color: #153243;
+  font-family: 'Fauna One', sans-serif;
 }
+
+.campaign-delete-modal-body {
+  display: flex;
+  justify-content: center;
+  background-color: #153243;
+  font-family: 'Fauna One', sans-serif;
+  color: whitesmoke;
+}
+
+.map-select-modal-header, .map-select-modal-footer, .campaign-delete-modal-header, .campaign-delete-modal-footer {
+background-color: #284B63;
+font-family: 'Fauna One', sans-serif;
+}
+
 .campaign-edit-goback-button {
   margin-left: 30px;
 }

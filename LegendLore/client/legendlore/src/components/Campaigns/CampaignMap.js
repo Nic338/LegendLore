@@ -31,14 +31,20 @@ export const CampaignMap = () => {
             .then((map) => {
                 setMapObject(map)
             })
-    }, [mapId]);
-
-    useEffect(() => {
-        getAllMapPOIsByMapId(mapId)
+        .then(() => {
+            getAllMapPOIsByMapId(mapId)
             .then((mapPOIs) => {
                 setMapPOIs(mapPOIs)
             })
+        })
     }, [mapId]);
+
+    // useEffect(() => {
+    //     getAllMapPOIsByMapId(mapId)
+    //         .then((mapPOIs) => {
+    //             setMapPOIs(mapPOIs)
+    //         })
+    // }, [mapId]);
 
     useEffect(() => {
         getAllPOIs()
@@ -57,28 +63,42 @@ export const CampaignMap = () => {
 
     const handleModalClose = () => {
         setModalIsOpen(false);
-        getAllMapPOIsByMapId(mapId)
-            .then((mapPOIs) => {
-                setMapPOIs(mapPOIs)
-            })
-        getAllPOIs()
-            .then((pois) => {
-                setPOIs(pois)
-            })
         setSelectedLatitude(null);
         setSelectedLongitude(null);
-    };
-
-    const handlePOIDelete = (mapPOIId) => {
-        deleteMapPOI(mapPOIId)
+        getMapById(mapId)
+            .then((map) => {
+                setMapObject(map)
+            })       
         getAllMapPOIsByMapId(mapId)
-            .then((data) => {
-                setMapPOIs(data)
+          .then((mapPOIs) => {
+            setMapPOIs(mapPOIs);
+          })
+          .catch((error) => {
+            console.log("Error fetching map POIs:", error);
+          });
+        getAllPOIs()
+          .then((pois) => {
+            setPOIs(pois);
+          })
+          .catch((error) => {
+            console.log("Error fetching all POIs:", error);
+          });
+      };
+
+    const handlePOIDelete = (e, mapPOIId) => {
+        e.preventDefault();
+        setShowConfirmationModal(false);
+        deleteMapPOI(mapPOIId)
+            .then(() => {
+                return getAllMapPOIsByMapId(mapId);
+            })
+            .then((updatedMapPOIs) => {
+                setMapPOIs(updatedMapPOIs);
             })
             .catch((error) => {
-                console.log("Error fetching map POI's:", error);
+                console.log("Error deleting or fetching map POIs:", error);
             });
-    }
+    };
 
     const customIcon = new Icon({
         iconUrl: customMarker,
@@ -114,7 +134,7 @@ export const CampaignMap = () => {
                                 <Card className="poi-popup-card">
                                     <CardBody>
                                         <CardTitle className="poi-popup-title">
-                                            <Link style={{textDecoration: 'none'}} to={`/poi/${poi?.id}`}>
+                                            <Link style={{ textDecoration: 'none' }} to={`/poi/${poi?.id}`}>
                                                 {poi?.name}
                                             </Link>
                                         </CardTitle>
@@ -123,17 +143,17 @@ export const CampaignMap = () => {
                                         </CardSubtitle>
                                     </CardBody>
                                     <Modal centered isOpen={showConfirmationModal} toggle={() => setShowConfirmationModal(false)}>
-                                        <ModalHeader toggle={() => setShowConfirmationModal(false)}></ModalHeader>
-                                        <ModalBody>
+                                        <ModalHeader className="poi-delete-modal-header" toggle={() => setShowConfirmationModal(false)}></ModalHeader>
+                                        <ModalBody className="poi-delete-modal-body">
                                             Are you ABSOLUTELY SURE you want to delete your point of interest "{poi?.name}"?
                                         </ModalBody>
-                                        <ModalFooter>
-                                            <Button color="danger" onClick={() => handlePOIDelete(marker.id)}>Delete</Button>{' '}
+                                        <ModalFooter className="poi-delete-modal-footer">
+                                            <Button color="danger" onClick={(e) => handlePOIDelete(e, marker.id)}>Delete</Button>{' '}
                                             <Button color="secondary" onClick={() => setShowConfirmationModal(false)}>Cancel</Button>
                                         </ModalFooter>
                                     </Modal>
                                 </Card>
-                                <FontAwesomeIcon className="poi-delete-icon" icon={faTrash} title="Delete Point of Interest" style={{cursor: "pointer"}} onClick={() => setShowConfirmationModal(true)} />
+                                <FontAwesomeIcon className="poi-delete-icon" icon={faTrash} title="Delete Point of Interest" style={{ cursor: "pointer", color: "white" }} onClick={() => setShowConfirmationModal(true)} />
                             </Popup>
                         </Marker>
                     );

@@ -35,9 +35,9 @@ export const NPCEditForm = ({ handleModalClose, modalIsOpen, npcToEdit }) => {
     };
 
     return (
-        <Modal isOpen={modalIsOpen} toggle={handleModalClose}>
-            <ModalHeader toggle={handleModalClose}>Edit your NPC</ModalHeader>
-            <ModalBody>
+        <Modal centered isOpen={modalIsOpen} toggle={handleModalClose}>
+            <ModalHeader className="poi-details-modal-header" toggle={handleModalClose}>Edit your NPC</ModalHeader>
+            <ModalBody className="poi-details-modal-body">
                 <form>
                     <div className="form-group">
                         <label htmlFor="name">Name:</label>
@@ -72,7 +72,7 @@ export const NPCEditForm = ({ handleModalClose, modalIsOpen, npcToEdit }) => {
                     </div>
                 </form>
             </ModalBody>
-            <ModalFooter>
+            <ModalFooter className="poi-details-modal-footer">
                 <Button color="primary" onClick={handleSaveButtonClick}>
                     Save
                 </Button>

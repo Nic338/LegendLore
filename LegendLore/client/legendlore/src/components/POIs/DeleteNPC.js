@@ -27,13 +27,13 @@ export const DeleteNPC = ({ pOIId, npcProp, setPOINPCs, setNPCs }) => {
     }
     return (
         <>
-            <FontAwesomeIcon icon={faTrash} title="Delete" style={{cursor: "pointer"}} onClick={() => setShowNPCDeleteConfirmationModal(true)}/>
+            <FontAwesomeIcon icon={faTrash} title="Delete" style={{ cursor: "pointer" }} onClick={() => setShowNPCDeleteConfirmationModal(true)} />
             <Modal centered isOpen={showNPCDeleteConfirmationModal} toggle={() => setShowNPCDeleteConfirmationModal(false)}>
-                <ModalHeader toggle={() => setShowNPCDeleteConfirmationModal(false)}></ModalHeader>
-                <ModalBody>
+                <ModalHeader className="poi-details-modal-header" toggle={() => setShowNPCDeleteConfirmationModal(false)}></ModalHeader>
+                <ModalBody className="poi-details-modal-body">
                     Are you ABSOLUTELY SURE you want to delete your NPC "{npcProp?.name}"?
                 </ModalBody>
-                <ModalFooter>
+                <ModalFooter className="poi-details-modal-footer">
                     <Button color="danger" onClick={() => handleNPCDelete(npcProp.id)}>Delete</Button>{' '}
                     <Button color="secondary" onClick={() => setShowNPCDeleteConfirmationModal(false)}>Cancel</Button>
                 </ModalFooter>

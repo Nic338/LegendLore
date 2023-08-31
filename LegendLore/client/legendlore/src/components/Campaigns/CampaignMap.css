@@ -35,16 +35,47 @@ color: whitesmoke;
   height: auto;
   color: whitesmoke;
   font-family: 'Fauna One', sans-serif;
+  background-color: #153243;
+
 }
+
 .poi-popup-subtitle {
   font-size: 16px;
-  color: #3a3a3a; /* Use any desired color for the description text */
+  color: whitesmoke;
+  overflow: auto;
+  max-height: 60px;
 }
+
+.poi-popup-subtitle::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
+}
+
 .leaflet-container {
   height: 80vh;
   width: 80vw;
 }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: #153243 !important;
+}
 .leaflet-popup {
-  background-color: #B4B8AB;
+  background-color: transparent;
+}
 
+.poi-delete-modal-body, .poi-add-modal-body {
+  display: flex;
+  justify-content: center;
+  background-color: #153243;
+  font-family: 'Fauna One', sans-serif;
+  color: whitesmoke;
+}
+
+.poi-delete-modal-header, .poi-delete-modal-footer, .poi-add-modal-header, .poi-add-modal-footer {
+background-color: #284B63;
+font-family: 'Fauna One', sans-serif;
+color: whitesmoke;
+}
+
+body.modal-open {
+  overflow: hidden;
 }

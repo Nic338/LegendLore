@@ -28,13 +28,13 @@ export const DeleteQuest = ({ pOIId, questProp, setPOIQuests, setQuests }) => {
 
     return (
         <>
-            <FontAwesomeIcon icon={faTrash} title="Delete" style={{cursor: "pointer"}} onClick={() => setShowQuestDeleteConfirmationModal(true)}/>
+            <FontAwesomeIcon icon={faTrash} title="Delete" style={{ cursor: "pointer" }} onClick={() => setShowQuestDeleteConfirmationModal(true)} />
             <Modal centered isOpen={showQuestDeleteConfirmationModal} toggle={() => setShowQuestDeleteConfirmationModal(false)}>
-                <ModalHeader toggle={() => setShowQuestDeleteConfirmationModal(false)}></ModalHeader>
-                <ModalBody>
+                <ModalHeader className="poi-details-modal-header" toggle={() => setShowQuestDeleteConfirmationModal(false)}></ModalHeader>
+                <ModalBody className="poi-details-modal-body">
                     Are you ABSOLUTELY SURE you want to delete your quest hook "{questProp?.title}"?
                 </ModalBody>
-                <ModalFooter>
+                <ModalFooter className="poi-details-modal-footer">
                     <Button color="danger" onClick={() => handleQuestDelete(questProp.id)}>Delete</Button>{' '}
                     <Button color="secondary" onClick={() => setShowQuestDeleteConfirmationModal(false)}>Cancel</Button>
                 </ModalFooter>

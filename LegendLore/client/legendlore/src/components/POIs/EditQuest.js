@@ -6,7 +6,7 @@ import { Button } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 
-export const EditQuest = ({pOIId, questProp, setQuests, setPOIQuests}) => {
+export const EditQuest = ({ pOIId, questProp, setQuests, setPOIQuests }) => {
     const [editQuest, setEditQuest] = useState(null);
     const [editQuestModalIsOpen, setEditQuestModalIsOpen] = useState(false);
 
@@ -16,7 +16,7 @@ export const EditQuest = ({pOIId, questProp, setQuests, setPOIQuests}) => {
                 setEditQuest(res)
             })
         }
-    },[questProp])
+    }, [questProp])
 
     const handleEditQuestModalOpen = (quest) => {
         setEditQuest(quest)
@@ -35,11 +35,11 @@ export const EditQuest = ({pOIId, questProp, setQuests, setPOIQuests}) => {
     };
     return (
         <>
-            <FontAwesomeIcon icon={faPenToSquare} style={{cursor: "pointer"}} title="Edit" onClick={() => handleEditQuestModalOpen(questProp)}/>
-            <QuestEditForm 
+            <FontAwesomeIcon icon={faPenToSquare} style={{ cursor: "pointer" }} title="Edit" onClick={() => handleEditQuestModalOpen(questProp)} />
+            <QuestEditForm
                 handleModalClose={handleEditQuestModalClose}
                 questToEdit={editQuest}
-                modalIsOpen={editQuestModalIsOpen}/>
+                modalIsOpen={editQuestModalIsOpen} />
         </>
     )
 
