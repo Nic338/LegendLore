@@ -39,11 +39,17 @@
   align-items: center;
 }
 
-.two-column-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 25px;
-  margin-top: 20px;
+.details-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.location-container {
+  width: 50%;
+}
+
+.npc-container {
+  width: 50%;
 }
 
 .poi-header {
@@ -53,6 +59,7 @@
   justify-content: center;
   font-weight: bold;
   align-items: center;
+  margin-top: 15px;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgb(255, 255, 255);
 }

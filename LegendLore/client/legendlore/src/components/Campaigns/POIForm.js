@@ -36,6 +36,9 @@ export const POIForm = ({ modalIsOpen, handleModalClose, mapId, lat, lng }) => {
                     description: ""
                 })
             })
+            .then(() => {
+                window.location.reload()
+            })
             .catch((error) => {
                 console.error("Error adding POI:", error);
             })

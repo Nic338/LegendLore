@@ -36,21 +36,21 @@ export const POIDetails = () => {
         getPOIbyId(id).then((poi) => {
             setPOI(poi)
         })
-        .then(() => {
-            getAllPOINPCsByPOIId(id).then((poiNPCdata) => {
-                setPOINPCs(poiNPCdata)
-            }) 
-        })
-        .then(() => {
-            getAllPOIQuestsByPOIId(id).then((poiQuestData) => {
-                setPOIQuests(poiQuestData)
+            .then(() => {
+                getAllPOINPCsByPOIId(id).then((poiNPCdata) => {
+                    setPOINPCs(poiNPCdata)
+                })
             })
-        })
-        .then(() => {
-            getAllPOINotableLocationsByPOIId(id).then((poiLocationdata) => {
-                setPOILocations(poiLocationdata)
+            .then(() => {
+                getAllPOIQuestsByPOIId(id).then((poiQuestData) => {
+                    setPOIQuests(poiQuestData)
+                })
             })
-        })
+            .then(() => {
+                getAllPOINotableLocationsByPOIId(id).then((poiLocationdata) => {
+                    setPOILocations(poiLocationdata)
+                })
+            })
     }, [id]);
 
     // useEffect(() => {
@@ -64,11 +64,11 @@ export const POIDetails = () => {
             .then((npcs) => {
                 setNPCs(npcs)
             })
-            getAllQuests()
+        getAllQuests()
             .then((quests) => {
                 setQuests(quests)
             })
-            getAllNotableLocations()
+        getAllNotableLocations()
             .then((notableLocations) => {
                 setLocations(notableLocations)
             })
@@ -108,7 +108,7 @@ export const POIDetails = () => {
                     <h4 className="poi-subheader-description">{POI.description}</h4>
                     <FontAwesomeIcon icon={faPenToSquare} style={{ cursor: "pointer" }} title="Edit" onClick={() => navigate(`/poi/edit/${id}`)} />
                 </div>
-                <div className="two-column-layout">
+                <div className="details-container">
                     <Container className="location-container">
                         <h2 className="poi-header">Notable Locations</h2>
                         {POILocations.map(poiLocation => {
@@ -151,9 +151,8 @@ export const POIDetails = () => {
                         })}
                         <CreateNPC pOIId={id} setNPCs={setNPCs} setPOINPCs={setPOINPCs} />
                     </Container>
-                </div>
-                <div className="two-column-layout">
-                    <Container className="">
+                        </div>
+                    <Container className="quest-container">
                         <h2 className="poi-header">Quests</h2>
                         {POIQuests.map(poiQuest => {
                             const quest = Quests.find((quest) => quest.id === poiQuest.questId)
@@ -175,7 +174,6 @@ export const POIDetails = () => {
                         })}
                         <CreateQuest pOIId={id} setQuests={setQuests} setPOIQuests={setPOIQuests} />
                     </Container>
-                </div>
             </div>
         </div>
     )

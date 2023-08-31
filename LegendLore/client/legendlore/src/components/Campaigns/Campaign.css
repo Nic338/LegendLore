@@ -20,7 +20,6 @@
 }
 .container {
   max-width: 1320px;
-  max-height: 915px;
 }
 .circle-button {
   border-radius: 50%;
@@ -47,11 +46,12 @@
 }
 .add-campaign-card {
   height: 32vh;
-  width: 21.75vw;
+  width: 21.7vw;
   background-image: url("https://img.freepik.com/free-vector/old-nautical-map-template_225004-981.jpg?w=1060&t=st=1691526607~exp=1691527207~hmac=c18c67fa1c65354c13737909dc8b2c372cc386ea3dfaf8d69a4c8aa478b8a0c1");
   background-size: cover;
   margin-bottom: 25px;
 }
+
 .add-campaign-card-body {
   display: flex;
   flex-direction: column;
@@ -157,7 +157,7 @@
 
 .campaign-form .btn-primary:hover,
 .campaign-form .btn-primary:focus {
-  background-color: goldenrod; /* Replace with your preferred color */
+  background-color: goldenrod;
   outline: none;
 }
 
