@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { getPOIbyId } from "../../Managers/POIManager";
-import { Card, CardBody, CardSubtitle, CardTitle, Container } from "reactstrap";
+import { Button, Card, CardBody, CardSubtitle, CardTitle, Container } from "reactstrap";
 import { getAllNPCs } from "../../Managers/NPCManager";
 import { getAllQuests } from "../../Managers/QuestManager";
 import { getAllNotableLocations } from "../../Managers/NotableLocationManager";
@@ -103,6 +103,9 @@ export const POIDetails = () => {
     return (
         <div className="poi-info-container">
             <div className="poi-page">
+                <div className="go-back-button">
+                    <Button style={{ textDecoration: 'none', fontWeight: 'bold', textShadow: '2px 2px 4px rgb(255, 255, 255)' }} size="lg" color="black" onClick={() => navigate(-1)}>Back to the Map</Button>
+                </div>
                 <div className="poi-header">
                     <h1 className="poi-header-name">{POI.name}</h1>
                     <h4 className="poi-subheader-description">{POI.description}</h4>

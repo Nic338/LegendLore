@@ -64,6 +64,11 @@
   text-shadow: 2px 2px 4px rgb(255, 255, 255);
 }
 
+.go-back-button {
+  font-family: 'Cinzel', serif;
+  text-shadow: 2px 2px 4px rgb(255, 255, 255);
+}
+
 .poi-subheader-description {
   font-weight: bold;
 }
