@@ -13,8 +13,8 @@ Legend Lore is an interactive D&D 5e world building and campaign management app 
 7. After you have all of your NuGet packages installed, and your database connected correctly. We need to go back to the GitBash terminal and install the front end packages. ``cd`` down into your folder until youre in the ``client/legendlore`` file. You'll know you're in the right spot when you can run the command ``ls`` and see your package.json file.
 8. Run the following commands in your terminal: ``npm install react`` ``npm install react-router-dom`` ``npm install --save reactstrap bootstrap`` ``npm i --save @fortawesome/free-solid-svg-icons``
 ``npm i --save @fortawesome/free-regular-svg-icons`` ``npm install react-leaflet``
-
-9. After all of those are installed. Go back to your Microsoft Visual Studio and run the database. Then from your GitBash terminal while still in the ``legendlore`` folder, ``npm start`` to launch the app.
+9. Go back to your Microsoft Visual Studio and open your Solution Explorer up again. Right click on the project name at the top of the list of files, it will be the one named ``LegendLore``. Once the options pop up you are going to Add -> New Item, and name it ``wwwroot``. You should see it pop up in the Solution Explorer with a globe icon beside it. Once your wwwroot folder is created, right click it and Add a new folder called ``MapImageUploads``. This is where all of your map images will be stored when creating a campaign or adding a new map. 
+10. After all of those are installed, and your MapImageUploads folder is created, run the database files in Visual Studio. Then from your GitBash terminal while still in the ``legendlore`` folder, ``npm start`` to launch the app.
 
 
 ## Tools
